@@ -6,7 +6,7 @@ part 'previous_path_notifier.g.dart';
 class PreviousPathNotifier extends _$PreviousPathNotifier {
   @override
   String? build() {
-    return null;
+    return state;
   }
 
   void setPath(String? path) {

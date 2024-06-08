@@ -24,7 +24,6 @@ mixin _$UserDTO {
   String get username => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   int get typeId => throw _privateConstructorUsedError;
-  String? get password => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,8 +35,7 @@ abstract class $UserDTOCopyWith<$Res> {
   factory $UserDTOCopyWith(UserDTO value, $Res Function(UserDTO) then) =
       _$UserDTOCopyWithImpl<$Res, UserDTO>;
   @useResult
-  $Res call(
-      {int id, String username, String email, int typeId, String? password});
+  $Res call({int id, String username, String email, int typeId});
 }
 
 /// @nodoc
@@ -57,7 +55,6 @@ class _$UserDTOCopyWithImpl<$Res, $Val extends UserDTO>
     Object? username = null,
     Object? email = null,
     Object? typeId = null,
-    Object? password = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -76,10 +73,6 @@ class _$UserDTOCopyWithImpl<$Res, $Val extends UserDTO>
           ? _value.typeId
           : typeId // ignore: cast_nullable_to_non_nullable
               as int,
-      password: freezed == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String?,
     ) as $Val);
   }
 }
@@ -91,8 +84,7 @@ abstract class _$$UserDTOImplCopyWith<$Res> implements $UserDTOCopyWith<$Res> {
       __$$UserDTOImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {int id, String username, String email, int typeId, String? password});
+  $Res call({int id, String username, String email, int typeId});
 }
 
 /// @nodoc
@@ -110,7 +102,6 @@ class __$$UserDTOImplCopyWithImpl<$Res>
     Object? username = null,
     Object? email = null,
     Object? typeId = null,
-    Object? password = freezed,
   }) {
     return _then(_$UserDTOImpl(
       id: null == id
@@ -129,10 +120,6 @@ class __$$UserDTOImplCopyWithImpl<$Res>
           ? _value.typeId
           : typeId // ignore: cast_nullable_to_non_nullable
               as int,
-      password: freezed == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -144,8 +131,7 @@ class _$UserDTOImpl extends _UserDTO with DiagnosticableTreeMixin {
       {required this.id,
       required this.username,
       required this.email,
-      required this.typeId,
-      this.password})
+      required this.typeId})
       : super._();
 
   factory _$UserDTOImpl.fromJson(Map<String, dynamic> json) =>
@@ -159,12 +145,10 @@ class _$UserDTOImpl extends _UserDTO with DiagnosticableTreeMixin {
   final String email;
   @override
   final int typeId;
-  @override
-  final String? password;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UserDTO(id: $id, username: $username, email: $email, typeId: $typeId, password: $password)';
+    return 'UserDTO(id: $id, username: $username, email: $email, typeId: $typeId)';
   }
 
   @override
@@ -175,8 +159,7 @@ class _$UserDTOImpl extends _UserDTO with DiagnosticableTreeMixin {
       ..add(DiagnosticsProperty('id', id))
       ..add(DiagnosticsProperty('username', username))
       ..add(DiagnosticsProperty('email', email))
-      ..add(DiagnosticsProperty('typeId', typeId))
-      ..add(DiagnosticsProperty('password', password));
+      ..add(DiagnosticsProperty('typeId', typeId));
   }
 
   @override
@@ -188,15 +171,12 @@ class _$UserDTOImpl extends _UserDTO with DiagnosticableTreeMixin {
             (identical(other.username, username) ||
                 other.username == username) &&
             (identical(other.email, email) || other.email == email) &&
-            (identical(other.typeId, typeId) || other.typeId == typeId) &&
-            (identical(other.password, password) ||
-                other.password == password));
+            (identical(other.typeId, typeId) || other.typeId == typeId));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, username, email, typeId, password);
+  int get hashCode => Object.hash(runtimeType, id, username, email, typeId);
 
   @JsonKey(ignore: true)
   @override
@@ -217,8 +197,7 @@ abstract class _UserDTO extends UserDTO {
       {required final int id,
       required final String username,
       required final String email,
-      required final int typeId,
-      final String? password}) = _$UserDTOImpl;
+      required final int typeId}) = _$UserDTOImpl;
   const _UserDTO._() : super._();
 
   factory _UserDTO.fromJson(Map<String, dynamic> json) = _$UserDTOImpl.fromJson;
@@ -231,8 +210,6 @@ abstract class _UserDTO extends UserDTO {
   String get email;
   @override
   int get typeId;
-  @override
-  String? get password;
   @override
   @JsonKey(ignore: true)
   _$$UserDTOImplCopyWith<_$UserDTOImpl> get copyWith =>

@@ -89,9 +89,10 @@ class AuthRemoteService {
       // debugPrint('SAVING USER: ');
       // debugPrint(user.toString());
       debugPrint('PASSWORD: $password');
-      final modifiedUser = user.copyWith(password: password);
-      await _userStorage.save(modifiedUser);
       debugPrint('READING THE SAVED CREDENTIALS: ');
+      if (credentials.admin != null) {
+        await _userStorage.save(credentials.admin!);
+      }
       final savedUser = await _userStorage.read();
       debugPrint(savedUser.toString());
       return right(unit);
@@ -106,18 +107,12 @@ class AuthRemoteService {
 
   Future<Either<AuthFailure, CredentialsDTO>> renewRefreshToken() async {
     try {
-      final storedUser = await _userStorage.read();
-      debugPrint('storedUser: $storedUser');
-      if (storedUser == null) {
-        return left(const AuthFailure.storage());
-      }
+      final storedtoken = await _credentialsStorage.read();
+      debugPrint('stored1: $storedtoken');
 
-      final email = storedUser.email;
-      final password = storedUser.password;
-      final response = await _api.signIn(
+      final response = await _api.renewRefreshToken(
         data: {
-          'email': email,
-          'password': password,
+          'refresh_token': storedtoken?.refreshToken,
         },
       );
 
@@ -135,9 +130,9 @@ class AuthRemoteService {
 
       final credentials = CredentialsDTO.fromJson(body);
       // final token = credentials.token;
-      final user = credentials.admin;
+      final refreshToken = credentials.refreshToken;
 
-      if (user == null) {
+      if (refreshToken == null) {
         return left(
           const AuthFailure.server('token or user should not be null'),
         );
@@ -145,7 +140,6 @@ class AuthRemoteService {
       debugPrint('PARESED REFRESH TOKEN');
       debugPrint(credentials.toString());
       await _credentialsStorage.save(credentials);
-      await _userStorage.save(user.copyWith(password: password));
       return right(credentials);
     } on FormatException {
       return left(const AuthFailure.server());
@@ -201,7 +195,6 @@ class AuthRemoteService {
   ) async {
     try {
       final response = await _api.renewAccessToken(
-        accessToken: 'Bearer ${credentialsDTO.accessToken}',
         data: {'refresh_token': credentialsDTO.refreshToken},
       );
 

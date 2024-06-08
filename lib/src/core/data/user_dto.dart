@@ -12,7 +12,6 @@ class UserDTO with _$UserDTO {
     required final String username,
     required final String email,
     required final int typeId,
-    final String? password,
   }) = _UserDTO;
   const UserDTO._();
 
@@ -24,7 +23,6 @@ class UserDTO with _$UserDTO {
       id: _.id,
       username: _.username,
       email: _.email,
-      password: _.password,
       typeId: _.typeId,
     );
   }
@@ -34,7 +32,6 @@ class UserDTO with _$UserDTO {
       id: id,
       username: username,
       email: email,
-      password: password,
       typeId: typeId,
     );
   }

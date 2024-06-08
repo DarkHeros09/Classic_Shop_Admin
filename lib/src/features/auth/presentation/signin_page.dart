@@ -57,16 +57,26 @@ class _SignInPageState extends ConsumerState<SignInPage> {
             child: CircularProgressIndicator(),
           ),
         ),
-        authenticated: (_) => context.pop(),
+        authenticated: (_) {
+          final validated = formKey.currentState?.validate();
+          if (validated != null && validated) {
+            FocusScope.of(context).unfocus();
+            formKey.currentState?.reset();
+          }
+          if (context.canPop()) {
+            context.pop();
+          }
+        },
         failure: (value) {
           value.failure.mapOrNull(
             server: (serverErr) {
-              if (serverErr.message != null) {
-                return showAuthErrorToast(
-                  'حدث خطأ ما.',
-                  context,
-                );
+              if (context.canPop()) {
+                context.pop();
               }
+              return showAuthErrorToast(
+                'حدث خطأ ما.',
+                context,
+              );
             },
           );
         },
@@ -143,14 +153,11 @@ class _SignInPageState extends ConsumerState<SignInPage> {
                 onPressed: () {
                   final validated = formKey.currentState?.validate();
                   if (validated != null && validated) {
-                    formKey.currentState?.save();
-                    FocusScope.of(context).unfocus();
                     final values = formKey.currentState?.fields;
                     ref.read(authNotifierProvider.notifier).signIn(
                           email: values!['email']!.value.toString(),
                           password: values['password']!.value.toString(),
                         );
-                    formKey.currentState?.reset();
                   }
                 },
                 style: ElevatedButton.styleFrom(

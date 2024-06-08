@@ -30,8 +30,8 @@ class DashboardCards extends StatelessWidget {
 
 class DashboardCard extends StatelessWidget {
   const DashboardCard({
-    super.key,
     required this.index,
+    super.key,
   });
 
   final int index;

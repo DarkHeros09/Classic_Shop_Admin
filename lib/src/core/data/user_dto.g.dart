@@ -12,7 +12,6 @@ _$UserDTOImpl _$$UserDTOImplFromJson(Map<String, dynamic> json) =>
       username: json['username'] as String,
       email: json['email'] as String,
       typeId: (json['type_id'] as num).toInt(),
-      password: json['password'] as String?,
     );
 
 Map<String, dynamic> _$$UserDTOImplToJson(_$UserDTOImpl instance) =>
@@ -21,5 +20,4 @@ Map<String, dynamic> _$$UserDTOImplToJson(_$UserDTOImpl instance) =>
       'username': instance.username,
       'email': instance.email,
       'type_id': instance.typeId,
-      'password': instance.password,
     };

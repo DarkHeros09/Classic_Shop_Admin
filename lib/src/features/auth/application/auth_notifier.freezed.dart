@@ -16,31 +16,33 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$AuthState {
+  InMemoryStore<User?> get user => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() unauthenticated,
-    required TResult Function() authenticated,
-    required TResult Function() loading,
-    required TResult Function(AuthFailure failure) failure,
+    required TResult Function(InMemoryStore<User?> user) initial,
+    required TResult Function(InMemoryStore<User?> user) unauthenticated,
+    required TResult Function(InMemoryStore<User?> user) authenticated,
+    required TResult Function(InMemoryStore<User?> user) loading,
+    required TResult Function(InMemoryStore<User?> user, AuthFailure failure)
+        failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? unauthenticated,
-    TResult? Function()? authenticated,
-    TResult? Function()? loading,
-    TResult? Function(AuthFailure failure)? failure,
+    TResult? Function(InMemoryStore<User?> user)? initial,
+    TResult? Function(InMemoryStore<User?> user)? unauthenticated,
+    TResult? Function(InMemoryStore<User?> user)? authenticated,
+    TResult? Function(InMemoryStore<User?> user)? loading,
+    TResult? Function(InMemoryStore<User?> user, AuthFailure failure)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? unauthenticated,
-    TResult Function()? authenticated,
-    TResult Function()? loading,
-    TResult Function(AuthFailure failure)? failure,
+    TResult Function(InMemoryStore<User?> user)? initial,
+    TResult Function(InMemoryStore<User?> user)? unauthenticated,
+    TResult Function(InMemoryStore<User?> user)? authenticated,
+    TResult Function(InMemoryStore<User?> user)? loading,
+    TResult Function(InMemoryStore<User?> user, AuthFailure failure)? failure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -72,12 +74,18 @@ mixin _$AuthState {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $AuthStateCopyWith<AuthState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $AuthStateCopyWith<$Res> {
   factory $AuthStateCopyWith(AuthState value, $Res Function(AuthState) then) =
       _$AuthStateCopyWithImpl<$Res, AuthState>;
+  @useResult
+  $Res call({InMemoryStore<User?> user});
 }
 
 /// @nodoc
@@ -89,13 +97,30 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? user = null,
+  }) {
+    return _then(_value.copyWith(
+      user: null == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as InMemoryStore<User?>,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$InitialImplCopyWith<$Res> {
+abstract class _$$InitialImplCopyWith<$Res>
+    implements $AuthStateCopyWith<$Res> {
   factory _$$InitialImplCopyWith(
           _$InitialImpl value, $Res Function(_$InitialImpl) then) =
       __$$InitialImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({InMemoryStore<User?> user});
 }
 
 /// @nodoc
@@ -105,69 +130,96 @@ class __$$InitialImplCopyWithImpl<$Res>
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? user = null,
+  }) {
+    return _then(_$InitialImpl(
+      null == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as InMemoryStore<User?>,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$InitialImpl extends _Initial with DiagnosticableTreeMixin {
-  const _$InitialImpl() : super._();
+  const _$InitialImpl(this.user) : super._();
+
+  @override
+  final InMemoryStore<User?> user;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AuthState.initial()';
+    return 'AuthState.initial(user: $user)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'AuthState.initial'));
+    properties
+      ..add(DiagnosticsProperty('type', 'AuthState.initial'))
+      ..add(DiagnosticsProperty('user', user));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$InitialImpl &&
+            (identical(other.user, user) || other.user == user));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, user);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>
+      __$$InitialImplCopyWithImpl<_$InitialImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() unauthenticated,
-    required TResult Function() authenticated,
-    required TResult Function() loading,
-    required TResult Function(AuthFailure failure) failure,
+    required TResult Function(InMemoryStore<User?> user) initial,
+    required TResult Function(InMemoryStore<User?> user) unauthenticated,
+    required TResult Function(InMemoryStore<User?> user) authenticated,
+    required TResult Function(InMemoryStore<User?> user) loading,
+    required TResult Function(InMemoryStore<User?> user, AuthFailure failure)
+        failure,
   }) {
-    return initial();
+    return initial(user);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? unauthenticated,
-    TResult? Function()? authenticated,
-    TResult? Function()? loading,
-    TResult? Function(AuthFailure failure)? failure,
+    TResult? Function(InMemoryStore<User?> user)? initial,
+    TResult? Function(InMemoryStore<User?> user)? unauthenticated,
+    TResult? Function(InMemoryStore<User?> user)? authenticated,
+    TResult? Function(InMemoryStore<User?> user)? loading,
+    TResult? Function(InMemoryStore<User?> user, AuthFailure failure)? failure,
   }) {
-    return initial?.call();
+    return initial?.call(user);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? unauthenticated,
-    TResult Function()? authenticated,
-    TResult Function()? loading,
-    TResult Function(AuthFailure failure)? failure,
+    TResult Function(InMemoryStore<User?> user)? initial,
+    TResult Function(InMemoryStore<User?> user)? unauthenticated,
+    TResult Function(InMemoryStore<User?> user)? authenticated,
+    TResult Function(InMemoryStore<User?> user)? loading,
+    TResult Function(InMemoryStore<User?> user, AuthFailure failure)? failure,
     required TResult orElse(),
   }) {
     if (initial != null) {
-      return initial();
+      return initial(user);
     }
     return orElse();
   }
@@ -214,15 +266,26 @@ class _$InitialImpl extends _Initial with DiagnosticableTreeMixin {
 }
 
 abstract class _Initial extends AuthState {
-  const factory _Initial() = _$InitialImpl;
+  const factory _Initial(final InMemoryStore<User?> user) = _$InitialImpl;
   const _Initial._() : super._();
+
+  @override
+  InMemoryStore<User?> get user;
+  @override
+  @JsonKey(ignore: true)
+  _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UnauthenticatedImplCopyWith<$Res> {
+abstract class _$$UnauthenticatedImplCopyWith<$Res>
+    implements $AuthStateCopyWith<$Res> {
   factory _$$UnauthenticatedImplCopyWith(_$UnauthenticatedImpl value,
           $Res Function(_$UnauthenticatedImpl) then) =
       __$$UnauthenticatedImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({InMemoryStore<User?> user});
 }
 
 /// @nodoc
@@ -232,70 +295,98 @@ class __$$UnauthenticatedImplCopyWithImpl<$Res>
   __$$UnauthenticatedImplCopyWithImpl(
       _$UnauthenticatedImpl _value, $Res Function(_$UnauthenticatedImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? user = null,
+  }) {
+    return _then(_$UnauthenticatedImpl(
+      null == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as InMemoryStore<User?>,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$UnauthenticatedImpl extends _Unauthenticated
     with DiagnosticableTreeMixin {
-  const _$UnauthenticatedImpl() : super._();
+  const _$UnauthenticatedImpl(this.user) : super._();
+
+  @override
+  final InMemoryStore<User?> user;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AuthState.unauthenticated()';
+    return 'AuthState.unauthenticated(user: $user)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'AuthState.unauthenticated'));
+    properties
+      ..add(DiagnosticsProperty('type', 'AuthState.unauthenticated'))
+      ..add(DiagnosticsProperty('user', user));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$UnauthenticatedImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$UnauthenticatedImpl &&
+            (identical(other.user, user) || other.user == user));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, user);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UnauthenticatedImplCopyWith<_$UnauthenticatedImpl> get copyWith =>
+      __$$UnauthenticatedImplCopyWithImpl<_$UnauthenticatedImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() unauthenticated,
-    required TResult Function() authenticated,
-    required TResult Function() loading,
-    required TResult Function(AuthFailure failure) failure,
+    required TResult Function(InMemoryStore<User?> user) initial,
+    required TResult Function(InMemoryStore<User?> user) unauthenticated,
+    required TResult Function(InMemoryStore<User?> user) authenticated,
+    required TResult Function(InMemoryStore<User?> user) loading,
+    required TResult Function(InMemoryStore<User?> user, AuthFailure failure)
+        failure,
   }) {
-    return unauthenticated();
+    return unauthenticated(user);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? unauthenticated,
-    TResult? Function()? authenticated,
-    TResult? Function()? loading,
-    TResult? Function(AuthFailure failure)? failure,
+    TResult? Function(InMemoryStore<User?> user)? initial,
+    TResult? Function(InMemoryStore<User?> user)? unauthenticated,
+    TResult? Function(InMemoryStore<User?> user)? authenticated,
+    TResult? Function(InMemoryStore<User?> user)? loading,
+    TResult? Function(InMemoryStore<User?> user, AuthFailure failure)? failure,
   }) {
-    return unauthenticated?.call();
+    return unauthenticated?.call(user);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? unauthenticated,
-    TResult Function()? authenticated,
-    TResult Function()? loading,
-    TResult Function(AuthFailure failure)? failure,
+    TResult Function(InMemoryStore<User?> user)? initial,
+    TResult Function(InMemoryStore<User?> user)? unauthenticated,
+    TResult Function(InMemoryStore<User?> user)? authenticated,
+    TResult Function(InMemoryStore<User?> user)? loading,
+    TResult Function(InMemoryStore<User?> user, AuthFailure failure)? failure,
     required TResult orElse(),
   }) {
     if (unauthenticated != null) {
-      return unauthenticated();
+      return unauthenticated(user);
     }
     return orElse();
   }
@@ -342,15 +433,27 @@ class _$UnauthenticatedImpl extends _Unauthenticated
 }
 
 abstract class _Unauthenticated extends AuthState {
-  const factory _Unauthenticated() = _$UnauthenticatedImpl;
+  const factory _Unauthenticated(final InMemoryStore<User?> user) =
+      _$UnauthenticatedImpl;
   const _Unauthenticated._() : super._();
+
+  @override
+  InMemoryStore<User?> get user;
+  @override
+  @JsonKey(ignore: true)
+  _$$UnauthenticatedImplCopyWith<_$UnauthenticatedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$AuthenticatedImplCopyWith<$Res> {
+abstract class _$$AuthenticatedImplCopyWith<$Res>
+    implements $AuthStateCopyWith<$Res> {
   factory _$$AuthenticatedImplCopyWith(
           _$AuthenticatedImpl value, $Res Function(_$AuthenticatedImpl) then) =
       __$$AuthenticatedImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({InMemoryStore<User?> user});
 }
 
 /// @nodoc
@@ -360,69 +463,96 @@ class __$$AuthenticatedImplCopyWithImpl<$Res>
   __$$AuthenticatedImplCopyWithImpl(
       _$AuthenticatedImpl _value, $Res Function(_$AuthenticatedImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? user = null,
+  }) {
+    return _then(_$AuthenticatedImpl(
+      null == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as InMemoryStore<User?>,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$AuthenticatedImpl extends _Authenticated with DiagnosticableTreeMixin {
-  const _$AuthenticatedImpl() : super._();
+  const _$AuthenticatedImpl(this.user) : super._();
+
+  @override
+  final InMemoryStore<User?> user;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AuthState.authenticated()';
+    return 'AuthState.authenticated(user: $user)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'AuthState.authenticated'));
+    properties
+      ..add(DiagnosticsProperty('type', 'AuthState.authenticated'))
+      ..add(DiagnosticsProperty('user', user));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$AuthenticatedImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$AuthenticatedImpl &&
+            (identical(other.user, user) || other.user == user));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, user);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AuthenticatedImplCopyWith<_$AuthenticatedImpl> get copyWith =>
+      __$$AuthenticatedImplCopyWithImpl<_$AuthenticatedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() unauthenticated,
-    required TResult Function() authenticated,
-    required TResult Function() loading,
-    required TResult Function(AuthFailure failure) failure,
+    required TResult Function(InMemoryStore<User?> user) initial,
+    required TResult Function(InMemoryStore<User?> user) unauthenticated,
+    required TResult Function(InMemoryStore<User?> user) authenticated,
+    required TResult Function(InMemoryStore<User?> user) loading,
+    required TResult Function(InMemoryStore<User?> user, AuthFailure failure)
+        failure,
   }) {
-    return authenticated();
+    return authenticated(user);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? unauthenticated,
-    TResult? Function()? authenticated,
-    TResult? Function()? loading,
-    TResult? Function(AuthFailure failure)? failure,
+    TResult? Function(InMemoryStore<User?> user)? initial,
+    TResult? Function(InMemoryStore<User?> user)? unauthenticated,
+    TResult? Function(InMemoryStore<User?> user)? authenticated,
+    TResult? Function(InMemoryStore<User?> user)? loading,
+    TResult? Function(InMemoryStore<User?> user, AuthFailure failure)? failure,
   }) {
-    return authenticated?.call();
+    return authenticated?.call(user);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? unauthenticated,
-    TResult Function()? authenticated,
-    TResult Function()? loading,
-    TResult Function(AuthFailure failure)? failure,
+    TResult Function(InMemoryStore<User?> user)? initial,
+    TResult Function(InMemoryStore<User?> user)? unauthenticated,
+    TResult Function(InMemoryStore<User?> user)? authenticated,
+    TResult Function(InMemoryStore<User?> user)? loading,
+    TResult Function(InMemoryStore<User?> user, AuthFailure failure)? failure,
     required TResult orElse(),
   }) {
     if (authenticated != null) {
-      return authenticated();
+      return authenticated(user);
     }
     return orElse();
   }
@@ -469,15 +599,27 @@ class _$AuthenticatedImpl extends _Authenticated with DiagnosticableTreeMixin {
 }
 
 abstract class _Authenticated extends AuthState {
-  const factory _Authenticated() = _$AuthenticatedImpl;
+  const factory _Authenticated(final InMemoryStore<User?> user) =
+      _$AuthenticatedImpl;
   const _Authenticated._() : super._();
+
+  @override
+  InMemoryStore<User?> get user;
+  @override
+  @JsonKey(ignore: true)
+  _$$AuthenticatedImplCopyWith<_$AuthenticatedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$LoadingImplCopyWith<$Res> {
+abstract class _$$LoadingImplCopyWith<$Res>
+    implements $AuthStateCopyWith<$Res> {
   factory _$$LoadingImplCopyWith(
           _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
       __$$LoadingImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({InMemoryStore<User?> user});
 }
 
 /// @nodoc
@@ -487,69 +629,96 @@ class __$$LoadingImplCopyWithImpl<$Res>
   __$$LoadingImplCopyWithImpl(
       _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? user = null,
+  }) {
+    return _then(_$LoadingImpl(
+      null == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as InMemoryStore<User?>,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$LoadingImpl extends _Loading with DiagnosticableTreeMixin {
-  const _$LoadingImpl() : super._();
+  const _$LoadingImpl(this.user) : super._();
+
+  @override
+  final InMemoryStore<User?> user;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AuthState.loading()';
+    return 'AuthState.loading(user: $user)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'AuthState.loading'));
+    properties
+      ..add(DiagnosticsProperty('type', 'AuthState.loading'))
+      ..add(DiagnosticsProperty('user', user));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoadingImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$LoadingImpl &&
+            (identical(other.user, user) || other.user == user));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, user);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LoadingImplCopyWith<_$LoadingImpl> get copyWith =>
+      __$$LoadingImplCopyWithImpl<_$LoadingImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() unauthenticated,
-    required TResult Function() authenticated,
-    required TResult Function() loading,
-    required TResult Function(AuthFailure failure) failure,
+    required TResult Function(InMemoryStore<User?> user) initial,
+    required TResult Function(InMemoryStore<User?> user) unauthenticated,
+    required TResult Function(InMemoryStore<User?> user) authenticated,
+    required TResult Function(InMemoryStore<User?> user) loading,
+    required TResult Function(InMemoryStore<User?> user, AuthFailure failure)
+        failure,
   }) {
-    return loading();
+    return loading(user);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? unauthenticated,
-    TResult? Function()? authenticated,
-    TResult? Function()? loading,
-    TResult? Function(AuthFailure failure)? failure,
+    TResult? Function(InMemoryStore<User?> user)? initial,
+    TResult? Function(InMemoryStore<User?> user)? unauthenticated,
+    TResult? Function(InMemoryStore<User?> user)? authenticated,
+    TResult? Function(InMemoryStore<User?> user)? loading,
+    TResult? Function(InMemoryStore<User?> user, AuthFailure failure)? failure,
   }) {
-    return loading?.call();
+    return loading?.call(user);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? unauthenticated,
-    TResult Function()? authenticated,
-    TResult Function()? loading,
-    TResult Function(AuthFailure failure)? failure,
+    TResult Function(InMemoryStore<User?> user)? initial,
+    TResult Function(InMemoryStore<User?> user)? unauthenticated,
+    TResult Function(InMemoryStore<User?> user)? authenticated,
+    TResult Function(InMemoryStore<User?> user)? loading,
+    TResult Function(InMemoryStore<User?> user, AuthFailure failure)? failure,
     required TResult orElse(),
   }) {
     if (loading != null) {
-      return loading();
+      return loading(user);
     }
     return orElse();
   }
@@ -596,17 +765,26 @@ class _$LoadingImpl extends _Loading with DiagnosticableTreeMixin {
 }
 
 abstract class _Loading extends AuthState {
-  const factory _Loading() = _$LoadingImpl;
+  const factory _Loading(final InMemoryStore<User?> user) = _$LoadingImpl;
   const _Loading._() : super._();
+
+  @override
+  InMemoryStore<User?> get user;
+  @override
+  @JsonKey(ignore: true)
+  _$$LoadingImplCopyWith<_$LoadingImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FailureImplCopyWith<$Res> {
+abstract class _$$FailureImplCopyWith<$Res>
+    implements $AuthStateCopyWith<$Res> {
   factory _$$FailureImplCopyWith(
           _$FailureImpl value, $Res Function(_$FailureImpl) then) =
       __$$FailureImplCopyWithImpl<$Res>;
+  @override
   @useResult
-  $Res call({AuthFailure failure});
+  $Res call({InMemoryStore<User?> user, AuthFailure failure});
 
   $AuthFailureCopyWith<$Res> get failure;
 }
@@ -622,9 +800,14 @@ class __$$FailureImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? user = null,
     Object? failure = null,
   }) {
     return _then(_$FailureImpl(
+      null == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as InMemoryStore<User?>,
       null == failure
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
@@ -644,14 +827,16 @@ class __$$FailureImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$FailureImpl extends _Failure with DiagnosticableTreeMixin {
-  const _$FailureImpl(this.failure) : super._();
+  const _$FailureImpl(this.user, this.failure) : super._();
 
+  @override
+  final InMemoryStore<User?> user;
   @override
   final AuthFailure failure;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AuthState.failure(failure: $failure)';
+    return 'AuthState.failure(user: $user, failure: $failure)';
   }
 
   @override
@@ -659,6 +844,7 @@ class _$FailureImpl extends _Failure with DiagnosticableTreeMixin {
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'AuthState.failure'))
+      ..add(DiagnosticsProperty('user', user))
       ..add(DiagnosticsProperty('failure', failure));
   }
 
@@ -667,11 +853,12 @@ class _$FailureImpl extends _Failure with DiagnosticableTreeMixin {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FailureImpl &&
+            (identical(other.user, user) || other.user == user) &&
             (identical(other.failure, failure) || other.failure == failure));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, failure);
+  int get hashCode => Object.hash(runtimeType, user, failure);
 
   @JsonKey(ignore: true)
   @override
@@ -682,39 +869,40 @@ class _$FailureImpl extends _Failure with DiagnosticableTreeMixin {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() unauthenticated,
-    required TResult Function() authenticated,
-    required TResult Function() loading,
-    required TResult Function(AuthFailure failure) failure,
+    required TResult Function(InMemoryStore<User?> user) initial,
+    required TResult Function(InMemoryStore<User?> user) unauthenticated,
+    required TResult Function(InMemoryStore<User?> user) authenticated,
+    required TResult Function(InMemoryStore<User?> user) loading,
+    required TResult Function(InMemoryStore<User?> user, AuthFailure failure)
+        failure,
   }) {
-    return failure(this.failure);
+    return failure(user, this.failure);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? unauthenticated,
-    TResult? Function()? authenticated,
-    TResult? Function()? loading,
-    TResult? Function(AuthFailure failure)? failure,
+    TResult? Function(InMemoryStore<User?> user)? initial,
+    TResult? Function(InMemoryStore<User?> user)? unauthenticated,
+    TResult? Function(InMemoryStore<User?> user)? authenticated,
+    TResult? Function(InMemoryStore<User?> user)? loading,
+    TResult? Function(InMemoryStore<User?> user, AuthFailure failure)? failure,
   }) {
-    return failure?.call(this.failure);
+    return failure?.call(user, this.failure);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? unauthenticated,
-    TResult Function()? authenticated,
-    TResult Function()? loading,
-    TResult Function(AuthFailure failure)? failure,
+    TResult Function(InMemoryStore<User?> user)? initial,
+    TResult Function(InMemoryStore<User?> user)? unauthenticated,
+    TResult Function(InMemoryStore<User?> user)? authenticated,
+    TResult Function(InMemoryStore<User?> user)? loading,
+    TResult Function(InMemoryStore<User?> user, AuthFailure failure)? failure,
     required TResult orElse(),
   }) {
     if (failure != null) {
-      return failure(this.failure);
+      return failure(user, this.failure);
     }
     return orElse();
   }
@@ -761,10 +949,15 @@ class _$FailureImpl extends _Failure with DiagnosticableTreeMixin {
 }
 
 abstract class _Failure extends AuthState {
-  const factory _Failure(final AuthFailure failure) = _$FailureImpl;
+  const factory _Failure(
+          final InMemoryStore<User?> user, final AuthFailure failure) =
+      _$FailureImpl;
   const _Failure._() : super._();
 
+  @override
+  InMemoryStore<User?> get user;
   AuthFailure get failure;
+  @override
   @JsonKey(ignore: true)
   _$$FailureImplCopyWith<_$FailureImpl> get copyWith =>
       throw _privateConstructorUsedError;

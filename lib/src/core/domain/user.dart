@@ -9,7 +9,6 @@ class User with _$User {
     required final String username,
     required final String email,
     required final int typeId,
-    final String? password,
   }) = _User;
   const User._();
 }

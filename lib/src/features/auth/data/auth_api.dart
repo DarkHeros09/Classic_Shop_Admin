@@ -23,9 +23,7 @@ abstract class AuthApi extends ChopperService {
       errorConverter: const JsonConverter(),
       interceptors: [
         HttpLoggingInterceptor(),
-        // AuthInterceptor(ref: ref),
       ],
-      // authenticator: AuthInterceptor(ref: ref),
     );
 
     return _$AuthApi(client);
@@ -44,7 +42,14 @@ abstract class AuthApi extends ChopperService {
     headers: normalheaders,
   )
   Future<Response<Map<String, dynamic>>> renewAccessToken({
-    @Header('Authorization') required String accessToken,
+    @Body() required Map<String, dynamic> data,
+  });
+
+  @Post(
+    path: '/auth/refresh-token-for-admin',
+    headers: normalheaders,
+  )
+  Future<Response<Map<String, dynamic>>> renewRefreshToken({
     @Body() required Map<String, dynamic> data,
   });
 }

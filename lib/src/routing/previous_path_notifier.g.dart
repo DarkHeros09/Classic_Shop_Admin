@@ -7,7 +7,7 @@ part of 'previous_path_notifier.dart';
 // **************************************************************************
 
 String _$previousPathNotifierHash() =>
-    r'd7c1e8cae7b73dce2a23da34ffd08657f6d770b2';
+    r'8fc27cf2f4ce8eb755325cf88c62d4811396cc54';
 
 /// See also [PreviousPathNotifier].
 @ProviderFor(PreviousPathNotifier)

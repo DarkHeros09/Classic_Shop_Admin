@@ -27,6 +27,7 @@ class GoRouterConfig extends _$GoRouterConfig {
   @override
   GoRouter build() {
     final auth = ref.watch(authNotifierProvider.notifier);
+    final authState = ref.watch(authNotifierProvider);
     return GoRouter(
       initialLocation: '/sign-in',
       navigatorKey: _rootNavigatorKey,
@@ -44,9 +45,9 @@ class GoRouterConfig extends _$GoRouterConfig {
             return const NoTransitionPage(child: SignInPage());
           },
           redirect: (context, state) {
-            final isLoggedIn = auth.currentUser != null;
+            final isLoggedIn = authState.user.value != null;
             debugPrint('APPROUTER IS LOGGEDIN: $isLoggedIn');
-            debugPrint('USER IS ${auth.currentUser}');
+            debugPrint('USER IS ${authState.user.value}');
             if (isLoggedIn) {
               if (state.uri.path == '/sign-in') {
                 return '/home';
@@ -75,7 +76,7 @@ class GoRouterConfig extends _$GoRouterConfig {
                     return const NoTransitionPage(child: HomePage());
                   },
                   redirect: (context, state) {
-                    final isLoggedIn = auth.currentUser != null;
+                    final isLoggedIn = authState.user.value != null;
                     if (!isLoggedIn) {
                       if (state.uri.path == '/home') {
                         return '/sign-in';

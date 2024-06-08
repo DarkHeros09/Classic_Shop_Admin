@@ -20,7 +20,6 @@ mixin _$User {
   String get username => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   int get typeId => throw _privateConstructorUsedError;
-  String? get password => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $UserCopyWith<User> get copyWith => throw _privateConstructorUsedError;
@@ -31,8 +30,7 @@ abstract class $UserCopyWith<$Res> {
   factory $UserCopyWith(User value, $Res Function(User) then) =
       _$UserCopyWithImpl<$Res, User>;
   @useResult
-  $Res call(
-      {int id, String username, String email, int typeId, String? password});
+  $Res call({int id, String username, String email, int typeId});
 }
 
 /// @nodoc
@@ -52,7 +50,6 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
     Object? username = null,
     Object? email = null,
     Object? typeId = null,
-    Object? password = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -71,10 +68,6 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.typeId
           : typeId // ignore: cast_nullable_to_non_nullable
               as int,
-      password: freezed == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String?,
     ) as $Val);
   }
 }
@@ -86,8 +79,7 @@ abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
       __$$UserImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {int id, String username, String email, int typeId, String? password});
+  $Res call({int id, String username, String email, int typeId});
 }
 
 /// @nodoc
@@ -104,7 +96,6 @@ class __$$UserImplCopyWithImpl<$Res>
     Object? username = null,
     Object? email = null,
     Object? typeId = null,
-    Object? password = freezed,
   }) {
     return _then(_$UserImpl(
       id: null == id
@@ -123,10 +114,6 @@ class __$$UserImplCopyWithImpl<$Res>
           ? _value.typeId
           : typeId // ignore: cast_nullable_to_non_nullable
               as int,
-      password: freezed == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -138,8 +125,7 @@ class _$UserImpl extends _User {
       {required this.id,
       required this.username,
       required this.email,
-      required this.typeId,
-      this.password})
+      required this.typeId})
       : super._();
 
   @override
@@ -150,12 +136,10 @@ class _$UserImpl extends _User {
   final String email;
   @override
   final int typeId;
-  @override
-  final String? password;
 
   @override
   String toString() {
-    return 'User(id: $id, username: $username, email: $email, typeId: $typeId, password: $password)';
+    return 'User(id: $id, username: $username, email: $email, typeId: $typeId)';
   }
 
   @override
@@ -167,14 +151,11 @@ class _$UserImpl extends _User {
             (identical(other.username, username) ||
                 other.username == username) &&
             (identical(other.email, email) || other.email == email) &&
-            (identical(other.typeId, typeId) || other.typeId == typeId) &&
-            (identical(other.password, password) ||
-                other.password == password));
+            (identical(other.typeId, typeId) || other.typeId == typeId));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, username, email, typeId, password);
+  int get hashCode => Object.hash(runtimeType, id, username, email, typeId);
 
   @JsonKey(ignore: true)
   @override
@@ -188,8 +169,7 @@ abstract class _User extends User {
       {required final int id,
       required final String username,
       required final String email,
-      required final int typeId,
-      final String? password}) = _$UserImpl;
+      required final int typeId}) = _$UserImpl;
   const _User._() : super._();
 
   @override
@@ -200,8 +180,6 @@ abstract class _User extends User {
   String get email;
   @override
   int get typeId;
-  @override
-  String? get password;
   @override
   @JsonKey(ignore: true)
   _$$UserImplCopyWith<_$UserImpl> get copyWith =>

@@ -16,11 +16,14 @@ part 'auth_notifier.g.dart';
 @freezed
 class AuthState with _$AuthState {
   const AuthState._();
-  const factory AuthState.initial() = _Initial;
-  const factory AuthState.unauthenticated() = _Unauthenticated;
-  const factory AuthState.authenticated() = _Authenticated;
-  const factory AuthState.loading() = _Loading;
-  const factory AuthState.failure(AuthFailure failure) = _Failure;
+  const factory AuthState.initial(InMemoryStore<User?> user) = _Initial;
+  const factory AuthState.unauthenticated(InMemoryStore<User?> user) =
+      _Unauthenticated;
+  const factory AuthState.authenticated(InMemoryStore<User?> user) =
+      _Authenticated;
+  const factory AuthState.loading(InMemoryStore<User?> user) = _Loading;
+  const factory AuthState.failure(
+      InMemoryStore<User?> user, AuthFailure failure) = _Failure;
 }
 
 @Riverpod(keepAlive: true)
@@ -33,7 +36,7 @@ class AuthNotifier extends _$AuthNotifier {
   // User? get currentUser => user;
 
   Stream<User?> authStateChanges() => _authUser.stream;
-  User? get currentUser => _authUser.value;
+  // User? get currentUser => _authUser.value;
 
   // User? user;
 
@@ -47,27 +50,28 @@ class AuthNotifier extends _$AuthNotifier {
     _userStorage = ref.watch(userStorageProvider);
     _userStorage.read().then((value) => _authUser.value = value?.toDomain());
     ref.onDispose(dispose);
-    return state = const AuthState.initial();
+    return state = AuthState.initial(_authUser);
   }
 
   Future<void> checkAndUpdateAuthStatus() async {
     state = (await _authRemoteService.isSignedIn())
-        ? (const AuthState.authenticated())
-        : const AuthState.unauthenticated();
+        ? (AuthState.authenticated(_authUser))
+        : AuthState.unauthenticated(_authUser);
   }
 
   Future<void> signIn({required String email, required String password}) async {
-    state = const AuthState.loading();
+    state = AuthState.loading(_authUser);
     final failureOrSuccess =
         await _authRemoteService.signIn(email: email, password: password);
     state = await failureOrSuccess.fold(
-      AuthState.failure,
+      (l) => AuthState.failure(_authUser, l),
       (r) async {
         final userDTO = await _userStorage.read();
         _authUser.value = userDTO?.toDomain();
-        return const AuthState.authenticated();
+        return AuthState.authenticated(_authUser);
       },
     );
+    debugPrint(state.toString());
   }
 
   // Future<void> signOut() async {
@@ -84,13 +88,13 @@ class AuthNotifier extends _$AuthNotifier {
     await _userStorage.clear();
     final failureOrSuccess = await _authRemoteService.signOut();
     state = failureOrSuccess.fold(
-      (l) => const AuthState.unauthenticated(),
-      (r) => const AuthState.unauthenticated(),
+      (l) => AuthState.unauthenticated(_authUser),
+      (r) => AuthState.unauthenticated(_authUser),
     );
   }
 
   Future<void> forcedSignOut() async {
     _authUser.value = null;
-    state = const AuthState.unauthenticated();
+    state = AuthState.unauthenticated(_authUser);
   }
 }
