@@ -11,10 +11,10 @@ class AppWidget extends HookConsumerWidget {
     late final goRouterConfig = ref.watch(goRouterConfigProvider);
     return ShadApp.router(
       debugShowCheckedModeBanner: false,
-      theme: ShadThemeData(
-        colorScheme: const ShadSlateColorScheme.light(),
-        brightness: Brightness.light,
-      ),
+      // theme: ShadThemeData(
+      //   colorScheme: const ShadSlateColorScheme.light(),
+      //   brightness: Brightness.light,
+      // ),
       // darkTheme: ShadThemeData(
       //   brightness: Brightness.dark,
       //   colorScheme: const ShadSlateColorScheme.dark(),

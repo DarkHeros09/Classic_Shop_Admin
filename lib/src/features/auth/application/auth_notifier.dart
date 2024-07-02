@@ -23,7 +23,9 @@ class AuthState with _$AuthState {
       _Authenticated;
   const factory AuthState.loading(InMemoryStore<User?> user) = _Loading;
   const factory AuthState.failure(
-      InMemoryStore<User?> user, AuthFailure failure) = _Failure;
+    InMemoryStore<User?> user,
+    AuthFailure failure,
+  ) = _Failure;
 }
 
 @Riverpod(keepAlive: true)

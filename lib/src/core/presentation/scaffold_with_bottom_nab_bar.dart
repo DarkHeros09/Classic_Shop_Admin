@@ -36,8 +36,8 @@ class BottomNavBar extends HookConsumerWidget {
           label: 'Home',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          label: 'Home',
+          icon: Icon(Icons.dashboard),
+          label: 'Dashboard',
         ),
       ],
     );

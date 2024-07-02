@@ -6,7 +6,22 @@ part of 'app_router.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$goRouterConfigHash() => r'a26ad1858864e7c8f8cdfdb048c9bf490966f0a2';
+String _$childWidgetHash() => r'1060049f8d6696058ec61376e7c5c65327015123';
+
+/// See also [childWidget].
+@ProviderFor(childWidget)
+final childWidgetProvider =
+    AutoDisposeProvider<StatefulNavigationShell>.internal(
+  childWidget,
+  name: r'childWidgetProvider',
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product') ? null : _$childWidgetHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef ChildWidgetRef = AutoDisposeProviderRef<StatefulNavigationShell>;
+String _$goRouterConfigHash() => r'6ad0701945d533661c5586919593419d21217c31';
 
 /// See also [GoRouterConfig].
 @ProviderFor(GoRouterConfig)
