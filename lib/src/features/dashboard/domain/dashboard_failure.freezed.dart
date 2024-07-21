@@ -72,6 +72,9 @@ class _$DashboardFailureCopyWithImpl<$Res, $Val extends DashboardFailure>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of DashboardFailure
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -89,6 +92,8 @@ class __$$ApiImplCopyWithImpl<$Res>
   __$$ApiImplCopyWithImpl(_$ApiImpl _value, $Res Function(_$ApiImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of DashboardFailure
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -128,7 +133,9 @@ class _$ApiImpl extends _Api {
   @override
   int get hashCode => Object.hash(runtimeType, errorCode);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DashboardFailure
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ApiImplCopyWith<_$ApiImpl> get copyWith =>
@@ -202,7 +209,10 @@ abstract class _Api extends DashboardFailure {
   const _Api._() : super._();
 
   int? get errorCode;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of DashboardFailure
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ApiImplCopyWith<_$ApiImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -224,6 +234,8 @@ class __$$ErrorImplCopyWithImpl<$Res>
       _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of DashboardFailure
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -263,7 +275,9 @@ class _$ErrorImpl extends _Error {
   @override
   int get hashCode => Object.hash(runtimeType, exception);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DashboardFailure
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
@@ -337,7 +351,10 @@ abstract class _Error extends DashboardFailure {
   const _Error._() : super._();
 
   Exception? get exception;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of DashboardFailure
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

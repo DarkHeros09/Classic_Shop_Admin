@@ -25,8 +25,12 @@ mixin _$UserDTO {
   String get email => throw _privateConstructorUsedError;
   int get typeId => throw _privateConstructorUsedError;
 
+  /// Serializes this UserDTO to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of UserDTO
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $UserDTOCopyWith<UserDTO> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -48,6 +52,8 @@ class _$UserDTOCopyWithImpl<$Res, $Val extends UserDTO>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of UserDTO
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -95,6 +101,8 @@ class __$$UserDTOImplCopyWithImpl<$Res>
       _$UserDTOImpl _value, $Res Function(_$UserDTOImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of UserDTO
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -174,11 +182,13 @@ class _$UserDTOImpl extends _UserDTO with DiagnosticableTreeMixin {
             (identical(other.typeId, typeId) || other.typeId == typeId));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, id, username, email, typeId);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of UserDTO
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UserDTOImplCopyWith<_$UserDTOImpl> get copyWith =>
@@ -210,8 +220,11 @@ abstract class _UserDTO extends UserDTO {
   String get email;
   @override
   int get typeId;
+
+  /// Create a copy of UserDTO
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UserDTOImplCopyWith<_$UserDTOImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

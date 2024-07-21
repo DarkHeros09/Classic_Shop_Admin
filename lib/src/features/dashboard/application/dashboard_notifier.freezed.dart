@@ -76,7 +76,9 @@ mixin _$DashboardState {
   }) =>
       throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DashboardState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $DashboardStateCopyWith<DashboardState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -102,6 +104,8 @@ class _$DashboardStateCopyWithImpl<$Res, $Val extends DashboardState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of DashboardState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -115,6 +119,8 @@ class _$DashboardStateCopyWithImpl<$Res, $Val extends DashboardState>
     ) as $Val);
   }
 
+  /// Create a copy of DashboardState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $FreshCopyWith<Dashboard, $Res> get dashboard {
@@ -146,6 +152,8 @@ class __$$InitialImplCopyWithImpl<$Res>
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of DashboardState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -162,15 +170,23 @@ class __$$InitialImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$InitialImpl extends _Initial {
+class _$InitialImpl extends _Initial with DiagnosticableTreeMixin {
   const _$InitialImpl(this.dashboard) : super._();
 
   @override
   final Fresh<Dashboard> dashboard;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'DashboardState.initial(dashboard: $dashboard)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'DashboardState.initial'))
+      ..add(DiagnosticsProperty('dashboard', dashboard));
   }
 
   @override
@@ -185,7 +201,9 @@ class _$InitialImpl extends _Initial {
   @override
   int get hashCode => Object.hash(runtimeType, dashboard);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DashboardState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>
@@ -280,8 +298,11 @@ abstract class _Initial extends DashboardState {
 
   @override
   Fresh<Dashboard> get dashboard;
+
+  /// Create a copy of DashboardState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -308,6 +329,8 @@ class __$$LoadInProgressImplCopyWithImpl<$Res>
       _$LoadInProgressImpl _value, $Res Function(_$LoadInProgressImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of DashboardState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -324,15 +347,24 @@ class __$$LoadInProgressImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LoadInProgressImpl extends _LoadInProgress {
+class _$LoadInProgressImpl extends _LoadInProgress
+    with DiagnosticableTreeMixin {
   const _$LoadInProgressImpl(this.dashboard) : super._();
 
   @override
   final Fresh<Dashboard> dashboard;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'DashboardState.loadInProgress(dashboard: $dashboard)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'DashboardState.loadInProgress'))
+      ..add(DiagnosticsProperty('dashboard', dashboard));
   }
 
   @override
@@ -347,7 +379,9 @@ class _$LoadInProgressImpl extends _LoadInProgress {
   @override
   int get hashCode => Object.hash(runtimeType, dashboard);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DashboardState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LoadInProgressImplCopyWith<_$LoadInProgressImpl> get copyWith =>
@@ -444,8 +478,11 @@ abstract class _LoadInProgress extends DashboardState {
 
   @override
   Fresh<Dashboard> get dashboard;
+
+  /// Create a copy of DashboardState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LoadInProgressImplCopyWith<_$LoadInProgressImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -472,6 +509,8 @@ class __$$LoadSuccessImplCopyWithImpl<$Res>
       _$LoadSuccessImpl _value, $Res Function(_$LoadSuccessImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of DashboardState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -493,7 +532,7 @@ class __$$LoadSuccessImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LoadSuccessImpl extends _LoadSuccess {
+class _$LoadSuccessImpl extends _LoadSuccess with DiagnosticableTreeMixin {
   const _$LoadSuccessImpl(this.dashboard, {required this.isNextPageAvailable})
       : super._();
 
@@ -503,8 +542,17 @@ class _$LoadSuccessImpl extends _LoadSuccess {
   final bool isNextPageAvailable;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'DashboardState.loadSuccess(dashboard: $dashboard, isNextPageAvailable: $isNextPageAvailable)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'DashboardState.loadSuccess'))
+      ..add(DiagnosticsProperty('dashboard', dashboard))
+      ..add(DiagnosticsProperty('isNextPageAvailable', isNextPageAvailable));
   }
 
   @override
@@ -521,7 +569,9 @@ class _$LoadSuccessImpl extends _LoadSuccess {
   @override
   int get hashCode => Object.hash(runtimeType, dashboard, isNextPageAvailable);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DashboardState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LoadSuccessImplCopyWith<_$LoadSuccessImpl> get copyWith =>
@@ -618,8 +668,11 @@ abstract class _LoadSuccess extends DashboardState {
   @override
   Fresh<Dashboard> get dashboard;
   bool get isNextPageAvailable;
+
+  /// Create a copy of DashboardState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LoadSuccessImplCopyWith<_$LoadSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -647,6 +700,8 @@ class __$$LoadFailureImplCopyWithImpl<$Res>
       _$LoadFailureImpl _value, $Res Function(_$LoadFailureImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of DashboardState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -665,6 +720,8 @@ class __$$LoadFailureImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of DashboardState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $DashboardFailureCopyWith<$Res> get failure {
@@ -676,7 +733,7 @@ class __$$LoadFailureImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LoadFailureImpl extends _LoadFailure {
+class _$LoadFailureImpl extends _LoadFailure with DiagnosticableTreeMixin {
   const _$LoadFailureImpl(this.dashboard, this.failure) : super._();
 
   @override
@@ -685,8 +742,17 @@ class _$LoadFailureImpl extends _LoadFailure {
   final DashboardFailure failure;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'DashboardState.loadFailure(dashboard: $dashboard, failure: $failure)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'DashboardState.loadFailure'))
+      ..add(DiagnosticsProperty('dashboard', dashboard))
+      ..add(DiagnosticsProperty('failure', failure));
   }
 
   @override
@@ -702,7 +768,9 @@ class _$LoadFailureImpl extends _LoadFailure {
   @override
   int get hashCode => Object.hash(runtimeType, dashboard, failure);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DashboardState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LoadFailureImplCopyWith<_$LoadFailureImpl> get copyWith =>
@@ -800,8 +868,11 @@ abstract class _LoadFailure extends DashboardState {
   @override
   Fresh<Dashboard> get dashboard;
   DashboardFailure get failure;
+
+  /// Create a copy of DashboardState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LoadFailureImplCopyWith<_$LoadFailureImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

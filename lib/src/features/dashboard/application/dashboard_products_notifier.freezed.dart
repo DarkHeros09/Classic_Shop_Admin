@@ -16,39 +16,44 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$DashboardProductsState {
-  Fresh<List<Product>> get products => throw _privateConstructorUsedError;
+  Fresh<List<ProductItem>> get products => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Fresh<List<Product>> products) initial,
-    required TResult Function(Fresh<List<Product>> products, int itemsPerPage)
+    required TResult Function(Fresh<List<ProductItem>> products) initial,
+    required TResult Function(
+            Fresh<List<ProductItem>> products, int itemsPerPage)
         loadInProgress,
     required TResult Function(
-            Fresh<List<Product>> products, bool isNextPageAvailable)
+            Fresh<List<ProductItem>> products, bool isNextPageAvailable)
         loadSuccess,
     required TResult Function(
-            Fresh<List<Product>> products, ProductFailure failure)
+            Fresh<List<ProductItem>> products, ProductItemFailure failure)
         loadFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Fresh<List<Product>> products)? initial,
-    TResult? Function(Fresh<List<Product>> products, int itemsPerPage)?
+    TResult? Function(Fresh<List<ProductItem>> products)? initial,
+    TResult? Function(Fresh<List<ProductItem>> products, int itemsPerPage)?
         loadInProgress,
-    TResult? Function(Fresh<List<Product>> products, bool isNextPageAvailable)?
+    TResult? Function(
+            Fresh<List<ProductItem>> products, bool isNextPageAvailable)?
         loadSuccess,
-    TResult? Function(Fresh<List<Product>> products, ProductFailure failure)?
+    TResult? Function(
+            Fresh<List<ProductItem>> products, ProductItemFailure failure)?
         loadFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Fresh<List<Product>> products)? initial,
-    TResult Function(Fresh<List<Product>> products, int itemsPerPage)?
+    TResult Function(Fresh<List<ProductItem>> products)? initial,
+    TResult Function(Fresh<List<ProductItem>> products, int itemsPerPage)?
         loadInProgress,
-    TResult Function(Fresh<List<Product>> products, bool isNextPageAvailable)?
+    TResult Function(
+            Fresh<List<ProductItem>> products, bool isNextPageAvailable)?
         loadSuccess,
-    TResult Function(Fresh<List<Product>> products, ProductFailure failure)?
+    TResult Function(
+            Fresh<List<ProductItem>> products, ProductItemFailure failure)?
         loadFailure,
     required TResult orElse(),
   }) =>
@@ -79,7 +84,9 @@ mixin _$DashboardProductsState {
   }) =>
       throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DashboardProductsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $DashboardProductsStateCopyWith<DashboardProductsState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -90,9 +97,9 @@ abstract class $DashboardProductsStateCopyWith<$Res> {
           $Res Function(DashboardProductsState) then) =
       _$DashboardProductsStateCopyWithImpl<$Res, DashboardProductsState>;
   @useResult
-  $Res call({Fresh<List<Product>> products});
+  $Res call({Fresh<List<ProductItem>> products});
 
-  $FreshCopyWith<List<Product>, $Res> get products;
+  $FreshCopyWith<List<ProductItem>, $Res> get products;
 }
 
 /// @nodoc
@@ -106,6 +113,8 @@ class _$DashboardProductsStateCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of DashboardProductsState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -115,14 +124,16 @@ class _$DashboardProductsStateCopyWithImpl<$Res,
       products: null == products
           ? _value.products
           : products // ignore: cast_nullable_to_non_nullable
-              as Fresh<List<Product>>,
+              as Fresh<List<ProductItem>>,
     ) as $Val);
   }
 
+  /// Create a copy of DashboardProductsState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $FreshCopyWith<List<Product>, $Res> get products {
-    return $FreshCopyWith<List<Product>, $Res>(_value.products, (value) {
+  $FreshCopyWith<List<ProductItem>, $Res> get products {
+    return $FreshCopyWith<List<ProductItem>, $Res>(_value.products, (value) {
       return _then(_value.copyWith(products: value) as $Val);
     });
   }
@@ -136,10 +147,10 @@ abstract class _$$InitialImplCopyWith<$Res>
       __$$InitialImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Fresh<List<Product>> products});
+  $Res call({Fresh<List<ProductItem>> products});
 
   @override
-  $FreshCopyWith<List<Product>, $Res> get products;
+  $FreshCopyWith<List<ProductItem>, $Res> get products;
 }
 
 /// @nodoc
@@ -150,6 +161,8 @@ class __$$InitialImplCopyWithImpl<$Res>
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of DashboardProductsState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -159,7 +172,7 @@ class __$$InitialImplCopyWithImpl<$Res>
       null == products
           ? _value.products
           : products // ignore: cast_nullable_to_non_nullable
-              as Fresh<List<Product>>,
+              as Fresh<List<ProductItem>>,
     ));
   }
 }
@@ -170,7 +183,7 @@ class _$InitialImpl extends _Initial {
   const _$InitialImpl(this.products) : super._();
 
   @override
-  final Fresh<List<Product>> products;
+  final Fresh<List<ProductItem>> products;
 
   @override
   String toString() {
@@ -189,7 +202,9 @@ class _$InitialImpl extends _Initial {
   @override
   int get hashCode => Object.hash(runtimeType, products);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DashboardProductsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>
@@ -198,14 +213,15 @@ class _$InitialImpl extends _Initial {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Fresh<List<Product>> products) initial,
-    required TResult Function(Fresh<List<Product>> products, int itemsPerPage)
+    required TResult Function(Fresh<List<ProductItem>> products) initial,
+    required TResult Function(
+            Fresh<List<ProductItem>> products, int itemsPerPage)
         loadInProgress,
     required TResult Function(
-            Fresh<List<Product>> products, bool isNextPageAvailable)
+            Fresh<List<ProductItem>> products, bool isNextPageAvailable)
         loadSuccess,
     required TResult Function(
-            Fresh<List<Product>> products, ProductFailure failure)
+            Fresh<List<ProductItem>> products, ProductItemFailure failure)
         loadFailure,
   }) {
     return initial(products);
@@ -214,12 +230,14 @@ class _$InitialImpl extends _Initial {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Fresh<List<Product>> products)? initial,
-    TResult? Function(Fresh<List<Product>> products, int itemsPerPage)?
+    TResult? Function(Fresh<List<ProductItem>> products)? initial,
+    TResult? Function(Fresh<List<ProductItem>> products, int itemsPerPage)?
         loadInProgress,
-    TResult? Function(Fresh<List<Product>> products, bool isNextPageAvailable)?
+    TResult? Function(
+            Fresh<List<ProductItem>> products, bool isNextPageAvailable)?
         loadSuccess,
-    TResult? Function(Fresh<List<Product>> products, ProductFailure failure)?
+    TResult? Function(
+            Fresh<List<ProductItem>> products, ProductItemFailure failure)?
         loadFailure,
   }) {
     return initial?.call(products);
@@ -228,12 +246,14 @@ class _$InitialImpl extends _Initial {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Fresh<List<Product>> products)? initial,
-    TResult Function(Fresh<List<Product>> products, int itemsPerPage)?
+    TResult Function(Fresh<List<ProductItem>> products)? initial,
+    TResult Function(Fresh<List<ProductItem>> products, int itemsPerPage)?
         loadInProgress,
-    TResult Function(Fresh<List<Product>> products, bool isNextPageAvailable)?
+    TResult Function(
+            Fresh<List<ProductItem>> products, bool isNextPageAvailable)?
         loadSuccess,
-    TResult Function(Fresh<List<Product>> products, ProductFailure failure)?
+    TResult Function(
+            Fresh<List<ProductItem>> products, ProductItemFailure failure)?
         loadFailure,
     required TResult orElse(),
   }) {
@@ -282,13 +302,17 @@ class _$InitialImpl extends _Initial {
 }
 
 abstract class _Initial extends DashboardProductsState {
-  const factory _Initial(final Fresh<List<Product>> products) = _$InitialImpl;
+  const factory _Initial(final Fresh<List<ProductItem>> products) =
+      _$InitialImpl;
   const _Initial._() : super._();
 
   @override
-  Fresh<List<Product>> get products;
+  Fresh<List<ProductItem>> get products;
+
+  /// Create a copy of DashboardProductsState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -301,10 +325,10 @@ abstract class _$$LoadInProgressImplCopyWith<$Res>
       __$$LoadInProgressImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Fresh<List<Product>> products, int itemsPerPage});
+  $Res call({Fresh<List<ProductItem>> products, int itemsPerPage});
 
   @override
-  $FreshCopyWith<List<Product>, $Res> get products;
+  $FreshCopyWith<List<ProductItem>, $Res> get products;
 }
 
 /// @nodoc
@@ -315,6 +339,8 @@ class __$$LoadInProgressImplCopyWithImpl<$Res>
       _$LoadInProgressImpl _value, $Res Function(_$LoadInProgressImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of DashboardProductsState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -325,7 +351,7 @@ class __$$LoadInProgressImplCopyWithImpl<$Res>
       null == products
           ? _value.products
           : products // ignore: cast_nullable_to_non_nullable
-              as Fresh<List<Product>>,
+              as Fresh<List<ProductItem>>,
       null == itemsPerPage
           ? _value.itemsPerPage
           : itemsPerPage // ignore: cast_nullable_to_non_nullable
@@ -340,7 +366,7 @@ class _$LoadInProgressImpl extends _LoadInProgress {
   const _$LoadInProgressImpl(this.products, this.itemsPerPage) : super._();
 
   @override
-  final Fresh<List<Product>> products;
+  final Fresh<List<ProductItem>> products;
   @override
   final int itemsPerPage;
 
@@ -363,7 +389,9 @@ class _$LoadInProgressImpl extends _LoadInProgress {
   @override
   int get hashCode => Object.hash(runtimeType, products, itemsPerPage);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DashboardProductsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LoadInProgressImplCopyWith<_$LoadInProgressImpl> get copyWith =>
@@ -373,14 +401,15 @@ class _$LoadInProgressImpl extends _LoadInProgress {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Fresh<List<Product>> products) initial,
-    required TResult Function(Fresh<List<Product>> products, int itemsPerPage)
+    required TResult Function(Fresh<List<ProductItem>> products) initial,
+    required TResult Function(
+            Fresh<List<ProductItem>> products, int itemsPerPage)
         loadInProgress,
     required TResult Function(
-            Fresh<List<Product>> products, bool isNextPageAvailable)
+            Fresh<List<ProductItem>> products, bool isNextPageAvailable)
         loadSuccess,
     required TResult Function(
-            Fresh<List<Product>> products, ProductFailure failure)
+            Fresh<List<ProductItem>> products, ProductItemFailure failure)
         loadFailure,
   }) {
     return loadInProgress(products, itemsPerPage);
@@ -389,12 +418,14 @@ class _$LoadInProgressImpl extends _LoadInProgress {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Fresh<List<Product>> products)? initial,
-    TResult? Function(Fresh<List<Product>> products, int itemsPerPage)?
+    TResult? Function(Fresh<List<ProductItem>> products)? initial,
+    TResult? Function(Fresh<List<ProductItem>> products, int itemsPerPage)?
         loadInProgress,
-    TResult? Function(Fresh<List<Product>> products, bool isNextPageAvailable)?
+    TResult? Function(
+            Fresh<List<ProductItem>> products, bool isNextPageAvailable)?
         loadSuccess,
-    TResult? Function(Fresh<List<Product>> products, ProductFailure failure)?
+    TResult? Function(
+            Fresh<List<ProductItem>> products, ProductItemFailure failure)?
         loadFailure,
   }) {
     return loadInProgress?.call(products, itemsPerPage);
@@ -403,12 +434,14 @@ class _$LoadInProgressImpl extends _LoadInProgress {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Fresh<List<Product>> products)? initial,
-    TResult Function(Fresh<List<Product>> products, int itemsPerPage)?
+    TResult Function(Fresh<List<ProductItem>> products)? initial,
+    TResult Function(Fresh<List<ProductItem>> products, int itemsPerPage)?
         loadInProgress,
-    TResult Function(Fresh<List<Product>> products, bool isNextPageAvailable)?
+    TResult Function(
+            Fresh<List<ProductItem>> products, bool isNextPageAvailable)?
         loadSuccess,
-    TResult Function(Fresh<List<Product>> products, ProductFailure failure)?
+    TResult Function(
+            Fresh<List<ProductItem>> products, ProductItemFailure failure)?
         loadFailure,
     required TResult orElse(),
   }) {
@@ -458,15 +491,18 @@ class _$LoadInProgressImpl extends _LoadInProgress {
 
 abstract class _LoadInProgress extends DashboardProductsState {
   const factory _LoadInProgress(
-          final Fresh<List<Product>> products, final int itemsPerPage) =
+          final Fresh<List<ProductItem>> products, final int itemsPerPage) =
       _$LoadInProgressImpl;
   const _LoadInProgress._() : super._();
 
   @override
-  Fresh<List<Product>> get products;
+  Fresh<List<ProductItem>> get products;
   int get itemsPerPage;
+
+  /// Create a copy of DashboardProductsState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LoadInProgressImplCopyWith<_$LoadInProgressImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -479,10 +515,10 @@ abstract class _$$LoadSuccessImplCopyWith<$Res>
       __$$LoadSuccessImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Fresh<List<Product>> products, bool isNextPageAvailable});
+  $Res call({Fresh<List<ProductItem>> products, bool isNextPageAvailable});
 
   @override
-  $FreshCopyWith<List<Product>, $Res> get products;
+  $FreshCopyWith<List<ProductItem>, $Res> get products;
 }
 
 /// @nodoc
@@ -493,6 +529,8 @@ class __$$LoadSuccessImplCopyWithImpl<$Res>
       _$LoadSuccessImpl _value, $Res Function(_$LoadSuccessImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of DashboardProductsState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -503,7 +541,7 @@ class __$$LoadSuccessImplCopyWithImpl<$Res>
       null == products
           ? _value.products
           : products // ignore: cast_nullable_to_non_nullable
-              as Fresh<List<Product>>,
+              as Fresh<List<ProductItem>>,
       isNextPageAvailable: null == isNextPageAvailable
           ? _value.isNextPageAvailable
           : isNextPageAvailable // ignore: cast_nullable_to_non_nullable
@@ -519,7 +557,7 @@ class _$LoadSuccessImpl extends _LoadSuccess {
       : super._();
 
   @override
-  final Fresh<List<Product>> products;
+  final Fresh<List<ProductItem>> products;
   @override
   final bool isNextPageAvailable;
 
@@ -542,7 +580,9 @@ class _$LoadSuccessImpl extends _LoadSuccess {
   @override
   int get hashCode => Object.hash(runtimeType, products, isNextPageAvailable);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DashboardProductsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LoadSuccessImplCopyWith<_$LoadSuccessImpl> get copyWith =>
@@ -551,14 +591,15 @@ class _$LoadSuccessImpl extends _LoadSuccess {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Fresh<List<Product>> products) initial,
-    required TResult Function(Fresh<List<Product>> products, int itemsPerPage)
+    required TResult Function(Fresh<List<ProductItem>> products) initial,
+    required TResult Function(
+            Fresh<List<ProductItem>> products, int itemsPerPage)
         loadInProgress,
     required TResult Function(
-            Fresh<List<Product>> products, bool isNextPageAvailable)
+            Fresh<List<ProductItem>> products, bool isNextPageAvailable)
         loadSuccess,
     required TResult Function(
-            Fresh<List<Product>> products, ProductFailure failure)
+            Fresh<List<ProductItem>> products, ProductItemFailure failure)
         loadFailure,
   }) {
     return loadSuccess(products, isNextPageAvailable);
@@ -567,12 +608,14 @@ class _$LoadSuccessImpl extends _LoadSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Fresh<List<Product>> products)? initial,
-    TResult? Function(Fresh<List<Product>> products, int itemsPerPage)?
+    TResult? Function(Fresh<List<ProductItem>> products)? initial,
+    TResult? Function(Fresh<List<ProductItem>> products, int itemsPerPage)?
         loadInProgress,
-    TResult? Function(Fresh<List<Product>> products, bool isNextPageAvailable)?
+    TResult? Function(
+            Fresh<List<ProductItem>> products, bool isNextPageAvailable)?
         loadSuccess,
-    TResult? Function(Fresh<List<Product>> products, ProductFailure failure)?
+    TResult? Function(
+            Fresh<List<ProductItem>> products, ProductItemFailure failure)?
         loadFailure,
   }) {
     return loadSuccess?.call(products, isNextPageAvailable);
@@ -581,12 +624,14 @@ class _$LoadSuccessImpl extends _LoadSuccess {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Fresh<List<Product>> products)? initial,
-    TResult Function(Fresh<List<Product>> products, int itemsPerPage)?
+    TResult Function(Fresh<List<ProductItem>> products)? initial,
+    TResult Function(Fresh<List<ProductItem>> products, int itemsPerPage)?
         loadInProgress,
-    TResult Function(Fresh<List<Product>> products, bool isNextPageAvailable)?
+    TResult Function(
+            Fresh<List<ProductItem>> products, bool isNextPageAvailable)?
         loadSuccess,
-    TResult Function(Fresh<List<Product>> products, ProductFailure failure)?
+    TResult Function(
+            Fresh<List<ProductItem>> products, ProductItemFailure failure)?
         loadFailure,
     required TResult orElse(),
   }) {
@@ -635,15 +680,18 @@ class _$LoadSuccessImpl extends _LoadSuccess {
 }
 
 abstract class _LoadSuccess extends DashboardProductsState {
-  const factory _LoadSuccess(final Fresh<List<Product>> products,
+  const factory _LoadSuccess(final Fresh<List<ProductItem>> products,
       {required final bool isNextPageAvailable}) = _$LoadSuccessImpl;
   const _LoadSuccess._() : super._();
 
   @override
-  Fresh<List<Product>> get products;
+  Fresh<List<ProductItem>> get products;
   bool get isNextPageAvailable;
+
+  /// Create a copy of DashboardProductsState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LoadSuccessImplCopyWith<_$LoadSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -656,11 +704,11 @@ abstract class _$$LoadFailureImplCopyWith<$Res>
       __$$LoadFailureImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Fresh<List<Product>> products, ProductFailure failure});
+  $Res call({Fresh<List<ProductItem>> products, ProductItemFailure failure});
 
   @override
-  $FreshCopyWith<List<Product>, $Res> get products;
-  $ProductFailureCopyWith<$Res> get failure;
+  $FreshCopyWith<List<ProductItem>, $Res> get products;
+  $ProductItemFailureCopyWith<$Res> get failure;
 }
 
 /// @nodoc
@@ -671,6 +719,8 @@ class __$$LoadFailureImplCopyWithImpl<$Res>
       _$LoadFailureImpl _value, $Res Function(_$LoadFailureImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of DashboardProductsState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -681,18 +731,20 @@ class __$$LoadFailureImplCopyWithImpl<$Res>
       null == products
           ? _value.products
           : products // ignore: cast_nullable_to_non_nullable
-              as Fresh<List<Product>>,
+              as Fresh<List<ProductItem>>,
       null == failure
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
-              as ProductFailure,
+              as ProductItemFailure,
     ));
   }
 
+  /// Create a copy of DashboardProductsState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $ProductFailureCopyWith<$Res> get failure {
-    return $ProductFailureCopyWith<$Res>(_value.failure, (value) {
+  $ProductItemFailureCopyWith<$Res> get failure {
+    return $ProductItemFailureCopyWith<$Res>(_value.failure, (value) {
       return _then(_value.copyWith(failure: value));
     });
   }
@@ -704,9 +756,9 @@ class _$LoadFailureImpl extends _LoadFailure {
   const _$LoadFailureImpl(this.products, this.failure) : super._();
 
   @override
-  final Fresh<List<Product>> products;
+  final Fresh<List<ProductItem>> products;
   @override
-  final ProductFailure failure;
+  final ProductItemFailure failure;
 
   @override
   String toString() {
@@ -726,7 +778,9 @@ class _$LoadFailureImpl extends _LoadFailure {
   @override
   int get hashCode => Object.hash(runtimeType, products, failure);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DashboardProductsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LoadFailureImplCopyWith<_$LoadFailureImpl> get copyWith =>
@@ -735,14 +789,15 @@ class _$LoadFailureImpl extends _LoadFailure {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Fresh<List<Product>> products) initial,
-    required TResult Function(Fresh<List<Product>> products, int itemsPerPage)
+    required TResult Function(Fresh<List<ProductItem>> products) initial,
+    required TResult Function(
+            Fresh<List<ProductItem>> products, int itemsPerPage)
         loadInProgress,
     required TResult Function(
-            Fresh<List<Product>> products, bool isNextPageAvailable)
+            Fresh<List<ProductItem>> products, bool isNextPageAvailable)
         loadSuccess,
     required TResult Function(
-            Fresh<List<Product>> products, ProductFailure failure)
+            Fresh<List<ProductItem>> products, ProductItemFailure failure)
         loadFailure,
   }) {
     return loadFailure(products, failure);
@@ -751,12 +806,14 @@ class _$LoadFailureImpl extends _LoadFailure {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Fresh<List<Product>> products)? initial,
-    TResult? Function(Fresh<List<Product>> products, int itemsPerPage)?
+    TResult? Function(Fresh<List<ProductItem>> products)? initial,
+    TResult? Function(Fresh<List<ProductItem>> products, int itemsPerPage)?
         loadInProgress,
-    TResult? Function(Fresh<List<Product>> products, bool isNextPageAvailable)?
+    TResult? Function(
+            Fresh<List<ProductItem>> products, bool isNextPageAvailable)?
         loadSuccess,
-    TResult? Function(Fresh<List<Product>> products, ProductFailure failure)?
+    TResult? Function(
+            Fresh<List<ProductItem>> products, ProductItemFailure failure)?
         loadFailure,
   }) {
     return loadFailure?.call(products, failure);
@@ -765,12 +822,14 @@ class _$LoadFailureImpl extends _LoadFailure {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Fresh<List<Product>> products)? initial,
-    TResult Function(Fresh<List<Product>> products, int itemsPerPage)?
+    TResult Function(Fresh<List<ProductItem>> products)? initial,
+    TResult Function(Fresh<List<ProductItem>> products, int itemsPerPage)?
         loadInProgress,
-    TResult Function(Fresh<List<Product>> products, bool isNextPageAvailable)?
+    TResult Function(
+            Fresh<List<ProductItem>> products, bool isNextPageAvailable)?
         loadSuccess,
-    TResult Function(Fresh<List<Product>> products, ProductFailure failure)?
+    TResult Function(
+            Fresh<List<ProductItem>> products, ProductItemFailure failure)?
         loadFailure,
     required TResult orElse(),
   }) {
@@ -819,16 +878,18 @@ class _$LoadFailureImpl extends _LoadFailure {
 }
 
 abstract class _LoadFailure extends DashboardProductsState {
-  const factory _LoadFailure(
-          final Fresh<List<Product>> products, final ProductFailure failure) =
-      _$LoadFailureImpl;
+  const factory _LoadFailure(final Fresh<List<ProductItem>> products,
+      final ProductItemFailure failure) = _$LoadFailureImpl;
   const _LoadFailure._() : super._();
 
   @override
-  Fresh<List<Product>> get products;
-  ProductFailure get failure;
+  Fresh<List<ProductItem>> get products;
+  ProductItemFailure get failure;
+
+  /// Create a copy of DashboardProductsState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LoadFailureImplCopyWith<_$LoadFailureImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

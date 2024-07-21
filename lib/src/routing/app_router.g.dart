@@ -6,27 +6,26 @@ part of 'app_router.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$childWidgetHash() => r'1060049f8d6696058ec61376e7c5c65327015123';
+String _$childWidgetHash() => r'292a5926e117158420da5b39fcc0ae0fab92d866';
 
 /// See also [childWidget].
 @ProviderFor(childWidget)
-final childWidgetProvider =
-    AutoDisposeProvider<StatefulNavigationShell>.internal(
+final childWidgetProvider = Provider<StatefulNavigationShell>.internal(
   childWidget,
   name: r'childWidgetProvider',
   debugGetCreateSourceHash:
       const bool.fromEnvironment('dart.vm.product') ? null : _$childWidgetHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
+  dependencies: const <ProviderOrFamily>[],
+  allTransitiveDependencies: const <ProviderOrFamily>{},
 );
 
-typedef ChildWidgetRef = AutoDisposeProviderRef<StatefulNavigationShell>;
-String _$goRouterConfigHash() => r'6ad0701945d533661c5586919593419d21217c31';
+typedef ChildWidgetRef = ProviderRef<StatefulNavigationShell>;
+String _$goRouterConfigHash() => r'55a7aff5908306099d7bae5b0c2fff93b8a9c39d';
 
 /// See also [GoRouterConfig].
 @ProviderFor(GoRouterConfig)
 final goRouterConfigProvider =
-    AutoDisposeNotifierProvider<GoRouterConfig, GoRouter>.internal(
+    NotifierProvider<GoRouterConfig, GoRouter>.internal(
   GoRouterConfig.new,
   name: r'goRouterConfigProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
@@ -36,6 +35,6 @@ final goRouterConfigProvider =
   allTransitiveDependencies: null,
 );
 
-typedef _$GoRouterConfig = AutoDisposeNotifier<GoRouter>;
+typedef _$GoRouterConfig = Notifier<GoRouter>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

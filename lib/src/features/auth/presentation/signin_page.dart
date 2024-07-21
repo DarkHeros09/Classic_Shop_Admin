@@ -28,6 +28,9 @@ class _SignInPageState extends ConsumerState<SignInPage> {
   @override
   void initState() {
     super.initState();
+    if (mounted && context.canPop()) {
+      context.pop();
+    }
     formKey = GlobalKey<FormBuilderState>();
     emailController = TextEditingController();
     passwordController = TextEditingController();

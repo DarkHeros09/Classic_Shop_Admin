@@ -1,7 +1,8 @@
 import 'package:classic_shop_admin/src/features/dashboard/shared/providers.dart';
-import 'package:classic_shop_admin/src/features/products/core/presentation/widgets/loading_product_card.dart';
-import 'package:classic_shop_admin/src/features/products/core/presentation/widgets/product_card.dart';
-import 'package:classic_shop_admin/src/features/products/helper/enums.dart';
+import 'package:classic_shop_admin/src/features/product_items/core/presentation/widgets/loading_product_card.dart';
+import 'package:classic_shop_admin/src/features/product_items/core/presentation/widgets/product_card.dart';
+import 'package:classic_shop_admin/src/features/product_items/helper/enums.dart';
+import 'package:classic_shop_admin/src/helpers/riverpod_observer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
@@ -52,6 +53,9 @@ class _ProductsCardsState extends ConsumerState<ProductsCards> {
         mainAxisSpacing: 12,
         crossAxisSpacing: 16,
         itemBuilder: (context, index) => ProviderScope(
+          observers: [
+            RiverpodObserver(),
+          ],
           key: UniqueKey(),
           overrides: [productCardIndexProvider.overrideWithValue(index)],
           child: Center(

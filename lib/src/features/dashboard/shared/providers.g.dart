@@ -6,21 +6,21 @@ part of 'providers.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$productCardIndexHash() => r'12b873582253a6ca90d0edd0dd194003876d91a7';
+String _$productCardIndexHash() => r'412d2fe91212155acb429e4ffb13b0623603ed4e';
 
 /// See also [productCardIndex].
 @ProviderFor(productCardIndex)
-final productCardIndexProvider = AutoDisposeProvider<int>.internal(
+final productCardIndexProvider = Provider<int>.internal(
   productCardIndex,
   name: r'productCardIndexProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
       : _$productCardIndexHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
+  dependencies: const <ProviderOrFamily>[],
+  allTransitiveDependencies: const <ProviderOrFamily>{},
 );
 
-typedef ProductCardIndexRef = AutoDisposeProviderRef<int>;
+typedef ProductCardIndexRef = ProviderRef<int>;
 String _$dashboardApiHash() => r'516727571ea7cb0378ebfdad7dac2e1bd75ff5d1';
 
 /// See also [dashboardApi].

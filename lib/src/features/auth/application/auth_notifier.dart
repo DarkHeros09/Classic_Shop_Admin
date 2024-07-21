@@ -50,7 +50,18 @@ class AuthNotifier extends _$AuthNotifier {
   AuthState build() {
     _authRemoteService = ref.watch(authRemoteServiceProvider);
     _userStorage = ref.watch(userStorageProvider);
-    _userStorage.read().then((value) => _authUser.value = value?.toDomain());
+    _authRemoteService.getSignedInCredentials().then(
+      (credentialsValue) {
+        debugPrint('REDIRECT CALLED ${credentialsValue?.canRefresh}');
+        if (credentialsValue != null) {
+          credentialsValue.admin != null
+              ? _authUser.value = credentialsValue.admin?.toDomain()
+              : signOut();
+        } else {
+          signOut();
+        }
+      },
+    );
     ref.onDispose(dispose);
     return state = AuthState.initial(_authUser);
   }
@@ -97,6 +108,7 @@ class AuthNotifier extends _$AuthNotifier {
 
   Future<void> forcedSignOut() async {
     _authUser.value = null;
+    await _userStorage.clear();
     state = AuthState.unauthenticated(_authUser);
   }
 }

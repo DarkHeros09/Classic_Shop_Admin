@@ -30,8 +30,12 @@ mixin _$DashboardDTO {
   @JsonKey(defaultValue: 0)
   int get totalRevenue => throw _privateConstructorUsedError;
 
+  /// Serializes this DashboardDTO to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of DashboardDTO
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $DashboardDTOCopyWith<DashboardDTO> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -63,6 +67,8 @@ class _$DashboardDTOCopyWithImpl<$Res, $Val extends DashboardDTO>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of DashboardDTO
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -139,6 +145,8 @@ class __$$DashboardDTOImplCopyWithImpl<$Res>
       _$DashboardDTOImpl _value, $Res Function(_$DashboardDTOImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of DashboardDTO
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -251,7 +259,7 @@ class _$DashboardDTOImpl extends _DashboardDTO {
                 other.totalRevenue == totalRevenue));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -264,7 +272,9 @@ class _$DashboardDTOImpl extends _DashboardDTO {
       todayRevenue,
       totalRevenue);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DashboardDTO
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DashboardDTOImplCopyWith<_$DashboardDTOImpl> get copyWith =>
@@ -311,8 +321,11 @@ abstract class _DashboardDTO extends DashboardDTO {
   @override
   @JsonKey(defaultValue: 0)
   int get totalRevenue;
+
+  /// Create a copy of DashboardDTO
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DashboardDTOImplCopyWith<_$DashboardDTOImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

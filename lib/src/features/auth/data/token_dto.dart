@@ -36,5 +36,11 @@ class TokenDTO with _$TokenDTO {
   //   return isAccessExpired && isRefreshExpired;
   // }
 
-  bool get canRefresh => refreshToken != null;
+  bool get canRefresh {
+    final expiration = refreshExpiration;
+    if (expiration != null) {
+      return refreshToken != null && DateTime.now().isAfter(expiration);
+    }
+    return false;
+  }
 }

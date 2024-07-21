@@ -27,17 +27,18 @@ class AuthRemoteService {
       final storedtoken = await _credentialsStorage.read();
       debugPrint('stored1: $storedtoken');
 
-      if (storedtoken != null &&
-          storedtoken.canRefresh &&
-          storedtoken.isExpired) {
-        debugPrint('TRRRUUUUEEEEE');
-        final failureOrCredentials = await renewAccessToken(storedtoken);
-        return failureOrCredentials.fold(
-          (l) async => null,
-          (r) => r,
-        );
+      if (storedtoken != null && storedtoken.canRefresh) {
+        if (storedtoken.isExpired) {
+          debugPrint('TRRRUUUUEEEEE');
+          final failureOrCredentials = await renewAccessToken(storedtoken);
+          return failureOrCredentials.fold(
+            (l) async => null,
+            (r) => r,
+          );
+        }
+        return storedtoken;
       }
-      return storedtoken;
+      return null;
     } on PlatformException {
       return null;
     }
@@ -116,6 +117,8 @@ class AuthRemoteService {
         },
       );
 
+      debugPrint('stored1: ${response.statusCode}');
+      debugPrint('stored1: ${response.body}');
       if (!response.isSuccessful) {
         final error = response.error;
         final statusCode = response.statusCode;

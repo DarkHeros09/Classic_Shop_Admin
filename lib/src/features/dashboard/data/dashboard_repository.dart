@@ -28,7 +28,7 @@ class DashboardRepository {
       // if (user != null) {
       final requestUri = Uri.http(
         Env.httpAddress,
-        '/usr/v1/users/$adminId/dashboard',
+        '/admin/v1/admins/$adminId/dashboard',
       );
       final dashboard = await _remoteService.fetchDashboard(
         adminId: adminId,

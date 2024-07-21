@@ -4,6 +4,7 @@ import 'package:classic_shop_admin/src/features/dashboard/data/dashboard_reposit
 import 'package:classic_shop_admin/src/features/dashboard/domain/dashboard.dart';
 import 'package:classic_shop_admin/src/features/dashboard/domain/dashboard_failure.dart';
 import 'package:classic_shop_admin/src/features/dashboard/shared/providers.dart';
+import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 

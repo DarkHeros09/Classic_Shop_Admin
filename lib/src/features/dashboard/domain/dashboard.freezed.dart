@@ -25,7 +25,9 @@ mixin _$Dashboard {
   String get dailyRevenue => throw _privateConstructorUsedError;
   int get totalRevenue => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Dashboard
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $DashboardCopyWith<Dashboard> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -56,6 +58,8 @@ class _$DashboardCopyWithImpl<$Res, $Val extends Dashboard>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Dashboard
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -132,6 +136,8 @@ class __$$DashboardImplCopyWithImpl<$Res>
       _$DashboardImpl _value, $Res Function(_$DashboardImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Dashboard
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -252,7 +258,9 @@ class _$DashboardImpl extends _Dashboard {
       dailyRevenue,
       totalRevenue);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Dashboard
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DashboardImplCopyWith<_$DashboardImpl> get copyWith =>
@@ -287,8 +295,11 @@ abstract class _Dashboard extends Dashboard {
   String get dailyRevenue;
   @override
   int get totalRevenue;
+
+  /// Create a copy of Dashboard
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DashboardImplCopyWith<_$DashboardImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,35 +1,36 @@
 import 'package:classic_shop_admin/src/core/domain/fresh.dart';
-import 'package:classic_shop_admin/src/features/products/core/application/paginated_products_notifier.dart';
-import 'package:classic_shop_admin/src/features/products/core/domain/product.dart';
-import 'package:classic_shop_admin/src/features/products/core/domain/product_failure.dart';
-import 'package:classic_shop_admin/src/features/products/core/shared/providers.dart';
-import 'package:classic_shop_admin/src/features/products/helper/enums.dart';
-import 'package:classic_shop_admin/src/features/products/listed_products/data/list_products_repository.dart';
+import 'package:classic_shop_admin/src/features/product_items/core/application/paginated_products_notifier.dart';
+import 'package:classic_shop_admin/src/features/product_items/core/domain/product_item.dart';
+import 'package:classic_shop_admin/src/features/product_items/core/domain/product_item_failure.dart';
+import 'package:classic_shop_admin/src/features/product_items/core/shared/providers.dart';
+import 'package:classic_shop_admin/src/features/product_items/helper/enums.dart';
+import 'package:classic_shop_admin/src/features/product_items/listed_products/data/list_products_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'dashboard_products_notifier.freezed.dart';
 
-typedef RepositoryGetter = Future<Either<ProductFailure, Fresh<List<Product>>>>
-    Function(int page, int lastItemId);
+typedef RepositoryGetter
+    = Future<Either<ProductItemFailure, Fresh<List<ProductItem>>>> Function(
+        int page, int lastItemId);
 
 @freezed
 class DashboardProductsState with _$DashboardProductsState {
   const DashboardProductsState._();
   const factory DashboardProductsState.initial(
-    Fresh<List<Product>> products,
+    Fresh<List<ProductItem>> products,
   ) = _Initial;
   const factory DashboardProductsState.loadInProgress(
-    Fresh<List<Product>> products,
+    Fresh<List<ProductItem>> products,
     int itemsPerPage,
   ) = _LoadInProgress;
   const factory DashboardProductsState.loadSuccess(
-    Fresh<List<Product>> products, {
+    Fresh<List<ProductItem>> products, {
     required bool isNextPageAvailable,
   }) = _LoadSuccess;
   const factory DashboardProductsState.loadFailure(
-    Fresh<List<Product>> products,
-    ProductFailure failure,
+    Fresh<List<ProductItem>> products,
+    ProductItemFailure failure,
   ) = _LoadFailure;
 }
 

@@ -75,7 +75,9 @@ mixin _$AuthState {
   }) =>
       throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $AuthStateCopyWith<AuthState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -98,6 +100,8 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -131,6 +135,8 @@ class __$$InitialImplCopyWithImpl<$Res>
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -177,7 +183,9 @@ class _$InitialImpl extends _Initial with DiagnosticableTreeMixin {
   @override
   int get hashCode => Object.hash(runtimeType, user);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>
@@ -271,8 +279,11 @@ abstract class _Initial extends AuthState {
 
   @override
   InMemoryStore<User?> get user;
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -296,6 +307,8 @@ class __$$UnauthenticatedImplCopyWithImpl<$Res>
       _$UnauthenticatedImpl _value, $Res Function(_$UnauthenticatedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -343,7 +356,9 @@ class _$UnauthenticatedImpl extends _Unauthenticated
   @override
   int get hashCode => Object.hash(runtimeType, user);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UnauthenticatedImplCopyWith<_$UnauthenticatedImpl> get copyWith =>
@@ -439,8 +454,11 @@ abstract class _Unauthenticated extends AuthState {
 
   @override
   InMemoryStore<User?> get user;
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UnauthenticatedImplCopyWith<_$UnauthenticatedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -464,6 +482,8 @@ class __$$AuthenticatedImplCopyWithImpl<$Res>
       _$AuthenticatedImpl _value, $Res Function(_$AuthenticatedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -510,7 +530,9 @@ class _$AuthenticatedImpl extends _Authenticated with DiagnosticableTreeMixin {
   @override
   int get hashCode => Object.hash(runtimeType, user);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AuthenticatedImplCopyWith<_$AuthenticatedImpl> get copyWith =>
@@ -605,8 +627,11 @@ abstract class _Authenticated extends AuthState {
 
   @override
   InMemoryStore<User?> get user;
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AuthenticatedImplCopyWith<_$AuthenticatedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -630,6 +655,8 @@ class __$$LoadingImplCopyWithImpl<$Res>
       _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -676,7 +703,9 @@ class _$LoadingImpl extends _Loading with DiagnosticableTreeMixin {
   @override
   int get hashCode => Object.hash(runtimeType, user);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LoadingImplCopyWith<_$LoadingImpl> get copyWith =>
@@ -770,8 +799,11 @@ abstract class _Loading extends AuthState {
 
   @override
   InMemoryStore<User?> get user;
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LoadingImplCopyWith<_$LoadingImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -797,6 +829,8 @@ class __$$FailureImplCopyWithImpl<$Res>
       _$FailureImpl _value, $Res Function(_$FailureImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -815,6 +849,8 @@ class __$$FailureImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $AuthFailureCopyWith<$Res> get failure {
@@ -860,7 +896,9 @@ class _$FailureImpl extends _Failure with DiagnosticableTreeMixin {
   @override
   int get hashCode => Object.hash(runtimeType, user, failure);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FailureImplCopyWith<_$FailureImpl> get copyWith =>
@@ -957,8 +995,11 @@ abstract class _Failure extends AuthState {
   @override
   InMemoryStore<User?> get user;
   AuthFailure get failure;
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FailureImplCopyWith<_$FailureImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

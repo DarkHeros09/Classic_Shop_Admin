@@ -4,12 +4,12 @@ import 'package:classic_shop_admin/src/features/dashboard/data/dashboard_api.dar
 import 'package:classic_shop_admin/src/features/dashboard/data/dashboard_local_service.dart';
 import 'package:classic_shop_admin/src/features/dashboard/data/dashboard_remote_service.dart';
 import 'package:classic_shop_admin/src/features/dashboard/data/dashboard_repository.dart';
-import 'package:classic_shop_admin/src/features/products/core/application/paginated_products_notifier.dart';
+import 'package:classic_shop_admin/src/features/product_items/core/application/paginated_products_notifier.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'providers.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true, dependencies: [])
 int productCardIndex(ProductCardIndexRef ref) => throw UnimplementedError();
 
 final dashboardProductsNotifierProvider = NotifierProvider.autoDispose<

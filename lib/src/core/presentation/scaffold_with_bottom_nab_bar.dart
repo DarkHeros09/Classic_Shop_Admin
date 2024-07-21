@@ -30,6 +30,9 @@ class BottomNavBar extends HookConsumerWidget {
         );
       },
       type: BottomNavigationBarType.fixed,
+      // backgroundColor: Colors.black, // <-- This works for fixed
+      selectedItemColor: Colors.white,
+      unselectedItemColor: Colors.blueGrey.shade900,
       items: const [
         BottomNavigationBarItem(
           icon: Icon(Icons.home),
@@ -38,6 +41,10 @@ class BottomNavBar extends HookConsumerWidget {
         BottomNavigationBarItem(
           icon: Icon(Icons.dashboard),
           label: 'Dashboard',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.admin_panel_settings),
+          label: 'Manage',
         ),
       ],
     );
