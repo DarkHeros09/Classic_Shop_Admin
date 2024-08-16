@@ -5,14 +5,18 @@ import 'package:classic_shop_admin/src/features/product_items/core/data/product_
 import 'package:classic_shop_admin/src/features/product_items/core/data/product_item_remote_service.dart';
 import 'package:classic_shop_admin/src/features/product_items/helper/enums.dart';
 
-class SearchedProductsRemoteService extends ProductItemRemoteService {
-  SearchedProductsRemoteService(super.productApi, super.headersCache);
+class SearchedProductItemsRemoteService extends ProductItemRemoteService {
+  SearchedProductItemsRemoteService(
+    super.productApi,
+    super.productAdminApi,
+    super.headersCache,
+  );
 
   Future<RemoteResponse<List<ProductItemDTO>>> searchProducts({
     required String query,
   }) async {
     return super.fetchProducts(
-      productsFunction: ProductsFunction.searchProducts,
+      productItemsFunction: ProductItemsFunction.searchProducts,
       query: query,
       requestUri: Uri.http(
         Env.httpAddress,
@@ -31,7 +35,7 @@ class SearchedProductsRemoteService extends ProductItemRemoteService {
     required int lastProductId,
   }) async {
     return super.fetchProducts(
-      productsFunction: ProductsFunction.searchProductsNextPage,
+      productItemsFunction: ProductItemsFunction.searchProductsNextPage,
       query: query,
       lastItemId: lastItemId,
       requestUri: Uri.http(

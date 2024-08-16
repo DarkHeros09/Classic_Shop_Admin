@@ -1,8 +1,8 @@
 import 'package:classic_shop_admin/src/features/product_items/core/application/paginated_products_notifier.dart';
 import 'package:classic_shop_admin/src/features/product_items/core/presentation/widgets/failure_product_tile.dart';
 import 'package:classic_shop_admin/src/features/product_items/core/shared/providers.dart';
-import 'package:classic_shop_admin/src/features/product_items/searched_products/presentation/widgets/searched_products_grid_view.dart';
-import 'package:classic_shop_admin/src/features/product_items/searched_products/search_bar/presentation/widgets/search_bar.dart';
+import 'package:classic_shop_admin/src/features/product_items/searched_product_items/presentation/widgets/searched_products_grid_view.dart';
+import 'package:classic_shop_admin/src/features/product_items/searched_product_items/search_bar/presentation/widgets/search_bar.dart';
 import 'package:classic_shop_admin/src/helpers/toasts.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';

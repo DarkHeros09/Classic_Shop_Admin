@@ -43,7 +43,7 @@ class _HomePageState extends ConsumerState<HomePage> {
             await ref
                 .read(dashboardProductsNotifierProvider.notifier)
                 .getProductsPage(
-                  productsFunction: ProductsFunction.getProducts,
+                  productItemsFunction: ProductItemsFunction.getProducts,
                 );
           },
           child: NotificationListener<ScrollNotification>(
@@ -57,7 +57,8 @@ class _HomePageState extends ConsumerState<HomePage> {
                 ref
                     .read(dashboardProductsNotifierProvider.notifier)
                     .getProductsPage(
-                      productsFunction: ProductsFunction.getProductsNextPage,
+                      productItemsFunction:
+                          ProductItemsFunction.getProductsNextPage,
                     );
               }
               return false;

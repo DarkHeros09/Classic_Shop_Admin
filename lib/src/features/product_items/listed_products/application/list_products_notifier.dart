@@ -14,7 +14,7 @@ class ListProductsNotifier extends PaginatedProductsNotifier {
   }
 
   Future<void> getProductsPage({
-    required ProductsFunction productsFunction,
+    required ProductItemsFunction productItemsFunction,
     int? productId,
     int? categoryId,
     int? brandId,
@@ -32,7 +32,7 @@ class ListProductsNotifier extends PaginatedProductsNotifier {
         page,
         lastItemId: lastItemId,
         lastProductId: lastProductId,
-        productsFunction: productsFunction,
+        productItemsFunction: productItemsFunction,
         productId: productId,
         categoryId: categoryId,
         brandId: brandId,
@@ -45,7 +45,7 @@ class ListProductsNotifier extends PaginatedProductsNotifier {
         orderByLowPrice: orderByLowPrice,
         orderByHighPrice: orderByHighPrice,
       ),
-      productsFunction,
+      productItemsFunction,
     );
   }
 }

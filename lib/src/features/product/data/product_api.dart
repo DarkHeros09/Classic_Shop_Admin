@@ -9,6 +9,66 @@ import 'package:http/io_client.dart';
 
 part 'product_api.chopper.dart';
 
+@ChopperApi(baseUrl: 'http://${Env.httpAddress}/api/v1')
+abstract class ProductApi extends ChopperService {
+  static ProductApi create() {
+    final client = ChopperClient(
+      client: IOClient(
+        HttpClient()..connectionTimeout = const Duration(seconds: 10),
+      ),
+      services: [_$ProductApi()],
+      converter: const JsonConverter(),
+      errorConverter: const JsonConverter(),
+      interceptors: [
+        HttpLoggingInterceptor(),
+      ],
+    );
+
+    return _$ProductApi(client);
+  }
+
+  @Get(
+    path: '/products',
+  )
+  Future<Response<List<Map<String, dynamic>>>> getProducts({
+    @Header('If-None-Match') required String ifNoneMatch,
+  });
+
+  @Get(
+    path: '/products-v2',
+  )
+  Future<Response<List<Map<String, dynamic>>>> getProductsV2({
+    @Header('If-None-Match') required String ifNoneMatch,
+    @Query('limit') required int pageSize,
+  });
+
+  @Get(
+    path: '/products-next-page',
+  )
+  Future<Response<List<Map<String, dynamic>>>> getProductsNextPage({
+    @Header('If-None-Match') required String ifNoneMatch,
+    @Query('product_cursor') required int lastProductId,
+    @Query('limit') required int pageSize,
+  });
+
+  @Get(
+    path: '/search-products',
+  )
+  Future<Response<List<Map<String, dynamic>>>> searchProducts({
+    @Query() required String query,
+    @Query('limit') required int pageSize,
+  });
+
+  @Get(
+    path: '/search-products-next-page',
+  )
+  Future<Response<List<Map<String, dynamic>>>> searchProductsNextPage({
+    @Query() required String query,
+    @Query('product_cursor') required int lastProductId,
+    @Query('limit') required int pageSize,
+  });
+}
+
 @ChopperApi(baseUrl: 'http://${Env.httpAddress}/admin/v1')
 abstract class ProductAdminApi extends ChopperService {
   static ProductAdminApi create(Ref ref) {

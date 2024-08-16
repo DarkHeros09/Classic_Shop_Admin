@@ -7,7 +7,7 @@ part of 'paginated_products_notifier.dart';
 // **************************************************************************
 
 String _$paginatedProductsNotifierHash() =>
-    r'b6d3ebf34425f439cf42b58854982cd116737632';
+    r'3f6dbd19fac28483d710fae5a37bcf2d1ce3530a';
 
 /// See also [PaginatedProductsNotifier].
 @ProviderFor(PaginatedProductsNotifier)

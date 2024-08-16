@@ -1,8 +1,8 @@
 import 'package:classic_shop_admin/src/core/domain/fresh.dart';
-import 'package:classic_shop_admin/src/features/auth/shared/providers.dart';
 import 'package:classic_shop_admin/src/features/image/data/image_repository.dart';
 import 'package:classic_shop_admin/src/features/image/domain/image.dart';
 import 'package:classic_shop_admin/src/features/image/domain/image_failure.dart';
+import 'package:classic_shop_admin/src/features/image/helpers/enums.dart';
 import 'package:classic_shop_admin/src/features/image/shared/provider.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -11,43 +11,84 @@ part 'image_notifier.freezed.dart';
 part 'image_notifier.g.dart';
 
 @freezed
-class ImageState with _$ImageState {
-  const ImageState._();
-  const factory ImageState.initial(
-    Fresh<List<Image>> images,
+class ProductImageState with _$ProductImageState {
+  const ProductImageState._();
+  const factory ProductImageState.initial(
+    Fresh<List<ProductImage>> images,
   ) = _Initial;
-  const factory ImageState.loadInProgress(
-    Fresh<List<Image>> images,
+  const factory ProductImageState.loadInProgress(
+    Fresh<List<ProductImage>> images,
   ) = _LoadInProgress;
-  const factory ImageState.loadSuccess(
-    Fresh<List<Image>> images, {
+  const factory ProductImageState.loadSuccess(
+    Fresh<List<ProductImage>> images, {
     required bool isNextPageAvailable,
   }) = _LoadSuccess;
-  const factory ImageState.loadFailure(
-    Fresh<List<Image>> images,
+  const factory ProductImageState.loadFailure(
+    Fresh<List<ProductImage>> images,
     ImageFailure failure,
   ) = _LoadFailure;
 }
 
 @Riverpod(keepAlive: true)
-class ImagesNotifier extends _$ImagesNotifier {
+class ProductImagesNotifier extends _$ProductImagesNotifier {
   late final ImageRepository _repository;
   @override
-  ImageState build() {
+  ProductImageState build() {
     _repository = ref.watch(imageRepositoryProvider);
-    return ImageState.initial(Fresh.yes([]));
+    return ProductImageState.initial(Fresh.yes([]));
   }
 
-  Future<void> fetchImages() async {
-    state = ImageState.loadInProgress(state.images);
-    final admin = await ref.read(userStorageProvider).read();
-    if (admin == null) {
-      return;
-    }
-    final failureOrImages = await _repository.fetchImages(adminId: admin.id);
-    state = failureOrImages.fold(
-      (l) => ImageState.loadFailure(state.images, l),
-      (r) => ImageState.loadSuccess(r, isNextPageAvailable: false),
+  int _page = 1;
+  int _lastProductImageId = 0;
+
+  Future<void> getProductImagesPage() async {
+    state = ProductImageState.loadInProgress(Fresh.yes([]));
+    _page = 1;
+    _lastProductImageId = 0;
+    final failureOrProductImages = await _repository.getImages(
+      _page,
+      imagesFunction: ImagesFunction.getImages,
+    );
+    state = failureOrProductImages.fold(
+      (l) => ProductImageState.loadFailure(state.images, l),
+      (r) {
+        _page++;
+        _lastProductImageId = r.entity.isEmpty ? 0 : r.entity.last.id;
+        return ProductImageState.loadSuccess(
+          r.copyWith(
+            entity: [
+              ...state.images.entity,
+              ...r.entity,
+            ],
+          ),
+          isNextPageAvailable: r.isNextPageAvailable ?? false,
+        );
+      },
+    );
+  }
+
+  Future<void> getProductImagesNextPage() async {
+    state = ProductImageState.loadInProgress(state.images);
+    final failureOrProductImages = await _repository.getImages(
+      _page,
+      imagesFunction: ImagesFunction.getImagesNextPage,
+      lastImageId: _lastProductImageId,
+    );
+    state = failureOrProductImages.fold(
+      (l) => ProductImageState.loadFailure(state.images, l),
+      (r) {
+        _page++;
+        _lastProductImageId = r.entity.isEmpty ? 0 : r.entity.last.id;
+        return ProductImageState.loadSuccess(
+          r.copyWith(
+            entity: [
+              ...state.images.entity,
+              ...r.entity,
+            ],
+          ),
+          isNextPageAvailable: r.isNextPageAvailable ?? false,
+        );
+      },
     );
   }
 }

@@ -24,6 +24,7 @@ mixin _$Product {
   bool get active => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
   DateTime get updatedAt => throw _privateConstructorUsedError;
+  bool get nextAvailable => throw _privateConstructorUsedError;
 
   /// Create a copy of Product
   /// with the given fields replaced by the non-null parameter values.
@@ -44,7 +45,8 @@ abstract class $ProductCopyWith<$Res> {
       int brandId,
       bool active,
       DateTime createdAt,
-      DateTime updatedAt});
+      DateTime updatedAt,
+      bool nextAvailable});
 }
 
 /// @nodoc
@@ -70,6 +72,7 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
     Object? active = null,
     Object? createdAt = null,
     Object? updatedAt = null,
+    Object? nextAvailable = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -104,6 +107,10 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      nextAvailable: null == nextAvailable
+          ? _value.nextAvailable
+          : nextAvailable // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -123,7 +130,8 @@ abstract class _$$ProductImplCopyWith<$Res> implements $ProductCopyWith<$Res> {
       int brandId,
       bool active,
       DateTime createdAt,
-      DateTime updatedAt});
+      DateTime updatedAt,
+      bool nextAvailable});
 }
 
 /// @nodoc
@@ -147,6 +155,7 @@ class __$$ProductImplCopyWithImpl<$Res>
     Object? active = null,
     Object? createdAt = null,
     Object? updatedAt = null,
+    Object? nextAvailable = null,
   }) {
     return _then(_$ProductImpl(
       id: null == id
@@ -181,6 +190,10 @@ class __$$ProductImplCopyWithImpl<$Res>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      nextAvailable: null == nextAvailable
+          ? _value.nextAvailable
+          : nextAvailable // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -196,7 +209,8 @@ class _$ProductImpl extends _Product {
       required this.brandId,
       required this.active,
       required this.createdAt,
-      required this.updatedAt})
+      required this.updatedAt,
+      required this.nextAvailable})
       : super._();
 
   @override
@@ -215,10 +229,12 @@ class _$ProductImpl extends _Product {
   final DateTime createdAt;
   @override
   final DateTime updatedAt;
+  @override
+  final bool nextAvailable;
 
   @override
   String toString() {
-    return 'Product(id: $id, name: $name, description: $description, categoryId: $categoryId, brandId: $brandId, active: $active, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'Product(id: $id, name: $name, description: $description, categoryId: $categoryId, brandId: $brandId, active: $active, createdAt: $createdAt, updatedAt: $updatedAt, nextAvailable: $nextAvailable)';
   }
 
   @override
@@ -237,12 +253,14 @@ class _$ProductImpl extends _Product {
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt));
+                other.updatedAt == updatedAt) &&
+            (identical(other.nextAvailable, nextAvailable) ||
+                other.nextAvailable == nextAvailable));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, id, name, description,
-      categoryId, brandId, active, createdAt, updatedAt);
+      categoryId, brandId, active, createdAt, updatedAt, nextAvailable);
 
   /// Create a copy of Product
   /// with the given fields replaced by the non-null parameter values.
@@ -262,7 +280,8 @@ abstract class _Product extends Product {
       required final int brandId,
       required final bool active,
       required final DateTime createdAt,
-      required final DateTime updatedAt}) = _$ProductImpl;
+      required final DateTime updatedAt,
+      required final bool nextAvailable}) = _$ProductImpl;
   const _Product._() : super._();
 
   @override
@@ -281,6 +300,8 @@ abstract class _Product extends Product {
   DateTime get createdAt;
   @override
   DateTime get updatedAt;
+  @override
+  bool get nextAvailable;
 
   /// Create a copy of Product
   /// with the given fields replaced by the non-null parameter values.

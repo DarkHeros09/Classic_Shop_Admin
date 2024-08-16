@@ -28,11 +28,11 @@ class _ProductCrudState extends ConsumerState<ProductCrud> {
                     Text('Add/Edit Product', style: theme.textTheme.h4),
                     ShadButton.destructive(
                       onPressed: () {},
-                      text: const Text('Delete'),
+                      child: const Text('Delete'),
                     ),
                   ],
                 ),
-                content: ShadForm(
+                child: ShadForm(
                   key: formKey,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -120,12 +120,12 @@ class _ProductCrudState extends ConsumerState<ProductCrud> {
                         children: [
                           ShadButton.outline(
                             onPressed: () {},
-                            text: const Text('Delete'),
+                            child: const Text('Delete'),
                           ),
                           const SizedBox(width: 8),
                           ShadButton(
                             onPressed: () {},
-                            text: const Text('Save'),
+                            child: const Text('Save'),
                           ),
                         ],
                       ),

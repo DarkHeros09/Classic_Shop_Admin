@@ -60,7 +60,7 @@ class PaginatedProductsNotifier extends _$PaginatedProductsNotifier {
 
   Future<void> getPage(
     RepositoryGetter getter,
-    ProductsFunction productFunction,
+    ProductItemsFunction productFunction,
   ) async {
     // state = PaginatedProductsState.loadFailure(
     //   state.products,
@@ -72,54 +72,56 @@ class PaginatedProductsNotifier extends _$PaginatedProductsNotifier {
     );
     final failureOrProducts = await getter(
       switch (productFunction) {
-        ProductsFunction.getProducts => _page = 1,
-        ProductsFunction.getProductsNextPage => _page,
-        ProductsFunction.searchProducts => _pageSearch = 1,
-        ProductsFunction.searchProductsNextPage => _pageSearch,
-        ProductsFunction.getProductsWithPromotions => _pagePromotion = 1,
-        ProductsFunction.getProductsWithPromotionsNextPage => _pagePromotion,
-        ProductsFunction.getProductsWithBrandPromotions => _pageBrandPromotion =
-            1,
-        ProductsFunction.getProductsWithBrandPromotionsNextPage =>
+        ProductItemsFunction.getProducts => _page = 1,
+        ProductItemsFunction.getProductsNextPage => _page,
+        ProductItemsFunction.searchProducts => _pageSearch = 1,
+        ProductItemsFunction.searchProductsNextPage => _pageSearch,
+        ProductItemsFunction.getProductsWithPromotions => _pagePromotion = 1,
+        ProductItemsFunction.getProductsWithPromotionsNextPage =>
+          _pagePromotion,
+        ProductItemsFunction.getProductsWithBrandPromotions =>
+          _pageBrandPromotion = 1,
+        ProductItemsFunction.getProductsWithBrandPromotionsNextPage =>
           _pageBrandPromotion,
-        ProductsFunction.getProductsWithCategoryPromotions =>
+        ProductItemsFunction.getProductsWithCategoryPromotions =>
           _pageCategoryPromotion = 1,
-        ProductsFunction.getProductsWithCategoryPromotionsNextPage =>
+        ProductItemsFunction.getProductsWithCategoryPromotionsNextPage =>
           _pageCategoryPromotion,
       },
       switch (productFunction) {
-        ProductsFunction.getProducts => _lastItemId = 0,
-        ProductsFunction.getProductsNextPage => _lastItemId,
-        ProductsFunction.searchProducts => _lastItemIdSearch = 0,
-        ProductsFunction.searchProductsNextPage => _lastItemIdSearch,
-        ProductsFunction.getProductsWithPromotions => _lastItemIdPromotion = 0,
-        ProductsFunction.getProductsWithPromotionsNextPage =>
+        ProductItemsFunction.getProducts => _lastItemId = 0,
+        ProductItemsFunction.getProductsNextPage => _lastItemId,
+        ProductItemsFunction.searchProducts => _lastItemIdSearch = 0,
+        ProductItemsFunction.searchProductsNextPage => _lastItemIdSearch,
+        ProductItemsFunction.getProductsWithPromotions => _lastItemIdPromotion =
+            0,
+        ProductItemsFunction.getProductsWithPromotionsNextPage =>
           _lastItemIdPromotion,
-        ProductsFunction.getProductsWithBrandPromotions =>
+        ProductItemsFunction.getProductsWithBrandPromotions =>
           _lastItemIdBrandPromotion = 0,
-        ProductsFunction.getProductsWithBrandPromotionsNextPage =>
+        ProductItemsFunction.getProductsWithBrandPromotionsNextPage =>
           _lastItemIdBrandPromotion,
-        ProductsFunction.getProductsWithCategoryPromotions =>
+        ProductItemsFunction.getProductsWithCategoryPromotions =>
           _lastItemIdCategoryPromotion = 0,
-        ProductsFunction.getProductsWithCategoryPromotionsNextPage =>
+        ProductItemsFunction.getProductsWithCategoryPromotionsNextPage =>
           _lastItemIdCategoryPromotion,
       },
       switch (productFunction) {
-        ProductsFunction.getProducts => _lastProductId = 0,
-        ProductsFunction.getProductsNextPage => _lastProductId,
-        ProductsFunction.searchProducts => _lastProductIdSearch = 0,
-        ProductsFunction.searchProductsNextPage => _lastProductIdSearch,
-        ProductsFunction.getProductsWithPromotions => _lastProductIdPromotion =
-            0,
-        ProductsFunction.getProductsWithPromotionsNextPage =>
+        ProductItemsFunction.getProducts => _lastProductId = 0,
+        ProductItemsFunction.getProductsNextPage => _lastProductId,
+        ProductItemsFunction.searchProducts => _lastProductIdSearch = 0,
+        ProductItemsFunction.searchProductsNextPage => _lastProductIdSearch,
+        ProductItemsFunction.getProductsWithPromotions =>
+          _lastProductIdPromotion = 0,
+        ProductItemsFunction.getProductsWithPromotionsNextPage =>
           _lastProductIdPromotion,
-        ProductsFunction.getProductsWithBrandPromotions =>
+        ProductItemsFunction.getProductsWithBrandPromotions =>
           _lastProductIdBrandPromotion = 0,
-        ProductsFunction.getProductsWithBrandPromotionsNextPage =>
+        ProductItemsFunction.getProductsWithBrandPromotionsNextPage =>
           _lastProductIdBrandPromotion,
-        ProductsFunction.getProductsWithCategoryPromotions =>
+        ProductItemsFunction.getProductsWithCategoryPromotions =>
           _lastProductIdCategoryPromotion = 0,
-        ProductsFunction.getProductsWithCategoryPromotionsNextPage =>
+        ProductItemsFunction.getProductsWithCategoryPromotionsNextPage =>
           _lastProductIdCategoryPromotion,
       },
     );
@@ -127,37 +129,37 @@ class PaginatedProductsNotifier extends _$PaginatedProductsNotifier {
       (l) => PaginatedProductsState.loadFailure(state.products, l),
       (r) {
         switch (productFunction) {
-          case ProductsFunction.getProducts:
-          case ProductsFunction.getProductsNextPage:
+          case ProductItemsFunction.getProducts:
+          case ProductItemsFunction.getProductsNextPage:
             _page++;
             debugPrint(r.toString());
             _lastItemId = r.entity.isEmpty ? 0 : r.entity.last.id;
             _lastProductId = r.entity.isEmpty ? 0 : r.entity.last.productId;
 
-          case ProductsFunction.searchProducts:
-          case ProductsFunction.searchProductsNextPage:
+          case ProductItemsFunction.searchProducts:
+          case ProductItemsFunction.searchProductsNextPage:
             _pageSearch++;
             debugPrint(r.toString());
             _lastItemIdSearch = r.entity.isEmpty ? 0 : r.entity.last.id;
             _lastProductIdSearch =
                 r.entity.isEmpty ? 0 : r.entity.last.productId;
 
-          case ProductsFunction.getProductsWithPromotions:
-          case ProductsFunction.getProductsWithPromotionsNextPage:
+          case ProductItemsFunction.getProductsWithPromotions:
+          case ProductItemsFunction.getProductsWithPromotionsNextPage:
             _pagePromotion++;
             debugPrint(r.toString());
             _lastItemIdPromotion = r.entity.isEmpty ? 0 : r.entity.last.id;
             _lastProductIdPromotion =
                 r.entity.isEmpty ? 0 : r.entity.last.productId;
-          case ProductsFunction.getProductsWithBrandPromotions:
-          case ProductsFunction.getProductsWithBrandPromotionsNextPage:
+          case ProductItemsFunction.getProductsWithBrandPromotions:
+          case ProductItemsFunction.getProductsWithBrandPromotionsNextPage:
             _pageBrandPromotion++;
             debugPrint(r.toString());
             _lastItemIdBrandPromotion = r.entity.isEmpty ? 0 : r.entity.last.id;
             _lastProductIdBrandPromotion =
                 r.entity.isEmpty ? 0 : r.entity.last.productId;
-          case ProductsFunction.getProductsWithCategoryPromotions:
-          case ProductsFunction.getProductsWithCategoryPromotionsNextPage:
+          case ProductItemsFunction.getProductsWithCategoryPromotions:
+          case ProductItemsFunction.getProductsWithCategoryPromotionsNextPage:
             _pageCategoryPromotion++;
             debugPrint(r.toString());
             _lastItemIdCategoryPromotion =

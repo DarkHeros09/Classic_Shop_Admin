@@ -13,13 +13,18 @@ import 'package:classic_shop_admin/src/features/product_items/helper/enums.dart'
 import 'package:flutter/foundation.dart';
 
 abstract class ProductItemRemoteService {
-  ProductItemRemoteService(this._productApi, this._headersCache);
+  ProductItemRemoteService(
+    this._productApi,
+    this._productAdminApi,
+    this._headersCache,
+  );
 
   final ProductItemApi _productApi;
+  final ProductItemAdminApi _productAdminApi;
   final ResponseHeadersCache _headersCache;
 
   Future<RemoteResponse<List<ProductItemDTO>>> fetchProducts({
-    required ProductsFunction productsFunction,
+    required ProductItemsFunction productItemsFunction,
     required Uri requestUri,
     int? productId,
     int? categoryId,
@@ -42,8 +47,8 @@ abstract class ProductItemRemoteService {
     debugPrint(previousHeaders?.etag); //!
     try {
       late final Response<List<Map<String, dynamic>>> response;
-      switch (productsFunction) {
-        case ProductsFunction.getProducts:
+      switch (productItemsFunction) {
+        case ProductItemsFunction.getProducts:
           response = await _productApi.getProducts(
             ifNoneMatch: previousHeaders?.etag ?? '',
             pageSize: pageSize ?? PaginationConfig.itemsPerPage,
@@ -59,7 +64,7 @@ abstract class ProductItemRemoteService {
           debugPrint('response: ');
           debugPrint(response.toString());
 
-        case ProductsFunction.getProductsNextPage:
+        case ProductItemsFunction.getProductsNextPage:
           response = await _productApi.getProductsNextPage(
             ifNoneMatch: previousHeaders?.etag ?? '',
             pageSize: pageSize ?? PaginationConfig.itemsPerPage,
@@ -77,13 +82,13 @@ abstract class ProductItemRemoteService {
           debugPrint('response Next: ');
           debugPrint(response.toString());
 
-        case ProductsFunction.searchProducts:
+        case ProductItemsFunction.searchProducts:
           response = await _productApi.searchProducts(
             query: query ?? '',
             pageSize: pageSize ?? PaginationConfig.itemsPerPage,
           );
 
-        case ProductsFunction.searchProductsNextPage:
+        case ProductItemsFunction.searchProductsNextPage:
           response = await _productApi.searchProductsNextPage(
             query: query ?? '',
             pageSize: pageSize ?? PaginationConfig.itemsPerPage,
@@ -91,14 +96,14 @@ abstract class ProductItemRemoteService {
             lastProductId: lastProductId ?? 0,
           );
 
-        case ProductsFunction.getProductsWithPromotions:
+        case ProductItemsFunction.getProductsWithPromotions:
           response = await _productApi.getProductsWithPromotions(
             ifNoneMatch: previousHeaders?.etag ?? '',
             productId: productId ?? 0,
             pageSize: pageSize ?? PaginationConfig.itemsPerPage,
           );
 
-        case ProductsFunction.getProductsWithPromotionsNextPage:
+        case ProductItemsFunction.getProductsWithPromotionsNextPage:
           response = await _productApi.getProductsWithPromotionsNextPage(
             ifNoneMatch: previousHeaders?.etag ?? '',
             lastItemId: lastItemId ?? 0,
@@ -106,14 +111,14 @@ abstract class ProductItemRemoteService {
             pageSize: pageSize ?? PaginationConfig.itemsPerPage,
           );
 
-        case ProductsFunction.getProductsWithBrandPromotions:
+        case ProductItemsFunction.getProductsWithBrandPromotions:
           response = await _productApi.getProductsWithBrandPromotions(
             ifNoneMatch: previousHeaders?.etag ?? '',
             brandId: brandId ?? 0,
             pageSize: pageSize ?? PaginationConfig.itemsPerPage,
           );
 
-        case ProductsFunction.getProductsWithBrandPromotionsNextPage:
+        case ProductItemsFunction.getProductsWithBrandPromotionsNextPage:
           response = await _productApi.getProductsWithBrandPromotionsNextPage(
             ifNoneMatch: previousHeaders?.etag ?? '',
             brandId: brandId ?? 0,
@@ -122,14 +127,14 @@ abstract class ProductItemRemoteService {
             pageSize: pageSize ?? PaginationConfig.itemsPerPage,
           );
 
-        case ProductsFunction.getProductsWithCategoryPromotions:
+        case ProductItemsFunction.getProductsWithCategoryPromotions:
           response = await _productApi.getProductsWithCategoryPromotions(
             ifNoneMatch: previousHeaders?.etag ?? '',
             categoryId: categoryId ?? 0,
             pageSize: pageSize ?? PaginationConfig.itemsPerPage,
           );
 
-        case ProductsFunction.getProductsWithCategoryPromotionsNextPage:
+        case ProductItemsFunction.getProductsWithCategoryPromotionsNextPage:
           response =
               await _productApi.getProductsWithCategoryPromotionsNextPage(
             ifNoneMatch: previousHeaders?.etag ?? '',
@@ -178,6 +183,50 @@ abstract class ProductItemRemoteService {
       }
     } on SocketException {
       debugPrint('ZXZXNOCONN');
+      return const RemoteResponse.noConnection();
+    }
+  }
+
+  Future<RemoteResponse<ProductItemDTO>> createProductItem({
+    required int adminId,
+    required int productId,
+    required int sizeId,
+    required int imageId,
+    required int colorId,
+    required int productSku,
+    required int qtyInStock,
+    required String price,
+    required bool active,
+  }) async {
+    try {
+      final response = await _productAdminApi.createProductItem(
+        adminId: adminId.toString(),
+        data: {
+          'product_id': productId,
+          'size_id': sizeId,
+          'image_id': imageId,
+          'color_id': colorId,
+          'product_sku': productSku,
+          'qty_in_stock': qtyInStock,
+          'price': price,
+          'active': active,
+        },
+      );
+
+      if (!response.isSuccessful) {
+        throw RestApiException(response.statusCode);
+      }
+
+      final body = response.body;
+
+      if (body == null) {
+        throw const RestApiException();
+      }
+
+      final colorDTO = ProductItemDTO.fromJson(body);
+
+      return RemoteResponse.withNewData(colorDTO, nextAvailable: false);
+    } on SocketException {
       return const RemoteResponse.noConnection();
     }
   }

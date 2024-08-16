@@ -16,44 +16,43 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ProductItemFailure {
-  int? get errorCode => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(int? errorCode) api,
+    required TResult Function(String? message) server,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int? errorCode)? api,
+    TResult? Function(String? message)? server,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int? errorCode)? api,
+    TResult Function(String? message)? server,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Api value) api,
+    required TResult Function(_Server value) server,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Api value)? api,
+    TResult? Function(_Server value)? server,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Api value)? api,
+    TResult Function(_Server value)? server,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  /// Create a copy of ProductItemFailure
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $ProductItemFailureCopyWith<ProductItemFailure> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -62,8 +61,6 @@ abstract class $ProductItemFailureCopyWith<$Res> {
   factory $ProductItemFailureCopyWith(
           ProductItemFailure value, $Res Function(ProductItemFailure) then) =
       _$ProductItemFailureCopyWithImpl<$Res, ProductItemFailure>;
-  @useResult
-  $Res call({int? errorCode});
 }
 
 /// @nodoc
@@ -78,26 +75,12 @@ class _$ProductItemFailureCopyWithImpl<$Res, $Val extends ProductItemFailure>
 
   /// Create a copy of ProductItemFailure
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? errorCode = freezed,
-  }) {
-    return _then(_value.copyWith(
-      errorCode: freezed == errorCode
-          ? _value.errorCode
-          : errorCode // ignore: cast_nullable_to_non_nullable
-              as int?,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$ApiImplCopyWith<$Res>
-    implements $ProductItemFailureCopyWith<$Res> {
+abstract class _$$ApiImplCopyWith<$Res> {
   factory _$$ApiImplCopyWith(_$ApiImpl value, $Res Function(_$ApiImpl) then) =
       __$$ApiImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({int? errorCode});
 }
@@ -162,6 +145,7 @@ class _$ApiImpl extends _Api {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(int? errorCode) api,
+    required TResult Function(String? message) server,
   }) {
     return api(errorCode);
   }
@@ -170,6 +154,7 @@ class _$ApiImpl extends _Api {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int? errorCode)? api,
+    TResult? Function(String? message)? server,
   }) {
     return api?.call(errorCode);
   }
@@ -178,6 +163,7 @@ class _$ApiImpl extends _Api {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int? errorCode)? api,
+    TResult Function(String? message)? server,
     required TResult orElse(),
   }) {
     if (api != null) {
@@ -190,6 +176,7 @@ class _$ApiImpl extends _Api {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Api value) api,
+    required TResult Function(_Server value) server,
   }) {
     return api(this);
   }
@@ -198,6 +185,7 @@ class _$ApiImpl extends _Api {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Api value)? api,
+    TResult? Function(_Server value)? server,
   }) {
     return api?.call(this);
   }
@@ -206,6 +194,7 @@ class _$ApiImpl extends _Api {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Api value)? api,
+    TResult Function(_Server value)? server,
     required TResult orElse(),
   }) {
     if (api != null) {
@@ -219,13 +208,152 @@ abstract class _Api extends ProductItemFailure {
   const factory _Api(final int? errorCode) = _$ApiImpl;
   const _Api._() : super._();
 
-  @override
   int? get errorCode;
 
   /// Create a copy of ProductItemFailure
   /// with the given fields replaced by the non-null parameter values.
-  @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ApiImplCopyWith<_$ApiImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ServerImplCopyWith<$Res> {
+  factory _$$ServerImplCopyWith(
+          _$ServerImpl value, $Res Function(_$ServerImpl) then) =
+      __$$ServerImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String? message});
+}
+
+/// @nodoc
+class __$$ServerImplCopyWithImpl<$Res>
+    extends _$ProductItemFailureCopyWithImpl<$Res, _$ServerImpl>
+    implements _$$ServerImplCopyWith<$Res> {
+  __$$ServerImplCopyWithImpl(
+      _$ServerImpl _value, $Res Function(_$ServerImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ProductItemFailure
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = freezed,
+  }) {
+    return _then(_$ServerImpl(
+      freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ServerImpl extends _Server {
+  const _$ServerImpl(this.message) : super._();
+
+  @override
+  final String? message;
+
+  @override
+  String toString() {
+    return 'ProductItemFailure.server(message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ServerImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  /// Create a copy of ProductItemFailure
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ServerImplCopyWith<_$ServerImpl> get copyWith =>
+      __$$ServerImplCopyWithImpl<_$ServerImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int? errorCode) api,
+    required TResult Function(String? message) server,
+  }) {
+    return server(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int? errorCode)? api,
+    TResult? Function(String? message)? server,
+  }) {
+    return server?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int? errorCode)? api,
+    TResult Function(String? message)? server,
+    required TResult orElse(),
+  }) {
+    if (server != null) {
+      return server(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Api value) api,
+    required TResult Function(_Server value) server,
+  }) {
+    return server(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Api value)? api,
+    TResult? Function(_Server value)? server,
+  }) {
+    return server?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Api value)? api,
+    TResult Function(_Server value)? server,
+    required TResult orElse(),
+  }) {
+    if (server != null) {
+      return server(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Server extends ProductItemFailure {
+  const factory _Server(final String? message) = _$ServerImpl;
+  const _Server._() : super._();
+
+  String? get message;
+
+  /// Create a copy of ProductItemFailure
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ServerImplCopyWith<_$ServerImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

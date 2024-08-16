@@ -9,11 +9,9 @@ import 'package:http/io_client.dart';
 
 part 'image_api.chopper.dart';
 
-const normalheaders = {'Content-Type': 'application/json'};
-
-@ChopperApi(baseUrl: 'http://${Env.httpAddress}/admin/v1')
+@ChopperApi(baseUrl: 'http://${Env.httpAddress}/api/v1')
 abstract class ImageApi extends ChopperService {
-  static ImageApi create(Ref ref) {
+  static ImageApi create() {
     final client = ChopperClient(
       client: IOClient(
         HttpClient()..connectionTimeout = const Duration(seconds: 10),
@@ -23,12 +21,48 @@ abstract class ImageApi extends ChopperService {
       errorConverter: const JsonConverter(),
       interceptors: [
         HttpLoggingInterceptor(),
+      ],
+    );
+
+    return _$ImageApi(client);
+  }
+
+  @Get(
+    path: '/images-v2',
+  )
+  Future<Response<List<Map<String, dynamic>>>> getImagesV2({
+    @Header('If-None-Match') required String ifNoneMatch,
+    @Query('limit') required int pageSize,
+  });
+
+  @Get(
+    path: '/images-next-page',
+  )
+  Future<Response<List<Map<String, dynamic>>>> getImagesNextPage({
+    @Header('If-None-Match') required String ifNoneMatch,
+    @Query('product_cursor') required int lastImageId,
+    @Query('limit') required int pageSize,
+  });
+}
+
+@ChopperApi(baseUrl: 'http://${Env.httpAddress}/admin/v1')
+abstract class ImageAdminApi extends ChopperService {
+  static ImageAdminApi create(Ref ref) {
+    final client = ChopperClient(
+      client: IOClient(
+        HttpClient()..connectionTimeout = const Duration(seconds: 10),
+      ),
+      services: [_$ImageAdminApi()],
+      converter: const JsonConverter(),
+      errorConverter: const JsonConverter(),
+      interceptors: [
+        HttpLoggingInterceptor(),
         AuthInterceptor(ref: ref),
       ],
       authenticator: AuthInterceptor(ref: ref),
     );
 
-    return _$ImageApi(client);
+    return _$ImageAdminApi(client);
   }
 
   @Post(
@@ -41,7 +75,6 @@ abstract class ImageApi extends ChopperService {
 
   @Get(
     path: '/admins/{adminId}/product-images/kit',
-    headers: normalheaders,
   )
   Future<Response<List<Map<String, dynamic>>>> listProductImagesKit({
     @Header('If-None-Match') required String ifNoneMatch,

@@ -86,7 +86,7 @@ class ListProductsRepository {
 
   Future<Either<ProductItemFailure, Fresh<List<ProductItem>>>> getProducts(
     int page, {
-    required ProductsFunction productsFunction,
+    required ProductItemsFunction productItemsFunction,
     int? lastItemId,
     int? lastProductId,
     int? productId,
@@ -118,15 +118,15 @@ class ListProductsRepository {
         orderByLowPrice: orderByLowPrice,
         orderByHighPrice: orderByHighPrice,
       );
-      switch (productsFunction) {
-        case ProductsFunction.getProducts:
+      switch (productItemsFunction) {
+        case ProductItemsFunction.getProducts:
           requestUri = Uri.http(
             Env.httpAddress,
             '/api/v1/product-items-V2',
             queryParams,
           );
           remotePageProducts = await _remoteService.getProducts(
-            productsFunction: productsFunction,
+            productItemsFunction: productItemsFunction,
             requestUri: requestUri,
             pageSize: pageSize,
             categoryId: categoryId,
@@ -139,14 +139,14 @@ class ListProductsRepository {
             orderByHighPrice: orderByHighPrice,
           );
 
-        case ProductsFunction.getProductsNextPage:
+        case ProductItemsFunction.getProductsNextPage:
           requestUri = Uri.http(
             Env.httpAddress,
             '/api/v1/product-items-next-page',
             queryParams,
           );
           remotePageProducts = await _remoteService.getProducts(
-            productsFunction: productsFunction,
+            productItemsFunction: productItemsFunction,
             requestUri: requestUri,
             lastItemId: lastItemId,
             lastProductId: lastProductId,
@@ -161,27 +161,27 @@ class ListProductsRepository {
             orderByHighPrice: orderByHighPrice,
           );
 
-        case ProductsFunction.searchProducts:
+        case ProductItemsFunction.searchProducts:
           requestUri = Uri.http(
             Env.httpAddress,
             '/api/v1/search-product-items',
             queryParams,
           );
           remotePageProducts = await _remoteService.getProducts(
-            productsFunction: productsFunction,
+            productItemsFunction: productItemsFunction,
             requestUri: requestUri,
             pageSize: pageSize,
             query: query,
           );
 
-        case ProductsFunction.searchProductsNextPage:
+        case ProductItemsFunction.searchProductsNextPage:
           requestUri = Uri.http(
             Env.httpAddress,
             '/api/v1/search-product-items-next-page',
             queryParams,
           );
           remotePageProducts = await _remoteService.getProducts(
-            productsFunction: productsFunction,
+            productItemsFunction: productItemsFunction,
             query: query,
             requestUri: requestUri,
             pageSize: pageSize,
@@ -189,14 +189,14 @@ class ListProductsRepository {
             lastProductId: lastProductId,
           );
 
-        case ProductsFunction.getProductsWithPromotions:
+        case ProductItemsFunction.getProductsWithPromotions:
           requestUri = Uri.http(
             Env.httpAddress,
             '/api/v1/product-items-with-promotions',
             queryParams,
           );
           remotePageProducts = await _remoteService.getProducts(
-            productsFunction: productsFunction,
+            productItemsFunction: productItemsFunction,
             requestUri: requestUri,
             pageSize: pageSize,
             productId: productId,
@@ -210,14 +210,14 @@ class ListProductsRepository {
             orderByHighPrice: orderByHighPrice,
           );
 
-        case ProductsFunction.getProductsWithPromotionsNextPage:
+        case ProductItemsFunction.getProductsWithPromotionsNextPage:
           requestUri = Uri.http(
             Env.httpAddress,
             '/api/v1/product-items-with-promotions-next-page',
             queryParams,
           );
           remotePageProducts = await _remoteService.getProducts(
-            productsFunction: productsFunction,
+            productItemsFunction: productItemsFunction,
             requestUri: requestUri,
             lastItemId: lastItemId,
             lastProductId: lastProductId,
@@ -232,14 +232,14 @@ class ListProductsRepository {
             orderByHighPrice: orderByHighPrice,
           );
 
-        case ProductsFunction.getProductsWithBrandPromotions:
+        case ProductItemsFunction.getProductsWithBrandPromotions:
           requestUri = Uri.http(
             Env.httpAddress,
             '/api/v1/product-items-with-brand-promotions',
             queryParams,
           );
           remotePageProducts = await _remoteService.getProducts(
-            productsFunction: productsFunction,
+            productItemsFunction: productItemsFunction,
             requestUri: requestUri,
             pageSize: pageSize,
             categoryId: categoryId,
@@ -252,14 +252,14 @@ class ListProductsRepository {
             orderByHighPrice: orderByHighPrice,
           );
 
-        case ProductsFunction.getProductsWithBrandPromotionsNextPage:
+        case ProductItemsFunction.getProductsWithBrandPromotionsNextPage:
           requestUri = Uri.http(
             Env.httpAddress,
             '/api/v1/product-items-with-brand-promotions-next-page',
             queryParams,
           );
           remotePageProducts = await _remoteService.getProducts(
-            productsFunction: productsFunction,
+            productItemsFunction: productItemsFunction,
             requestUri: requestUri,
             lastItemId: lastItemId,
             lastProductId: lastProductId,
@@ -274,14 +274,14 @@ class ListProductsRepository {
             orderByHighPrice: orderByHighPrice,
           );
 
-        case ProductsFunction.getProductsWithCategoryPromotions:
+        case ProductItemsFunction.getProductsWithCategoryPromotions:
           requestUri = Uri.http(
             Env.httpAddress,
             '/api/v1/product-items-with-category-promotions',
             queryParams,
           );
           remotePageProducts = await _remoteService.getProducts(
-            productsFunction: productsFunction,
+            productItemsFunction: productItemsFunction,
             requestUri: requestUri,
             pageSize: pageSize,
             categoryId: categoryId,
@@ -294,14 +294,14 @@ class ListProductsRepository {
             orderByHighPrice: orderByHighPrice,
           );
 
-        case ProductsFunction.getProductsWithCategoryPromotionsNextPage:
+        case ProductItemsFunction.getProductsWithCategoryPromotionsNextPage:
           requestUri = Uri.http(
             Env.httpAddress,
             '/api/v1/product-items-with-category-promotions-next-page',
             queryParams,
           );
           remotePageProducts = await _remoteService.getProducts(
-            productsFunction: productsFunction,
+            productItemsFunction: productItemsFunction,
             requestUri: requestUri,
             lastItemId: lastItemId,
             lastProductId: lastProductId,

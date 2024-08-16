@@ -1,4 +1,4 @@
-import 'package:classic_shop_admin/src/features/image/application/image_notifier.dart';
+import 'package:classic_shop_admin/src/features/image/application/image_kit_notifier.dart';
 import 'package:classic_shop_admin/src/features/manage/add_image/application/add_image_notifier.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
@@ -45,7 +45,7 @@ class _AddImagePageState extends ConsumerState<AddImagePage> {
               builder: (context) {
                 return const Center(
                   child: ShadCard(
-                    content: CircularProgressIndicator(),
+                    child: CircularProgressIndicator(),
                   ),
                 );
               },
@@ -84,7 +84,7 @@ class _AddImagePageState extends ConsumerState<AddImagePage> {
             child: SingleChildScrollView(
               child: ShadCard(
                 title: Text('Add Images', style: theme.textTheme.h4),
-                content: Column(
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -104,7 +104,7 @@ class _AddImagePageState extends ConsumerState<AddImagePage> {
                                 onPressed: () {
                                   FocusScope.of(context).unfocus();
                                   ref
-                                      .read(imagesNotifierProvider.notifier)
+                                      .read(imageKitsNotifierProvider.notifier)
                                       .fetchImages();
                                   showModalBottomSheet<void>(
                                     context: context,
@@ -113,12 +113,12 @@ class _AddImagePageState extends ConsumerState<AddImagePage> {
                                     builder: (context) {
                                       return Consumer(
                                         builder: (context, ref, child) {
-                                          final state =
-                                              ref.watch(imagesNotifierProvider);
+                                          final state = ref
+                                              .watch(imageKitsNotifierProvider);
                                           final itemCount = state.maybeMap(
                                             orElse: () => 0,
                                             loadSuccess: (value) =>
-                                                value.images.entity.length,
+                                                value.imageKits.entity.length,
                                           );
                                           return SizedBox(
                                             height: screenSize.height * 3 / 4,
@@ -143,9 +143,9 @@ class _AddImagePageState extends ConsumerState<AddImagePage> {
                                                           InkWell(
                                                     onTap: () {
                                                       final url = value
-                                                          .images
+                                                          .imageKits
                                                           .entity[index]
-                                                          .cardImagesUrls;
+                                                          .cardImageKitsUrls;
                                                       ref
                                                           .read(
                                                             imageUrlProvider(
@@ -172,8 +172,10 @@ class _AddImagePageState extends ConsumerState<AddImagePage> {
                                                         Radius.circular(10),
                                                       ),
                                                       fit: BoxFit.cover,
-                                                      value.images.entity[index]
-                                                          .cardImagesUrls,
+                                                      value
+                                                          .imageKits
+                                                          .entity[index]
+                                                          .cardImageKitsUrls,
                                                       cacheMaxAge:
                                                           const Duration(
                                                         days: 30,
@@ -226,7 +228,7 @@ class _AddImagePageState extends ConsumerState<AddImagePage> {
                               context.pop();
                             }
                           },
-                          text: const Text('Cancel'),
+                          child: const Text('Cancel'),
                         ),
                         const SizedBox(width: 8),
                         ShadButton(
@@ -250,7 +252,7 @@ class _AddImagePageState extends ConsumerState<AddImagePage> {
                                     .setImage(null);
                             }
                           },
-                          text: const Text('Save'),
+                          child: const Text('Save'),
                         ),
                       ],
                     ),

@@ -1,6 +1,6 @@
 import 'package:classic_shop_admin/src/features/auth/application/auth_notifier.dart';
 import 'package:classic_shop_admin/src/features/product_items/core/shared/providers.dart';
-import 'package:classic_shop_admin/src/features/product_items/searched_products/search_bar/presentation/widgets/search_bar.dart';
+import 'package:classic_shop_admin/src/features/product_items/searched_product_items/search_bar/presentation/widgets/search_bar.dart';
 import 'package:classic_shop_admin/src/routing/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';

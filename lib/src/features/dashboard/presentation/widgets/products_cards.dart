@@ -24,7 +24,7 @@ class _ProductsCardsState extends ConsumerState<ProductsCards> {
     SchedulerBinding.instance.addPostFrameCallback((_) {
       Future.wait([
         ref.read(dashboardProductsNotifierProvider.notifier).getProductsPage(
-              productsFunction: ProductsFunction.getProducts,
+              productItemsFunction: ProductItemsFunction.getProducts,
             ),
       ]);
     });

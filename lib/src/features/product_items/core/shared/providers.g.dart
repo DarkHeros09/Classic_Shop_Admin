@@ -38,8 +38,24 @@ final productItemApiProvider = Provider<ProductItemApi>.internal(
 );
 
 typedef ProductItemApiRef = ProviderRef<ProductItemApi>;
+String _$productItemAdminApiHash() =>
+    r'f5e90839903d4a384ad49908eb70b149ce9306c3';
+
+/// See also [productItemAdminApi].
+@ProviderFor(productItemAdminApi)
+final productItemAdminApiProvider = Provider<ProductItemAdminApi>.internal(
+  productItemAdminApi,
+  name: r'productItemAdminApiProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$productItemAdminApiHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef ProductItemAdminApiRef = ProviderRef<ProductItemAdminApi>;
 String _$listProductsRemoteServiceHash() =>
-    r'82c4095fcb65b60b999fb4293d4a29dbd03e42c2';
+    r'7beb8650d6be37e2e0897f37bbf81754cf39eaa7';
 
 /// See also [listProductsRemoteService].
 @ProviderFor(listProductsRemoteService)
@@ -72,40 +88,41 @@ final listProductsRepositoryProvider =
 );
 
 typedef ListProductsRepositoryRef = ProviderRef<ListProductsRepository>;
-String _$searchedProductsRemoteServiceHash() =>
-    r'bc2da829be62139465e7aa4f704f98837816b133';
+String _$searchedProductItemsRemoteServiceHash() =>
+    r'45104c78049557856c8e32286cf259088384f47f';
 
-/// See also [searchedProductsRemoteService].
-@ProviderFor(searchedProductsRemoteService)
-final searchedProductsRemoteServiceProvider =
-    Provider<SearchedProductsRemoteService>.internal(
-  searchedProductsRemoteService,
-  name: r'searchedProductsRemoteServiceProvider',
+/// See also [searchedProductItemsRemoteService].
+@ProviderFor(searchedProductItemsRemoteService)
+final searchedProductItemsRemoteServiceProvider =
+    Provider<SearchedProductItemsRemoteService>.internal(
+  searchedProductItemsRemoteService,
+  name: r'searchedProductItemsRemoteServiceProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$searchedProductsRemoteServiceHash,
+      : _$searchedProductItemsRemoteServiceHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef SearchedProductsRemoteServiceRef
-    = ProviderRef<SearchedProductsRemoteService>;
-String _$searchedProductsRepositoryHash() =>
-    r'320d270d1f06a87be64a58117a82457e98ea502f';
+typedef SearchedProductItemsRemoteServiceRef
+    = ProviderRef<SearchedProductItemsRemoteService>;
+String _$searchedProductItemsRepositoryHash() =>
+    r'd1d743ef5d643be395833dd85f43b2c977f59867';
 
-/// See also [searchedProductsRepository].
-@ProviderFor(searchedProductsRepository)
-final searchedProductsRepositoryProvider =
-    Provider<SearchedProductsRepository>.internal(
-  searchedProductsRepository,
-  name: r'searchedProductsRepositoryProvider',
+/// See also [searchedProductItemsRepository].
+@ProviderFor(searchedProductItemsRepository)
+final searchedProductItemsRepositoryProvider =
+    Provider<SearchedProductItemsRepository>.internal(
+  searchedProductItemsRepository,
+  name: r'searchedProductItemsRepositoryProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$searchedProductsRepositoryHash,
+      : _$searchedProductItemsRepositoryHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef SearchedProductsRepositoryRef = ProviderRef<SearchedProductsRepository>;
+typedef SearchedProductItemsRepositoryRef
+    = ProviderRef<SearchedProductItemsRepository>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

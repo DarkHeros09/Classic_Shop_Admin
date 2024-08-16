@@ -12,7 +12,9 @@ part 'dashboard_products_notifier.freezed.dart';
 
 typedef RepositoryGetter
     = Future<Either<ProductItemFailure, Fresh<List<ProductItem>>>> Function(
-        int page, int lastItemId);
+  int page,
+  int lastItemId,
+);
 
 @freezed
 class DashboardProductsState with _$DashboardProductsState {
@@ -43,7 +45,7 @@ class DashboardProductsNotifier extends PaginatedProductsNotifier {
   }
 
   Future<void> getProductsPage({
-    required ProductsFunction productsFunction,
+    required ProductItemsFunction productItemsFunction,
     int? productId,
     int? categoryId,
     int? brandId,
@@ -61,7 +63,7 @@ class DashboardProductsNotifier extends PaginatedProductsNotifier {
         page,
         lastItemId: lastItemId,
         lastProductId: lastProductId,
-        productsFunction: productsFunction,
+        productItemsFunction: productItemsFunction,
         productId: productId,
         categoryId: categoryId,
         brandId: brandId,
@@ -74,7 +76,7 @@ class DashboardProductsNotifier extends PaginatedProductsNotifier {
         orderByLowPrice: orderByLowPrice,
         orderByHighPrice: orderByHighPrice,
       ),
-      productsFunction,
+      productItemsFunction,
     );
   }
 }

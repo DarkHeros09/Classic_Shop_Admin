@@ -1,0 +1,4 @@
+enum ImagesFunction {
+  getImages,
+  getImagesNextPage,
+}

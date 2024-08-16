@@ -1,11 +1,16 @@
 import 'package:classic_shop_admin/gen/env.g.dart';
 import 'package:classic_shop_admin/src/core/data/network_exceptions.dart';
+import 'package:classic_shop_admin/src/core/data/pagination_config.dart';
+import 'package:classic_shop_admin/src/core/data/remote_response.dart';
+import 'package:classic_shop_admin/src/core/data/response_headers_cache.dart';
 import 'package:classic_shop_admin/src/core/domain/fresh.dart';
+import 'package:classic_shop_admin/src/features/image/data/image_dto.dart';
 import 'package:classic_shop_admin/src/features/image/data/image_extension.dart';
 import 'package:classic_shop_admin/src/features/image/data/image_local_service.dart';
 import 'package:classic_shop_admin/src/features/image/data/image_remote_service.dart';
 import 'package:classic_shop_admin/src/features/image/domain/image.dart';
 import 'package:classic_shop_admin/src/features/image/domain/image_failure.dart';
+import 'package:classic_shop_admin/src/features/image/helpers/enums.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 
@@ -13,10 +18,32 @@ class ImageRepository {
   ImageRepository(
     this._localService,
     this._remoteService,
+    this._headersCache,
   );
 
   final ImageLocalService _localService;
   final ImageRemoteService _remoteService;
+  final ResponseHeadersCache _headersCache;
+
+  Map<String, String> _createQueryParams({
+    int? lastImageId,
+    String? query,
+    int? pageSize,
+  }) {
+    final pageSizeString = pageSize == null
+        ? PaginationConfig.itemsPerPage.toString()
+        : pageSize.toString();
+    final queryParams = {
+      'limit': pageSizeString,
+    };
+    if (lastImageId != null) {
+      queryParams['last_image_id'] = lastImageId.toString();
+    }
+    if (query != null) {
+      queryParams['query'] = query;
+    }
+    return queryParams;
+  }
 
   Future<Either<ImageFailure, Unit>> createImages({
     required int adminId,
@@ -46,7 +73,7 @@ class ImageRepository {
     }
   }
 
-  Future<Either<ImageFailure, Fresh<List<Image>>>> fetchImages({
+  Future<Either<ImageFailure, Fresh<List<ImageKit>>>> fetchImageKits({
     required int adminId,
   }) async {
     try {
@@ -54,7 +81,7 @@ class ImageRepository {
         Env.httpAddress,
         '/admin/v1/admins/$adminId/product-images/kit',
       );
-      final images = await _remoteService.fetchImages(
+      final images = await _remoteService.fetchImageKits(
         adminId: adminId,
         requestUri: requestUri,
       );
@@ -83,5 +110,99 @@ class ImageRepository {
     } on Exception catch (_) {
       rethrow;
     }
+  }
+
+  Future<Either<ImageFailure, Fresh<List<ProductImage>>>> getImages(
+    int page, {
+    required ImagesFunction imagesFunction,
+    int? lastImageId,
+    String? query,
+    int? pageSize,
+  }) async {
+    try {
+      late final RemoteResponse<List<ProductImageDTO>> remotePageImages;
+      late final Uri requestUri;
+      final queryParams = _createQueryParams(
+        lastImageId: lastImageId,
+        pageSize: pageSize,
+      );
+      switch (imagesFunction) {
+        case ImagesFunction.getImages:
+          requestUri = Uri.http(
+            Env.httpAddress,
+            '/api/v1/images-V2',
+            queryParams,
+          );
+          remotePageImages = await _remoteService.fetchImages(
+            imagesFunction: imagesFunction,
+            requestUri: requestUri,
+            pageSize: pageSize,
+          );
+
+        case ImagesFunction.getImagesNextPage:
+          requestUri = Uri.http(
+            Env.httpAddress,
+            '/api/v1/images-next-page',
+            queryParams,
+          );
+          remotePageImages = await _remoteService.fetchImages(
+            imagesFunction: imagesFunction,
+            requestUri: requestUri,
+            lastImageId: lastImageId,
+            pageSize: pageSize,
+          );
+      }
+      return await _rightRemotePageImages(
+        remotePageImages,
+        page,
+        requestUri,
+      );
+    } on RestApiException catch (e) {
+      return left(ImageFailure.api(e.errorCode));
+    }
+  }
+
+  Future<Either<ImageFailure, Fresh<List<ProductImage>>>>
+      _rightRemotePageImages(
+    RemoteResponse<List<ProductImageDTO>> remotePageImages,
+    int page,
+    Uri requestUri,
+  ) async {
+    return right(
+      await remotePageImages.when(
+        noConnection: () async => Fresh.no(
+          await _localService
+              .getPage(page, requestUri.toString())
+              .then((_) => _.toDomain()),
+          isNextPageAvailable: page <
+              await _localService.getLocalPageCount(requestUri.toString()),
+        ),
+        noContent: () async {
+          await _localService.deleteByUri(requestUri.toString());
+          return Fresh.no([], isNextPageAvailable: false);
+        },
+        notModified: (nextAvailable) async {
+          final localData = await _localService
+              .getPage(page, requestUri.toString())
+              .then((_) => _.toDomain());
+
+          if (localData.isEmpty) {
+            await _headersCache.deleteHeaders(requestUri);
+          }
+          return Fresh.yes(
+            localData,
+            isNextPageAvailable: nextAvailable,
+          );
+        },
+        withNewData: (data, nextAvailable) async {
+          // await _localService.deletePage(page);
+          await _localService.upsertPage(data, page, requestUri.toString());
+          return Fresh.yes(
+            data.toDomain(),
+            isNextPageAvailable: nextAvailable,
+          );
+        },
+      ),
+    );
   }
 }

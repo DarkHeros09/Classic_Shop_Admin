@@ -15,36 +15,39 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$ImageState {
-  Fresh<List<Image>> get images => throw _privateConstructorUsedError;
+mixin _$ProductImageState {
+  Fresh<List<ProductImage>> get images => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Fresh<List<Image>> images) initial,
-    required TResult Function(Fresh<List<Image>> images) loadInProgress,
+    required TResult Function(Fresh<List<ProductImage>> images) initial,
+    required TResult Function(Fresh<List<ProductImage>> images) loadInProgress,
     required TResult Function(
-            Fresh<List<Image>> images, bool isNextPageAvailable)
+            Fresh<List<ProductImage>> images, bool isNextPageAvailable)
         loadSuccess,
-    required TResult Function(Fresh<List<Image>> images, ImageFailure failure)
+    required TResult Function(
+            Fresh<List<ProductImage>> images, ImageFailure failure)
         loadFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Fresh<List<Image>> images)? initial,
-    TResult? Function(Fresh<List<Image>> images)? loadInProgress,
-    TResult? Function(Fresh<List<Image>> images, bool isNextPageAvailable)?
+    TResult? Function(Fresh<List<ProductImage>> images)? initial,
+    TResult? Function(Fresh<List<ProductImage>> images)? loadInProgress,
+    TResult? Function(
+            Fresh<List<ProductImage>> images, bool isNextPageAvailable)?
         loadSuccess,
-    TResult? Function(Fresh<List<Image>> images, ImageFailure failure)?
+    TResult? Function(Fresh<List<ProductImage>> images, ImageFailure failure)?
         loadFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Fresh<List<Image>> images)? initial,
-    TResult Function(Fresh<List<Image>> images)? loadInProgress,
-    TResult Function(Fresh<List<Image>> images, bool isNextPageAvailable)?
+    TResult Function(Fresh<List<ProductImage>> images)? initial,
+    TResult Function(Fresh<List<ProductImage>> images)? loadInProgress,
+    TResult Function(
+            Fresh<List<ProductImage>> images, bool isNextPageAvailable)?
         loadSuccess,
-    TResult Function(Fresh<List<Image>> images, ImageFailure failure)?
+    TResult Function(Fresh<List<ProductImage>> images, ImageFailure failure)?
         loadFailure,
     required TResult orElse(),
   }) =>
@@ -75,35 +78,35 @@ mixin _$ImageState {
   }) =>
       throw _privateConstructorUsedError;
 
-  /// Create a copy of ImageState
+  /// Create a copy of ProductImageState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $ImageStateCopyWith<ImageState> get copyWith =>
+  $ProductImageStateCopyWith<ProductImageState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ImageStateCopyWith<$Res> {
-  factory $ImageStateCopyWith(
-          ImageState value, $Res Function(ImageState) then) =
-      _$ImageStateCopyWithImpl<$Res, ImageState>;
+abstract class $ProductImageStateCopyWith<$Res> {
+  factory $ProductImageStateCopyWith(
+          ProductImageState value, $Res Function(ProductImageState) then) =
+      _$ProductImageStateCopyWithImpl<$Res, ProductImageState>;
   @useResult
-  $Res call({Fresh<List<Image>> images});
+  $Res call({Fresh<List<ProductImage>> images});
 
-  $FreshCopyWith<List<Image>, $Res> get images;
+  $FreshCopyWith<List<ProductImage>, $Res> get images;
 }
 
 /// @nodoc
-class _$ImageStateCopyWithImpl<$Res, $Val extends ImageState>
-    implements $ImageStateCopyWith<$Res> {
-  _$ImageStateCopyWithImpl(this._value, this._then);
+class _$ProductImageStateCopyWithImpl<$Res, $Val extends ProductImageState>
+    implements $ProductImageStateCopyWith<$Res> {
+  _$ProductImageStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of ImageState
+  /// Create a copy of ProductImageState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -114,16 +117,16 @@ class _$ImageStateCopyWithImpl<$Res, $Val extends ImageState>
       images: null == images
           ? _value.images
           : images // ignore: cast_nullable_to_non_nullable
-              as Fresh<List<Image>>,
+              as Fresh<List<ProductImage>>,
     ) as $Val);
   }
 
-  /// Create a copy of ImageState
+  /// Create a copy of ProductImageState
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $FreshCopyWith<List<Image>, $Res> get images {
-    return $FreshCopyWith<List<Image>, $Res>(_value.images, (value) {
+  $FreshCopyWith<List<ProductImage>, $Res> get images {
+    return $FreshCopyWith<List<ProductImage>, $Res>(_value.images, (value) {
       return _then(_value.copyWith(images: value) as $Val);
     });
   }
@@ -131,27 +134,27 @@ class _$ImageStateCopyWithImpl<$Res, $Val extends ImageState>
 
 /// @nodoc
 abstract class _$$InitialImplCopyWith<$Res>
-    implements $ImageStateCopyWith<$Res> {
+    implements $ProductImageStateCopyWith<$Res> {
   factory _$$InitialImplCopyWith(
           _$InitialImpl value, $Res Function(_$InitialImpl) then) =
       __$$InitialImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Fresh<List<Image>> images});
+  $Res call({Fresh<List<ProductImage>> images});
 
   @override
-  $FreshCopyWith<List<Image>, $Res> get images;
+  $FreshCopyWith<List<ProductImage>, $Res> get images;
 }
 
 /// @nodoc
 class __$$InitialImplCopyWithImpl<$Res>
-    extends _$ImageStateCopyWithImpl<$Res, _$InitialImpl>
+    extends _$ProductImageStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ImageState
+  /// Create a copy of ProductImageState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -162,7 +165,7 @@ class __$$InitialImplCopyWithImpl<$Res>
       null == images
           ? _value.images
           : images // ignore: cast_nullable_to_non_nullable
-              as Fresh<List<Image>>,
+              as Fresh<List<ProductImage>>,
     ));
   }
 }
@@ -173,11 +176,11 @@ class _$InitialImpl extends _Initial {
   const _$InitialImpl(this.images) : super._();
 
   @override
-  final Fresh<List<Image>> images;
+  final Fresh<List<ProductImage>> images;
 
   @override
   String toString() {
-    return 'ImageState.initial(images: $images)';
+    return 'ProductImageState.initial(images: $images)';
   }
 
   @override
@@ -191,7 +194,7 @@ class _$InitialImpl extends _Initial {
   @override
   int get hashCode => Object.hash(runtimeType, images);
 
-  /// Create a copy of ImageState
+  /// Create a copy of ProductImageState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
@@ -202,12 +205,13 @@ class _$InitialImpl extends _Initial {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Fresh<List<Image>> images) initial,
-    required TResult Function(Fresh<List<Image>> images) loadInProgress,
+    required TResult Function(Fresh<List<ProductImage>> images) initial,
+    required TResult Function(Fresh<List<ProductImage>> images) loadInProgress,
     required TResult Function(
-            Fresh<List<Image>> images, bool isNextPageAvailable)
+            Fresh<List<ProductImage>> images, bool isNextPageAvailable)
         loadSuccess,
-    required TResult Function(Fresh<List<Image>> images, ImageFailure failure)
+    required TResult Function(
+            Fresh<List<ProductImage>> images, ImageFailure failure)
         loadFailure,
   }) {
     return initial(images);
@@ -216,11 +220,12 @@ class _$InitialImpl extends _Initial {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Fresh<List<Image>> images)? initial,
-    TResult? Function(Fresh<List<Image>> images)? loadInProgress,
-    TResult? Function(Fresh<List<Image>> images, bool isNextPageAvailable)?
+    TResult? Function(Fresh<List<ProductImage>> images)? initial,
+    TResult? Function(Fresh<List<ProductImage>> images)? loadInProgress,
+    TResult? Function(
+            Fresh<List<ProductImage>> images, bool isNextPageAvailable)?
         loadSuccess,
-    TResult? Function(Fresh<List<Image>> images, ImageFailure failure)?
+    TResult? Function(Fresh<List<ProductImage>> images, ImageFailure failure)?
         loadFailure,
   }) {
     return initial?.call(images);
@@ -229,11 +234,12 @@ class _$InitialImpl extends _Initial {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Fresh<List<Image>> images)? initial,
-    TResult Function(Fresh<List<Image>> images)? loadInProgress,
-    TResult Function(Fresh<List<Image>> images, bool isNextPageAvailable)?
+    TResult Function(Fresh<List<ProductImage>> images)? initial,
+    TResult Function(Fresh<List<ProductImage>> images)? loadInProgress,
+    TResult Function(
+            Fresh<List<ProductImage>> images, bool isNextPageAvailable)?
         loadSuccess,
-    TResult Function(Fresh<List<Image>> images, ImageFailure failure)?
+    TResult Function(Fresh<List<ProductImage>> images, ImageFailure failure)?
         loadFailure,
     required TResult orElse(),
   }) {
@@ -281,14 +287,15 @@ class _$InitialImpl extends _Initial {
   }
 }
 
-abstract class _Initial extends ImageState {
-  const factory _Initial(final Fresh<List<Image>> images) = _$InitialImpl;
+abstract class _Initial extends ProductImageState {
+  const factory _Initial(final Fresh<List<ProductImage>> images) =
+      _$InitialImpl;
   const _Initial._() : super._();
 
   @override
-  Fresh<List<Image>> get images;
+  Fresh<List<ProductImage>> get images;
 
-  /// Create a copy of ImageState
+  /// Create a copy of ProductImageState
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -298,27 +305,27 @@ abstract class _Initial extends ImageState {
 
 /// @nodoc
 abstract class _$$LoadInProgressImplCopyWith<$Res>
-    implements $ImageStateCopyWith<$Res> {
+    implements $ProductImageStateCopyWith<$Res> {
   factory _$$LoadInProgressImplCopyWith(_$LoadInProgressImpl value,
           $Res Function(_$LoadInProgressImpl) then) =
       __$$LoadInProgressImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Fresh<List<Image>> images});
+  $Res call({Fresh<List<ProductImage>> images});
 
   @override
-  $FreshCopyWith<List<Image>, $Res> get images;
+  $FreshCopyWith<List<ProductImage>, $Res> get images;
 }
 
 /// @nodoc
 class __$$LoadInProgressImplCopyWithImpl<$Res>
-    extends _$ImageStateCopyWithImpl<$Res, _$LoadInProgressImpl>
+    extends _$ProductImageStateCopyWithImpl<$Res, _$LoadInProgressImpl>
     implements _$$LoadInProgressImplCopyWith<$Res> {
   __$$LoadInProgressImplCopyWithImpl(
       _$LoadInProgressImpl _value, $Res Function(_$LoadInProgressImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ImageState
+  /// Create a copy of ProductImageState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -329,7 +336,7 @@ class __$$LoadInProgressImplCopyWithImpl<$Res>
       null == images
           ? _value.images
           : images // ignore: cast_nullable_to_non_nullable
-              as Fresh<List<Image>>,
+              as Fresh<List<ProductImage>>,
     ));
   }
 }
@@ -340,11 +347,11 @@ class _$LoadInProgressImpl extends _LoadInProgress {
   const _$LoadInProgressImpl(this.images) : super._();
 
   @override
-  final Fresh<List<Image>> images;
+  final Fresh<List<ProductImage>> images;
 
   @override
   String toString() {
-    return 'ImageState.loadInProgress(images: $images)';
+    return 'ProductImageState.loadInProgress(images: $images)';
   }
 
   @override
@@ -358,7 +365,7 @@ class _$LoadInProgressImpl extends _LoadInProgress {
   @override
   int get hashCode => Object.hash(runtimeType, images);
 
-  /// Create a copy of ImageState
+  /// Create a copy of ProductImageState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
@@ -370,12 +377,13 @@ class _$LoadInProgressImpl extends _LoadInProgress {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Fresh<List<Image>> images) initial,
-    required TResult Function(Fresh<List<Image>> images) loadInProgress,
+    required TResult Function(Fresh<List<ProductImage>> images) initial,
+    required TResult Function(Fresh<List<ProductImage>> images) loadInProgress,
     required TResult Function(
-            Fresh<List<Image>> images, bool isNextPageAvailable)
+            Fresh<List<ProductImage>> images, bool isNextPageAvailable)
         loadSuccess,
-    required TResult Function(Fresh<List<Image>> images, ImageFailure failure)
+    required TResult Function(
+            Fresh<List<ProductImage>> images, ImageFailure failure)
         loadFailure,
   }) {
     return loadInProgress(images);
@@ -384,11 +392,12 @@ class _$LoadInProgressImpl extends _LoadInProgress {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Fresh<List<Image>> images)? initial,
-    TResult? Function(Fresh<List<Image>> images)? loadInProgress,
-    TResult? Function(Fresh<List<Image>> images, bool isNextPageAvailable)?
+    TResult? Function(Fresh<List<ProductImage>> images)? initial,
+    TResult? Function(Fresh<List<ProductImage>> images)? loadInProgress,
+    TResult? Function(
+            Fresh<List<ProductImage>> images, bool isNextPageAvailable)?
         loadSuccess,
-    TResult? Function(Fresh<List<Image>> images, ImageFailure failure)?
+    TResult? Function(Fresh<List<ProductImage>> images, ImageFailure failure)?
         loadFailure,
   }) {
     return loadInProgress?.call(images);
@@ -397,11 +406,12 @@ class _$LoadInProgressImpl extends _LoadInProgress {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Fresh<List<Image>> images)? initial,
-    TResult Function(Fresh<List<Image>> images)? loadInProgress,
-    TResult Function(Fresh<List<Image>> images, bool isNextPageAvailable)?
+    TResult Function(Fresh<List<ProductImage>> images)? initial,
+    TResult Function(Fresh<List<ProductImage>> images)? loadInProgress,
+    TResult Function(
+            Fresh<List<ProductImage>> images, bool isNextPageAvailable)?
         loadSuccess,
-    TResult Function(Fresh<List<Image>> images, ImageFailure failure)?
+    TResult Function(Fresh<List<ProductImage>> images, ImageFailure failure)?
         loadFailure,
     required TResult orElse(),
   }) {
@@ -449,15 +459,15 @@ class _$LoadInProgressImpl extends _LoadInProgress {
   }
 }
 
-abstract class _LoadInProgress extends ImageState {
-  const factory _LoadInProgress(final Fresh<List<Image>> images) =
+abstract class _LoadInProgress extends ProductImageState {
+  const factory _LoadInProgress(final Fresh<List<ProductImage>> images) =
       _$LoadInProgressImpl;
   const _LoadInProgress._() : super._();
 
   @override
-  Fresh<List<Image>> get images;
+  Fresh<List<ProductImage>> get images;
 
-  /// Create a copy of ImageState
+  /// Create a copy of ProductImageState
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -467,27 +477,27 @@ abstract class _LoadInProgress extends ImageState {
 
 /// @nodoc
 abstract class _$$LoadSuccessImplCopyWith<$Res>
-    implements $ImageStateCopyWith<$Res> {
+    implements $ProductImageStateCopyWith<$Res> {
   factory _$$LoadSuccessImplCopyWith(
           _$LoadSuccessImpl value, $Res Function(_$LoadSuccessImpl) then) =
       __$$LoadSuccessImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Fresh<List<Image>> images, bool isNextPageAvailable});
+  $Res call({Fresh<List<ProductImage>> images, bool isNextPageAvailable});
 
   @override
-  $FreshCopyWith<List<Image>, $Res> get images;
+  $FreshCopyWith<List<ProductImage>, $Res> get images;
 }
 
 /// @nodoc
 class __$$LoadSuccessImplCopyWithImpl<$Res>
-    extends _$ImageStateCopyWithImpl<$Res, _$LoadSuccessImpl>
+    extends _$ProductImageStateCopyWithImpl<$Res, _$LoadSuccessImpl>
     implements _$$LoadSuccessImplCopyWith<$Res> {
   __$$LoadSuccessImplCopyWithImpl(
       _$LoadSuccessImpl _value, $Res Function(_$LoadSuccessImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ImageState
+  /// Create a copy of ProductImageState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -499,7 +509,7 @@ class __$$LoadSuccessImplCopyWithImpl<$Res>
       null == images
           ? _value.images
           : images // ignore: cast_nullable_to_non_nullable
-              as Fresh<List<Image>>,
+              as Fresh<List<ProductImage>>,
       isNextPageAvailable: null == isNextPageAvailable
           ? _value.isNextPageAvailable
           : isNextPageAvailable // ignore: cast_nullable_to_non_nullable
@@ -515,13 +525,13 @@ class _$LoadSuccessImpl extends _LoadSuccess {
       : super._();
 
   @override
-  final Fresh<List<Image>> images;
+  final Fresh<List<ProductImage>> images;
   @override
   final bool isNextPageAvailable;
 
   @override
   String toString() {
-    return 'ImageState.loadSuccess(images: $images, isNextPageAvailable: $isNextPageAvailable)';
+    return 'ProductImageState.loadSuccess(images: $images, isNextPageAvailable: $isNextPageAvailable)';
   }
 
   @override
@@ -537,7 +547,7 @@ class _$LoadSuccessImpl extends _LoadSuccess {
   @override
   int get hashCode => Object.hash(runtimeType, images, isNextPageAvailable);
 
-  /// Create a copy of ImageState
+  /// Create a copy of ProductImageState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
@@ -548,12 +558,13 @@ class _$LoadSuccessImpl extends _LoadSuccess {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Fresh<List<Image>> images) initial,
-    required TResult Function(Fresh<List<Image>> images) loadInProgress,
+    required TResult Function(Fresh<List<ProductImage>> images) initial,
+    required TResult Function(Fresh<List<ProductImage>> images) loadInProgress,
     required TResult Function(
-            Fresh<List<Image>> images, bool isNextPageAvailable)
+            Fresh<List<ProductImage>> images, bool isNextPageAvailable)
         loadSuccess,
-    required TResult Function(Fresh<List<Image>> images, ImageFailure failure)
+    required TResult Function(
+            Fresh<List<ProductImage>> images, ImageFailure failure)
         loadFailure,
   }) {
     return loadSuccess(images, isNextPageAvailable);
@@ -562,11 +573,12 @@ class _$LoadSuccessImpl extends _LoadSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Fresh<List<Image>> images)? initial,
-    TResult? Function(Fresh<List<Image>> images)? loadInProgress,
-    TResult? Function(Fresh<List<Image>> images, bool isNextPageAvailable)?
+    TResult? Function(Fresh<List<ProductImage>> images)? initial,
+    TResult? Function(Fresh<List<ProductImage>> images)? loadInProgress,
+    TResult? Function(
+            Fresh<List<ProductImage>> images, bool isNextPageAvailable)?
         loadSuccess,
-    TResult? Function(Fresh<List<Image>> images, ImageFailure failure)?
+    TResult? Function(Fresh<List<ProductImage>> images, ImageFailure failure)?
         loadFailure,
   }) {
     return loadSuccess?.call(images, isNextPageAvailable);
@@ -575,11 +587,12 @@ class _$LoadSuccessImpl extends _LoadSuccess {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Fresh<List<Image>> images)? initial,
-    TResult Function(Fresh<List<Image>> images)? loadInProgress,
-    TResult Function(Fresh<List<Image>> images, bool isNextPageAvailable)?
+    TResult Function(Fresh<List<ProductImage>> images)? initial,
+    TResult Function(Fresh<List<ProductImage>> images)? loadInProgress,
+    TResult Function(
+            Fresh<List<ProductImage>> images, bool isNextPageAvailable)?
         loadSuccess,
-    TResult Function(Fresh<List<Image>> images, ImageFailure failure)?
+    TResult Function(Fresh<List<ProductImage>> images, ImageFailure failure)?
         loadFailure,
     required TResult orElse(),
   }) {
@@ -627,16 +640,16 @@ class _$LoadSuccessImpl extends _LoadSuccess {
   }
 }
 
-abstract class _LoadSuccess extends ImageState {
-  const factory _LoadSuccess(final Fresh<List<Image>> images,
+abstract class _LoadSuccess extends ProductImageState {
+  const factory _LoadSuccess(final Fresh<List<ProductImage>> images,
       {required final bool isNextPageAvailable}) = _$LoadSuccessImpl;
   const _LoadSuccess._() : super._();
 
   @override
-  Fresh<List<Image>> get images;
+  Fresh<List<ProductImage>> get images;
   bool get isNextPageAvailable;
 
-  /// Create a copy of ImageState
+  /// Create a copy of ProductImageState
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -646,28 +659,28 @@ abstract class _LoadSuccess extends ImageState {
 
 /// @nodoc
 abstract class _$$LoadFailureImplCopyWith<$Res>
-    implements $ImageStateCopyWith<$Res> {
+    implements $ProductImageStateCopyWith<$Res> {
   factory _$$LoadFailureImplCopyWith(
           _$LoadFailureImpl value, $Res Function(_$LoadFailureImpl) then) =
       __$$LoadFailureImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Fresh<List<Image>> images, ImageFailure failure});
+  $Res call({Fresh<List<ProductImage>> images, ImageFailure failure});
 
   @override
-  $FreshCopyWith<List<Image>, $Res> get images;
+  $FreshCopyWith<List<ProductImage>, $Res> get images;
   $ImageFailureCopyWith<$Res> get failure;
 }
 
 /// @nodoc
 class __$$LoadFailureImplCopyWithImpl<$Res>
-    extends _$ImageStateCopyWithImpl<$Res, _$LoadFailureImpl>
+    extends _$ProductImageStateCopyWithImpl<$Res, _$LoadFailureImpl>
     implements _$$LoadFailureImplCopyWith<$Res> {
   __$$LoadFailureImplCopyWithImpl(
       _$LoadFailureImpl _value, $Res Function(_$LoadFailureImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ImageState
+  /// Create a copy of ProductImageState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -679,7 +692,7 @@ class __$$LoadFailureImplCopyWithImpl<$Res>
       null == images
           ? _value.images
           : images // ignore: cast_nullable_to_non_nullable
-              as Fresh<List<Image>>,
+              as Fresh<List<ProductImage>>,
       null == failure
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
@@ -687,7 +700,7 @@ class __$$LoadFailureImplCopyWithImpl<$Res>
     ));
   }
 
-  /// Create a copy of ImageState
+  /// Create a copy of ProductImageState
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
@@ -704,13 +717,13 @@ class _$LoadFailureImpl extends _LoadFailure {
   const _$LoadFailureImpl(this.images, this.failure) : super._();
 
   @override
-  final Fresh<List<Image>> images;
+  final Fresh<List<ProductImage>> images;
   @override
   final ImageFailure failure;
 
   @override
   String toString() {
-    return 'ImageState.loadFailure(images: $images, failure: $failure)';
+    return 'ProductImageState.loadFailure(images: $images, failure: $failure)';
   }
 
   @override
@@ -725,7 +738,7 @@ class _$LoadFailureImpl extends _LoadFailure {
   @override
   int get hashCode => Object.hash(runtimeType, images, failure);
 
-  /// Create a copy of ImageState
+  /// Create a copy of ProductImageState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
@@ -736,12 +749,13 @@ class _$LoadFailureImpl extends _LoadFailure {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Fresh<List<Image>> images) initial,
-    required TResult Function(Fresh<List<Image>> images) loadInProgress,
+    required TResult Function(Fresh<List<ProductImage>> images) initial,
+    required TResult Function(Fresh<List<ProductImage>> images) loadInProgress,
     required TResult Function(
-            Fresh<List<Image>> images, bool isNextPageAvailable)
+            Fresh<List<ProductImage>> images, bool isNextPageAvailable)
         loadSuccess,
-    required TResult Function(Fresh<List<Image>> images, ImageFailure failure)
+    required TResult Function(
+            Fresh<List<ProductImage>> images, ImageFailure failure)
         loadFailure,
   }) {
     return loadFailure(images, failure);
@@ -750,11 +764,12 @@ class _$LoadFailureImpl extends _LoadFailure {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Fresh<List<Image>> images)? initial,
-    TResult? Function(Fresh<List<Image>> images)? loadInProgress,
-    TResult? Function(Fresh<List<Image>> images, bool isNextPageAvailable)?
+    TResult? Function(Fresh<List<ProductImage>> images)? initial,
+    TResult? Function(Fresh<List<ProductImage>> images)? loadInProgress,
+    TResult? Function(
+            Fresh<List<ProductImage>> images, bool isNextPageAvailable)?
         loadSuccess,
-    TResult? Function(Fresh<List<Image>> images, ImageFailure failure)?
+    TResult? Function(Fresh<List<ProductImage>> images, ImageFailure failure)?
         loadFailure,
   }) {
     return loadFailure?.call(images, failure);
@@ -763,11 +778,12 @@ class _$LoadFailureImpl extends _LoadFailure {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Fresh<List<Image>> images)? initial,
-    TResult Function(Fresh<List<Image>> images)? loadInProgress,
-    TResult Function(Fresh<List<Image>> images, bool isNextPageAvailable)?
+    TResult Function(Fresh<List<ProductImage>> images)? initial,
+    TResult Function(Fresh<List<ProductImage>> images)? loadInProgress,
+    TResult Function(
+            Fresh<List<ProductImage>> images, bool isNextPageAvailable)?
         loadSuccess,
-    TResult Function(Fresh<List<Image>> images, ImageFailure failure)?
+    TResult Function(Fresh<List<ProductImage>> images, ImageFailure failure)?
         loadFailure,
     required TResult orElse(),
   }) {
@@ -815,17 +831,17 @@ class _$LoadFailureImpl extends _LoadFailure {
   }
 }
 
-abstract class _LoadFailure extends ImageState {
+abstract class _LoadFailure extends ProductImageState {
   const factory _LoadFailure(
-          final Fresh<List<Image>> images, final ImageFailure failure) =
+          final Fresh<List<ProductImage>> images, final ImageFailure failure) =
       _$LoadFailureImpl;
   const _LoadFailure._() : super._();
 
   @override
-  Fresh<List<Image>> get images;
+  Fresh<List<ProductImage>> get images;
   ImageFailure get failure;
 
-  /// Create a copy of ImageState
+  /// Create a copy of ProductImageState
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)

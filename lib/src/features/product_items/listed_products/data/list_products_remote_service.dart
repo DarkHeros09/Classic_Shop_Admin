@@ -5,10 +5,14 @@ import 'package:classic_shop_admin/src/features/product_items/core/data/product_
 import 'package:classic_shop_admin/src/features/product_items/helper/enums.dart';
 
 class ListProductsRemoteService extends ProductItemRemoteService {
-  ListProductsRemoteService(super.productApi, super.headersCache);
+  ListProductsRemoteService(
+    super.productApi,
+    super.productAdminApi,
+    super.headersCache,
+  );
 
   Future<RemoteResponse<List<ProductItemDTO>>> getProducts({
-    required ProductsFunction productsFunction,
+    required ProductItemsFunction productItemsFunction,
     required Uri requestUri,
     int? lastItemId,
     int? lastProductId,
@@ -24,10 +28,10 @@ class ListProductsRemoteService extends ProductItemRemoteService {
     bool? orderByLowPrice,
     bool? orderByHighPrice,
   }) async {
-    switch (productsFunction) {
-      case ProductsFunction.getProducts:
+    switch (productItemsFunction) {
+      case ProductItemsFunction.getProducts:
         return super.fetchProducts(
-          productsFunction: productsFunction,
+          productItemsFunction: productItemsFunction,
           categoryId: categoryId,
           brandId: brandId,
           colorId: colorId,
@@ -40,9 +44,9 @@ class ListProductsRemoteService extends ProductItemRemoteService {
           orderByHighPrice: orderByHighPrice,
         );
 
-      case ProductsFunction.getProductsNextPage:
+      case ProductItemsFunction.getProductsNextPage:
         return super.fetchProducts(
-          productsFunction: productsFunction,
+          productItemsFunction: productItemsFunction,
           lastItemId: lastItemId,
           lastProductId: lastProductId,
           categoryId: categoryId,
@@ -57,17 +61,17 @@ class ListProductsRemoteService extends ProductItemRemoteService {
           orderByHighPrice: orderByHighPrice,
         );
 
-      case ProductsFunction.searchProducts:
+      case ProductItemsFunction.searchProducts:
         return super.fetchProducts(
-          productsFunction: productsFunction,
+          productItemsFunction: productItemsFunction,
           requestUri: requestUri,
           pageSize: pageSize,
           query: query,
         );
 
-      case ProductsFunction.searchProductsNextPage:
+      case ProductItemsFunction.searchProductsNextPage:
         return super.fetchProducts(
-          productsFunction: productsFunction,
+          productItemsFunction: productItemsFunction,
           requestUri: requestUri,
           lastItemId: lastItemId,
           lastProductId: lastProductId,
@@ -75,23 +79,23 @@ class ListProductsRemoteService extends ProductItemRemoteService {
           query: query,
         );
 
-      case ProductsFunction.getProductsWithPromotions:
-      case ProductsFunction.getProductsWithBrandPromotions:
-      case ProductsFunction.getProductsWithCategoryPromotions:
+      case ProductItemsFunction.getProductsWithPromotions:
+      case ProductItemsFunction.getProductsWithBrandPromotions:
+      case ProductItemsFunction.getProductsWithCategoryPromotions:
         return super.fetchProducts(
           productId: productId,
           brandId: brandId,
           categoryId: categoryId,
-          productsFunction: productsFunction,
+          productItemsFunction: productItemsFunction,
           requestUri: requestUri,
           pageSize: pageSize,
         );
 
-      case ProductsFunction.getProductsWithPromotionsNextPage:
-      case ProductsFunction.getProductsWithBrandPromotionsNextPage:
-      case ProductsFunction.getProductsWithCategoryPromotionsNextPage:
+      case ProductItemsFunction.getProductsWithPromotionsNextPage:
+      case ProductItemsFunction.getProductsWithBrandPromotionsNextPage:
+      case ProductItemsFunction.getProductsWithCategoryPromotionsNextPage:
         return super.fetchProducts(
-          productsFunction: productsFunction,
+          productItemsFunction: productItemsFunction,
           brandId: brandId,
           categoryId: categoryId,
           requestUri: requestUri,

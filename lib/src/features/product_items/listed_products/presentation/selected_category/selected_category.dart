@@ -98,7 +98,7 @@ class _NestScrollSecondViewState extends ConsumerState<NestScrollSecondView> {
           canLoadNextPage = false;
 
           ref.read(listProductsNotifierProvider.notifier).getProductsPage(
-                productsFunction: ProductsFunction.getProductsNextPage,
+                productItemsFunction: ProductItemsFunction.getProductsNextPage,
               );
         }
         return false;
@@ -127,14 +127,15 @@ class _NestScrollSecondViewState extends ConsumerState<NestScrollSecondView> {
                     ref
                         .read(listProductsNotifierProvider.notifier)
                         .getProductsPage(
-                          productsFunction: ProductsFunction.getProducts,
+                          productItemsFunction:
+                              ProductItemsFunction.getProducts,
                         );
                   } else {
                     ref
                         .read(listProductsNotifierProvider.notifier)
                         .getProductsPage(
-                          productsFunction:
-                              ProductsFunction.getProductsNextPage,
+                          productItemsFunction:
+                              ProductItemsFunction.getProductsNextPage,
                         );
                   }
                 },

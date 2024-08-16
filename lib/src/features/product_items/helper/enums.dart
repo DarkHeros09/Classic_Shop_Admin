@@ -1,4 +1,4 @@
-enum ProductsFunction {
+enum ProductItemsFunction {
   getProducts,
   getProductsNextPage,
   searchProducts,

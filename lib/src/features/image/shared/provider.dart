@@ -16,13 +16,19 @@ ImageLocalService imageLocalService(ImageLocalServiceRef ref) {
 
 @Riverpod(keepAlive: true)
 ImageApi imageApi(ImageApiRef ref) {
-  return ImageApi.create(ref);
+  return ImageApi.create();
+}
+
+@Riverpod(keepAlive: true)
+ImageAdminApi imageAdminApi(ImageAdminApiRef ref) {
+  return ImageAdminApi.create(ref);
 }
 
 @Riverpod(keepAlive: true)
 ImageRemoteService imageRemoteService(ImageRemoteServiceRef ref) {
   return ImageRemoteService(
     ref.watch(imageApiProvider),
+    ref.watch(imageAdminApiProvider),
     ref.watch(responseHeaderCacheProvider),
   );
 }
@@ -32,5 +38,6 @@ ImageRepository imageRepository(ImageRepositoryRef ref) {
   return ImageRepository(
     ref.watch(imageLocalServiceProvider),
     ref.watch(imageRemoteServiceProvider),
+    ref.watch(responseHeaderCacheProvider),
   );
 }

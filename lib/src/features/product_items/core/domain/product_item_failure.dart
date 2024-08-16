@@ -6,4 +6,5 @@ part 'product_item_failure.freezed.dart';
 class ProductItemFailure with _$ProductItemFailure {
   const ProductItemFailure._();
   const factory ProductItemFailure.api(int? errorCode) = _Api;
+  const factory ProductItemFailure.server(String? message) = _Server;
 }

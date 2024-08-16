@@ -33,19 +33,21 @@ class ManagePage extends StatelessWidget {
                             padding: EdgeInsets.only(right: 8),
                             child: Icon(Icons.add),
                           ),
-                          text: const Text(
+                          child: const Text(
                             'Add Product',
                             style: TextStyle(fontSize: 16),
                           ),
                         );
                       case 1:
-                        return const ShadButton(
+                        return ShadButton(
+                          onPressed: () =>
+                              context.goNamed(AppRoute.addProductItem.name),
                           height: 60,
-                          icon: Padding(
+                          icon: const Padding(
                             padding: EdgeInsets.only(right: 8),
                             child: Icon(Icons.add),
                           ),
-                          text: Expanded(
+                          child: const Expanded(
                             child: Text(
                               'Add Product Item',
                               style: TextStyle(fontSize: 16),
@@ -61,7 +63,7 @@ class ManagePage extends StatelessWidget {
                             padding: EdgeInsets.only(right: 8),
                             child: Icon(Icons.add),
                           ),
-                          text: const Text(
+                          child: const Text(
                             'Add Brand',
                             style: TextStyle(fontSize: 16),
                           ),
@@ -75,7 +77,7 @@ class ManagePage extends StatelessWidget {
                             padding: EdgeInsets.only(right: 8),
                             child: Icon(Icons.add),
                           ),
-                          text: const Text(
+                          child: const Text(
                             'Add Category',
                             style: TextStyle(fontSize: 16),
                           ),
@@ -89,31 +91,35 @@ class ManagePage extends StatelessWidget {
                             padding: EdgeInsets.only(right: 8),
                             child: Icon(Icons.add),
                           ),
-                          text: const Text(
+                          child: const Text(
                             'Add Image',
                             style: TextStyle(fontSize: 16),
                           ),
                         );
                       case 5:
-                        return const ShadButton(
+                        return ShadButton(
+                          onPressed: () =>
+                              context.goNamed(AppRoute.addColor.name),
                           height: 60,
-                          icon: Padding(
+                          icon: const Padding(
                             padding: EdgeInsets.only(right: 8),
                             child: Icon(Icons.add),
                           ),
-                          text: Text(
+                          child: const Text(
                             'Add Color',
                             style: TextStyle(fontSize: 16),
                           ),
                         );
                       case 6:
-                        return const ShadButton(
+                        return ShadButton(
+                          onPressed: () =>
+                              context.goNamed(AppRoute.addColor.name),
                           height: 60,
-                          icon: Padding(
+                          icon: const Padding(
                             padding: EdgeInsets.only(right: 8),
                             child: Icon(Icons.add),
                           ),
-                          text: Text(
+                          child: const Text(
                             'Add Size',
                             style: TextStyle(fontSize: 16),
                           ),
@@ -125,7 +131,7 @@ class ManagePage extends StatelessWidget {
                             padding: EdgeInsets.only(right: 8),
                             child: Icon(Icons.add),
                           ),
-                          text: Expanded(
+                          child: Expanded(
                             child: Text(
                               'Add Promotion',
                               style: TextStyle(fontSize: 16),
@@ -139,7 +145,7 @@ class ManagePage extends StatelessWidget {
                             padding: EdgeInsets.only(right: 8),
                             child: Icon(Icons.add),
                           ),
-                          text: Expanded(
+                          child: Expanded(
                             child: Text(
                               'Add Product Promotion',
                               style: TextStyle(fontSize: 16),
@@ -153,7 +159,7 @@ class ManagePage extends StatelessWidget {
                             padding: EdgeInsets.only(right: 8),
                             child: Icon(Icons.add),
                           ),
-                          text: Expanded(
+                          child: Expanded(
                             child: Text(
                               'Add Category Promotion',
                               style: TextStyle(fontSize: 16),
@@ -167,7 +173,7 @@ class ManagePage extends StatelessWidget {
                             padding: EdgeInsets.only(right: 8),
                             child: Icon(Icons.add),
                           ),
-                          text: Expanded(
+                          child: Expanded(
                             child: Text(
                               'Add Brand Promotion',
                               style: TextStyle(fontSize: 16),

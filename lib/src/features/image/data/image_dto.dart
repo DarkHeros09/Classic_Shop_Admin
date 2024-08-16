@@ -14,28 +14,47 @@ class ImageKitDTO with _$ImageKitDTO {
   factory ImageKitDTO.fromJson(Map<String, dynamic> json) =>
       _$ImageKitDTOFromJson(json);
 
-  factory ImageKitDTO.fromDomain(Image _) {
+  factory ImageKitDTO.fromDomain(ImageKit _) {
     return ImageKitDTO(
       url: _.url,
     );
   }
 
-  Image toDomain() {
-    return Image(
+  ImageKit toDomain() {
+    return ImageKit(
       url: url,
     );
   }
 }
 
 @freezed
-class ImageDTO with _$ImageDTO {
-  const factory ImageDTO({
+class ProductImageDTO with _$ProductImageDTO {
+  const factory ProductImageDTO({
+    required int id,
     required String productImage_1,
     required String productImage_2,
     required String productImage_3,
-  }) = _ImageDTO;
-  const ImageDTO._();
+  }) = _ProductImageDTO;
+  const ProductImageDTO._();
 
-  factory ImageDTO.fromJson(Map<String, dynamic> json) =>
-      _$ImageDTOFromJson(json);
+  factory ProductImageDTO.fromJson(Map<String, dynamic> json) =>
+      _$ProductImageDTOFromJson(json);
+
+  factory ProductImageDTO.fromDomain(ProductImage _) {
+    return ProductImageDTO(
+      id: _.id,
+      productImage_1: _.productImage_1,
+      productImage_2: _.productImage_2,
+      productImage_3: _.productImage_3,
+    );
+  }
+
+  ProductImage toDomain() {
+    return ProductImage(
+      id: id,
+      productImage_1: productImage_1,
+      productImage_2: productImage_2,
+      productImage_3: productImage_3,
+    );
+  }
 }

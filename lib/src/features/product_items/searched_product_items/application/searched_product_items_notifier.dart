@@ -4,7 +4,7 @@ import 'package:classic_shop_admin/src/features/product_items/core/shared/provid
 import 'package:classic_shop_admin/src/features/product_items/helper/enums.dart';
 import 'package:classic_shop_admin/src/features/product_items/listed_products/data/list_products_repository.dart';
 
-class SearchedProductsNotifier extends PaginatedProductsNotifier {
+class SearchedProductItemsNotifier extends PaginatedProductsNotifier {
   late final ListProductsRepository _repository;
   @override
   PaginatedProductsState build() {
@@ -17,9 +17,9 @@ class SearchedProductsNotifier extends PaginatedProductsNotifier {
       (page, lastItemId, lastProductId) => _repository.getProducts(
         page,
         query: query,
-        productsFunction: ProductsFunction.searchProducts,
+        productItemsFunction: ProductItemsFunction.searchProducts,
       ),
-      ProductsFunction.searchProducts,
+      ProductItemsFunction.searchProducts,
     );
   }
 
@@ -27,12 +27,12 @@ class SearchedProductsNotifier extends PaginatedProductsNotifier {
     await super.getPage(
       (page, lastItemId, lastProductId) => _repository.getProducts(
         page,
-        productsFunction: ProductsFunction.searchProductsNextPage,
+        productItemsFunction: ProductItemsFunction.searchProductsNextPage,
         query: query,
         lastItemId: lastItemId,
         lastProductId: lastProductId,
       ),
-      ProductsFunction.searchProductsNextPage,
+      ProductItemsFunction.searchProductsNextPage,
     );
   }
 }

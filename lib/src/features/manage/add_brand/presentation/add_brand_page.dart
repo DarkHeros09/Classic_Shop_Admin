@@ -1,4 +1,4 @@
-import 'package:classic_shop_admin/src/features/image/application/image_notifier.dart';
+import 'package:classic_shop_admin/src/features/image/application/image_kit_notifier.dart';
 import 'package:classic_shop_admin/src/features/manage/add_brand/application/add_brand_notifier.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
@@ -46,7 +46,7 @@ class _AddBrandPageState extends ConsumerState<AddBrandPage> {
               builder: (context) {
                 return const Center(
                   child: ShadCard(
-                    content: CircularProgressIndicator(),
+                    child: CircularProgressIndicator(),
                   ),
                 );
               },
@@ -82,7 +82,7 @@ class _AddBrandPageState extends ConsumerState<AddBrandPage> {
             child: SingleChildScrollView(
               child: ShadCard(
                 title: Text('Add Brand', style: theme.textTheme.h4),
-                content: ShadForm(
+                child: ShadForm(
                   autovalidateMode: ShadAutovalidateMode.disabled,
                   key: formKey,
                   child: Column(
@@ -93,7 +93,7 @@ class _AddBrandPageState extends ConsumerState<AddBrandPage> {
                       ShadInputFormField(
                         id: 'name',
                         label: const Text('Name'),
-                        onTapOutside: (event) =>
+                        onPressedOutside: (event) =>
                             FocusScope.of(context).unfocus(),
                         placeholder: const Text('Brand Name'),
                         validator: (v) {
@@ -113,7 +113,7 @@ class _AddBrandPageState extends ConsumerState<AddBrandPage> {
                         onPressed: () {
                           FocusScope.of(context).unfocus();
                           ref
-                              .read(imagesNotifierProvider.notifier)
+                              .read(imageKitsNotifierProvider.notifier)
                               .fetchImages();
                           showModalBottomSheet<void>(
                             context: context,
@@ -123,11 +123,11 @@ class _AddBrandPageState extends ConsumerState<AddBrandPage> {
                               return Consumer(
                                 builder: (context, ref, child) {
                                   final state =
-                                      ref.watch(imagesNotifierProvider);
+                                      ref.watch(imageKitsNotifierProvider);
                                   final itemCount = state.maybeMap(
                                     orElse: () => 0,
                                     loadSuccess: (value) =>
-                                        value.images.entity.length,
+                                        value.imageKits.entity.length,
                                   );
                                   return SizedBox(
                                     height: screenSize.height * 3 / 4,
@@ -147,8 +147,10 @@ class _AddBrandPageState extends ConsumerState<AddBrandPage> {
                                           itemBuilder: (context, index) =>
                                               InkWell(
                                             onTap: () {
-                                              final url = value.images
-                                                  .entity[index].cardImagesUrls;
+                                              final url = value
+                                                  .imageKits
+                                                  .entity[index]
+                                                  .cardImageKitsUrls;
                                               debugPrint(
                                                 'BBRAND IMAGE url $url',
                                               );
@@ -174,8 +176,8 @@ class _AddBrandPageState extends ConsumerState<AddBrandPage> {
                                                 Radius.circular(10),
                                               ),
                                               fit: BoxFit.cover,
-                                              value.images.entity[index]
-                                                  .cardImagesUrls,
+                                              value.imageKits.entity[index]
+                                                  .cardImageKitsUrls,
                                               cacheMaxAge:
                                                   const Duration(days: 30),
                                             ),
@@ -221,7 +223,7 @@ class _AddBrandPageState extends ConsumerState<AddBrandPage> {
                                 context.pop();
                               }
                             },
-                            text: const Text('Cancel'),
+                            child: const Text('Cancel'),
                           ),
                           const SizedBox(width: 8),
                           ShadButton(
@@ -247,7 +249,7 @@ class _AddBrandPageState extends ConsumerState<AddBrandPage> {
                                 formKey.currentState?.reset();
                               }
                             },
-                            text: const Text('Save'),
+                            child: const Text('Save'),
                           ),
                         ],
                       ),

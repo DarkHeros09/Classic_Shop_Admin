@@ -5,11 +5,14 @@ import 'package:classic_shop_admin/src/features/dashboard/presentation/dashboard
 import 'package:classic_shop_admin/src/features/dashboard/presentation/home_page.dart';
 import 'package:classic_shop_admin/src/features/manage/add_brand/presentation/add_brand_page.dart';
 import 'package:classic_shop_admin/src/features/manage/add_category/presentation/add_category_page.dart';
+import 'package:classic_shop_admin/src/features/manage/add_color/presentation/add_color_page.dart';
 import 'package:classic_shop_admin/src/features/manage/add_image/presentation/add_image_page.dart';
 import 'package:classic_shop_admin/src/features/manage/add_product/presentation/add_product_page.dart';
+import 'package:classic_shop_admin/src/features/manage/add_product_item/presentation/add_product_item_page.dart';
+import 'package:classic_shop_admin/src/features/manage/add_size/presentation/add_color_page.dart';
 import 'package:classic_shop_admin/src/features/manage/core/presentation/manage_page.dart';
 import 'package:classic_shop_admin/src/features/product_items/core/presentation/product_crud.dart';
-import 'package:classic_shop_admin/src/features/product_items/searched_products/presentation/search_page.dart';
+import 'package:classic_shop_admin/src/features/product_items/searched_product_items/presentation/search_page.dart';
 import 'package:classic_shop_admin/src/features/splash/presentation/splash_page.dart';
 import 'package:classic_shop_admin/src/helpers/riverpod_observer.dart';
 import 'package:classic_shop_admin/src/routing/go_router_refresh_stream.dart';
@@ -28,9 +31,12 @@ enum AppRoute {
   splash,
   updateDeleteProduct,
   addProduct,
+  addProductItem,
   addBrand,
   addCategory,
   addImage,
+  addColor,
+  addSize,
   search,
 }
 
@@ -52,8 +58,8 @@ class GoRouterConfig extends _$GoRouterConfig {
     final auth = ref.watch(authNotifierProvider.notifier);
     final authState = ref.watch(authNotifierProvider);
     return GoRouter(
-      // initialLocation: '/dashboard',
       initialLocation: '/home',
+      // initialLocation: '/manage/add_product_item',
       navigatorKey: _rootNavigatorKey,
       refreshListenable: GoRouterRefreshStream(
         [
@@ -156,12 +162,12 @@ class GoRouterConfig extends _$GoRouterConfig {
                   pageBuilder: (context, state) {
                     return const NoTransitionPage(child: ManagePage());
                   },
-                  redirect: (context, state) {
-                    debugPrint('REDIRECT CALLED IN MANAGE');
-                    final isLoggedIn = authState.user.value != null;
-                    debugPrint('REDIRECT CALLED $isLoggedIn');
-                    return isLoggedIn ? null : '/sign-in';
-                  },
+                  // redirect: (context, state) {
+                  //   debugPrint('REDIRECT CALLED IN MANAGE');
+                  //   final isLoggedIn = authState.user.value != null;
+                  //   debugPrint('REDIRECT CALLED $isLoggedIn');
+                  //   return isLoggedIn ? null : '/sign-in';
+                  // },
                   routes: [
                     GoRoute(
                       path: 'add_product',
@@ -169,6 +175,13 @@ class GoRouterConfig extends _$GoRouterConfig {
                       parentNavigatorKey: _rootNavigatorKey,
                       pageBuilder: (context, state) =>
                           const NoTransitionPage(child: AddProductPage()),
+                    ),
+                    GoRoute(
+                      path: 'add_product_item',
+                      name: AppRoute.addProductItem.name,
+                      parentNavigatorKey: _rootNavigatorKey,
+                      pageBuilder: (context, state) =>
+                          const NoTransitionPage(child: AddProductItemPage()),
                     ),
                     GoRoute(
                       path: 'add_brand',
@@ -190,6 +203,20 @@ class GoRouterConfig extends _$GoRouterConfig {
                       parentNavigatorKey: _rootNavigatorKey,
                       pageBuilder: (context, state) =>
                           const NoTransitionPage(child: AddImagePage()),
+                    ),
+                    GoRoute(
+                      path: 'add_color',
+                      name: AppRoute.addColor.name,
+                      parentNavigatorKey: _rootNavigatorKey,
+                      pageBuilder: (context, state) =>
+                          const NoTransitionPage(child: AddColorPage()),
+                    ),
+                    GoRoute(
+                      path: 'add_size',
+                      name: AppRoute.addSize.name,
+                      parentNavigatorKey: _rootNavigatorKey,
+                      pageBuilder: (context, state) =>
+                          const NoTransitionPage(child: AddSizePage()),
                     ),
                   ],
                 ),

@@ -1,5 +1,5 @@
 import 'package:classic_shop_admin/src/features/category/application/category_notifier.dart';
-import 'package:classic_shop_admin/src/features/image/application/image_notifier.dart';
+import 'package:classic_shop_admin/src/features/image/application/image_kit_notifier.dart';
 import 'package:classic_shop_admin/src/features/manage/add_category/application/add_category_notifier.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
@@ -60,7 +60,7 @@ class _AddCategoryPageState extends ConsumerState<AddCategoryPage> {
               builder: (context) {
                 return const Center(
                   child: ShadCard(
-                    content: CircularProgressIndicator(),
+                    child: CircularProgressIndicator(),
                   ),
                 );
               },
@@ -114,7 +114,7 @@ class _AddCategoryPageState extends ConsumerState<AddCategoryPage> {
             child: SingleChildScrollView(
               child: ShadCard(
                 title: Text('Add Category', style: theme.textTheme.h4),
-                content: ShadForm(
+                child: ShadForm(
                   autovalidateMode: ShadAutovalidateMode.disabled,
                   key: formKey,
                   child: Column(
@@ -157,7 +157,7 @@ class _AddCategoryPageState extends ConsumerState<AddCategoryPage> {
                       ShadInputFormField(
                         id: 'name',
                         label: const Text('Name'),
-                        onTapOutside: (event) =>
+                        onPressedOutside: (event) =>
                             FocusScope.of(context).unfocus(),
                         placeholder: const Text('Category Name'),
                         validator: (v) {
@@ -177,7 +177,7 @@ class _AddCategoryPageState extends ConsumerState<AddCategoryPage> {
                         onPressed: () {
                           FocusScope.of(context).unfocus();
                           ref
-                              .read(imagesNotifierProvider.notifier)
+                              .read(imageKitsNotifierProvider.notifier)
                               .fetchImages();
                           showModalBottomSheet<void>(
                             context: context,
@@ -187,11 +187,11 @@ class _AddCategoryPageState extends ConsumerState<AddCategoryPage> {
                               return Consumer(
                                 builder: (context, ref, child) {
                                   final state =
-                                      ref.watch(imagesNotifierProvider);
+                                      ref.watch(imageKitsNotifierProvider);
                                   final itemCount = state.maybeMap(
                                     orElse: () => 0,
                                     loadSuccess: (value) =>
-                                        value.images.entity.length,
+                                        value.imageKits.entity.length,
                                   );
                                   return SizedBox(
                                     height: screenSize.height * 3 / 4,
@@ -211,8 +211,10 @@ class _AddCategoryPageState extends ConsumerState<AddCategoryPage> {
                                           itemBuilder: (context, index) =>
                                               InkWell(
                                             onTap: () {
-                                              final url = value.images
-                                                  .entity[index].cardImagesUrls;
+                                              final url = value
+                                                  .imageKits
+                                                  .entity[index]
+                                                  .cardImageKitsUrls;
                                               debugPrint(
                                                 'CCATEGORY IMAGE url $url',
                                               );
@@ -239,8 +241,8 @@ class _AddCategoryPageState extends ConsumerState<AddCategoryPage> {
                                                 Radius.circular(10),
                                               ),
                                               fit: BoxFit.cover,
-                                              value.images.entity[index]
-                                                  .cardImagesUrls,
+                                              value.imageKits.entity[index]
+                                                  .cardImageKitsUrls,
                                               cacheMaxAge:
                                                   const Duration(days: 30),
                                             ),
@@ -286,7 +288,7 @@ class _AddCategoryPageState extends ConsumerState<AddCategoryPage> {
                                 context.pop();
                               }
                             },
-                            text: const Text('Cancel'),
+                            child: const Text('Cancel'),
                           ),
                           const SizedBox(width: 8),
                           ShadButton(
@@ -314,7 +316,7 @@ class _AddCategoryPageState extends ConsumerState<AddCategoryPage> {
                                 formKey.currentState?.reset();
                               }
                             },
-                            text: const Text('Save'),
+                            child: const Text('Save'),
                           ),
                         ],
                       ),

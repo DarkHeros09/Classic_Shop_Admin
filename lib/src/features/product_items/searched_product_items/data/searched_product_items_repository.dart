@@ -3,13 +3,13 @@ import 'package:classic_shop_admin/src/core/domain/fresh.dart';
 import 'package:classic_shop_admin/src/features/product_items/core/data/product_item_extensions.dart';
 import 'package:classic_shop_admin/src/features/product_items/core/domain/product_item.dart';
 import 'package:classic_shop_admin/src/features/product_items/core/domain/product_item_failure.dart';
-import 'package:classic_shop_admin/src/features/product_items/searched_products/data/searched_products_remote_service.dart';
+import 'package:classic_shop_admin/src/features/product_items/searched_product_items/data/searched_product_items_remote_service.dart';
 import 'package:dartz/dartz.dart';
 
-class SearchedProductsRepository {
-  SearchedProductsRepository(this._remoteService);
+class SearchedProductItemsRepository {
+  SearchedProductItemsRepository(this._remoteService);
 
-  final SearchedProductsRemoteService _remoteService;
+  final SearchedProductItemsRemoteService _remoteService;
 
   Future<Either<ProductItemFailure, Fresh<List<ProductItem>>>> searchProducts(
     String query,

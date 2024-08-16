@@ -45,7 +45,7 @@ class _AddProductPageState extends ConsumerState<AddProductPage> {
               builder: (context) {
                 return const Center(
                   child: ShadCard(
-                    content: CircularProgressIndicator(),
+                    child: CircularProgressIndicator(),
                   ),
                 );
               },
@@ -113,7 +113,7 @@ class _AddProductPageState extends ConsumerState<AddProductPage> {
             child: SingleChildScrollView(
               child: ShadCard(
                 title: Text('Add Product', style: theme.textTheme.h4),
-                content: ShadForm(
+                child: ShadForm(
                   key: formKey,
                   autovalidateMode: ShadAutovalidateMode.disabled,
                   child: Column(
@@ -124,7 +124,7 @@ class _AddProductPageState extends ConsumerState<AddProductPage> {
                       ShadInputFormField(
                         id: 'name',
                         label: const Text('Name'),
-                        onTapOutside: (event) =>
+                        onPressedOutside: (event) =>
                             FocusScope.of(context).unfocus(),
                         placeholder: const Text('Product Name'),
                         validator: (v) {
@@ -233,7 +233,7 @@ class _AddProductPageState extends ConsumerState<AddProductPage> {
                                 context.pop();
                               }
                             },
-                            text: const Text('Cancel'),
+                            child: const Text('Cancel'),
                           ),
                           const SizedBox(width: 8),
                           ShadButton(
@@ -266,7 +266,7 @@ class _AddProductPageState extends ConsumerState<AddProductPage> {
                                 isActive.value = false;
                               }
                             },
-                            text: const Text('Save'),
+                            child: const Text('Save'),
                           ),
                         ],
                       ),

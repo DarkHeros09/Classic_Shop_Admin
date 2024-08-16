@@ -5,9 +5,9 @@ import 'package:classic_shop_admin/src/features/product_items/listed_products/ap
 import 'package:classic_shop_admin/src/features/product_items/listed_products/data/list_products_local_service.dart';
 import 'package:classic_shop_admin/src/features/product_items/listed_products/data/list_products_remote_service.dart';
 import 'package:classic_shop_admin/src/features/product_items/listed_products/data/list_products_repository.dart';
-import 'package:classic_shop_admin/src/features/product_items/searched_products/application/searched_products_notifier.dart';
-import 'package:classic_shop_admin/src/features/product_items/searched_products/data/searched_products_remote_service.dart';
-import 'package:classic_shop_admin/src/features/product_items/searched_products/data/searched_products_repository.dart';
+import 'package:classic_shop_admin/src/features/product_items/searched_product_items/application/searched_product_items_notifier.dart';
+import 'package:classic_shop_admin/src/features/product_items/searched_product_items/data/searched_product_items_remote_service.dart';
+import 'package:classic_shop_admin/src/features/product_items/searched_product_items/data/searched_product_items_repository.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'providers.g.dart';
@@ -25,11 +25,17 @@ ProductItemApi productItemApi(ProductItemApiRef ref) {
 }
 
 @Riverpod(keepAlive: true)
+ProductItemAdminApi productItemAdminApi(ProductItemAdminApiRef ref) {
+  return ProductItemAdminApi.create(ref);
+}
+
+@Riverpod(keepAlive: true)
 ListProductsRemoteService listProductsRemoteService(
   ListProductsRemoteServiceRef ref,
 ) {
   return ListProductsRemoteService(
     ref.watch(productItemApiProvider),
+    ref.watch(productItemAdminApiProvider),
     ref.watch(responseHeaderCacheProvider),
   );
 }
@@ -44,21 +50,22 @@ ListProductsRepository listProductsRepository(ListProductsRepositoryRef ref) {
 }
 
 @Riverpod(keepAlive: true)
-SearchedProductsRemoteService searchedProductsRemoteService(
-  SearchedProductsRemoteServiceRef ref,
+SearchedProductItemsRemoteService searchedProductItemsRemoteService(
+  SearchedProductItemsRemoteServiceRef ref,
 ) {
-  return SearchedProductsRemoteService(
+  return SearchedProductItemsRemoteService(
     ref.watch(productItemApiProvider),
+    ref.watch(productItemAdminApiProvider),
     ref.watch(responseHeaderCacheProvider),
   );
 }
 
 @Riverpod(keepAlive: true)
-SearchedProductsRepository searchedProductsRepository(
-  SearchedProductsRepositoryRef ref,
+SearchedProductItemsRepository searchedProductItemsRepository(
+  SearchedProductItemsRepositoryRef ref,
 ) {
-  return SearchedProductsRepository(
-    ref.watch(searchedProductsRemoteServiceProvider),
+  return SearchedProductItemsRepository(
+    ref.watch(searchedProductItemsRemoteServiceProvider),
   );
 }
 
@@ -68,6 +75,6 @@ final listProductsNotifierProvider =
 );
 
 final searchedProductsNotifierProvider = NotifierProvider.autoDispose<
-    SearchedProductsNotifier, PaginatedProductsState>(
-  SearchedProductsNotifier.new,
+    SearchedProductItemsNotifier, PaginatedProductsState>(
+  SearchedProductItemsNotifier.new,
 );
