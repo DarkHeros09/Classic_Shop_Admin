@@ -9,20 +9,20 @@ part of 'product_item_dto.dart';
 _$ProductItemDTOImpl _$$ProductItemDTOImplFromJson(Map<String, dynamic> json) =>
     _$ProductItemDTOImpl(
       id: (json['id'] as num).toInt(),
-      name: json['name'] as String,
+      name: json['name'] as String?,
       productId: (json['product_id'] as num).toInt(),
-      categoryId: (json['category_id'] as num).toInt(),
-      brandId: (json['brand_id'] as num).toInt(),
-      brandName: json['brand_name'] as String,
+      categoryId: (json['category_id'] as num?)?.toInt(),
+      brandId: (json['brand_id'] as num?)?.toInt(),
+      brandName: json['brand_name'] as String?,
       productSku: (json['product_sku'] as num).toInt(),
       qtyInStock: (json['qty_in_stock'] as num).toInt(),
-      productImage_1: json['product_image_1'] as String,
-      productImage_2: json['product_image_2'] as String,
-      productImage_3: json['product_image_3'] as String,
-      sizeValue: json['size_value'] as String,
-      colorValue: json['color_value'] as String,
+      productImage_1: json['product_image_1'] as String?,
+      productImage_2: json['product_image_2'] as String?,
+      productImage_3: json['product_image_3'] as String?,
+      sizeValue: json['size_value'] as String?,
+      colorValue: json['color_value'] as String?,
       price: json['price'] as String,
-      parentProductActive: json['parent_product_active'] as bool,
+      parentProductActive: json['parent_product_active'] as bool?,
       active: json['active'] as bool,
       createdAt: DateTime.parse(json['created_at'] as String),
       updatedAt: DateTime.parse(json['updated_at'] as String),
@@ -62,7 +62,7 @@ _$ProductItemDTOImpl _$$ProductItemDTOImplFromJson(Map<String, dynamic> json) =>
       productPromoEndDate: json['product_promo_end_date'] == null
           ? null
           : DateTime.parse(json['product_promo_end_date'] as String),
-      nextAvailable: json['next_available'] as bool,
+      nextAvailable: json['next_available'] as bool?,
     );
 
 Map<String, dynamic> _$$ProductItemDTOImplToJson(

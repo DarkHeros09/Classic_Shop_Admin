@@ -24,7 +24,7 @@ mixin _$Product {
   bool get active => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
   DateTime get updatedAt => throw _privateConstructorUsedError;
-  bool get nextAvailable => throw _privateConstructorUsedError;
+  bool? get nextAvailable => throw _privateConstructorUsedError;
 
   /// Create a copy of Product
   /// with the given fields replaced by the non-null parameter values.
@@ -46,7 +46,7 @@ abstract class $ProductCopyWith<$Res> {
       bool active,
       DateTime createdAt,
       DateTime updatedAt,
-      bool nextAvailable});
+      bool? nextAvailable});
 }
 
 /// @nodoc
@@ -72,7 +72,7 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
     Object? active = null,
     Object? createdAt = null,
     Object? updatedAt = null,
-    Object? nextAvailable = null,
+    Object? nextAvailable = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -107,10 +107,10 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      nextAvailable: null == nextAvailable
+      nextAvailable: freezed == nextAvailable
           ? _value.nextAvailable
           : nextAvailable // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
     ) as $Val);
   }
 }
@@ -131,7 +131,7 @@ abstract class _$$ProductImplCopyWith<$Res> implements $ProductCopyWith<$Res> {
       bool active,
       DateTime createdAt,
       DateTime updatedAt,
-      bool nextAvailable});
+      bool? nextAvailable});
 }
 
 /// @nodoc
@@ -155,7 +155,7 @@ class __$$ProductImplCopyWithImpl<$Res>
     Object? active = null,
     Object? createdAt = null,
     Object? updatedAt = null,
-    Object? nextAvailable = null,
+    Object? nextAvailable = freezed,
   }) {
     return _then(_$ProductImpl(
       id: null == id
@@ -190,10 +190,10 @@ class __$$ProductImplCopyWithImpl<$Res>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      nextAvailable: null == nextAvailable
+      nextAvailable: freezed == nextAvailable
           ? _value.nextAvailable
           : nextAvailable // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
     ));
   }
 }
@@ -230,7 +230,7 @@ class _$ProductImpl extends _Product {
   @override
   final DateTime updatedAt;
   @override
-  final bool nextAvailable;
+  final bool? nextAvailable;
 
   @override
   String toString() {
@@ -281,7 +281,7 @@ abstract class _Product extends Product {
       required final bool active,
       required final DateTime createdAt,
       required final DateTime updatedAt,
-      required final bool nextAvailable}) = _$ProductImpl;
+      required final bool? nextAvailable}) = _$ProductImpl;
   const _Product._() : super._();
 
   @override
@@ -301,7 +301,7 @@ abstract class _Product extends Product {
   @override
   DateTime get updatedAt;
   @override
-  bool get nextAvailable;
+  bool? get nextAvailable;
 
   /// Create a copy of Product
   /// with the given fields replaced by the non-null parameter values.

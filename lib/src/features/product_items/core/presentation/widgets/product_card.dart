@@ -94,7 +94,7 @@ class ProductCard extends HookConsumerWidget {
                 width: 190,
                 borderRadius: const BorderRadius.all(Radius.circular(10)),
                 fit: BoxFit.cover,
-                product.productImage1,
+                product.productImage1 ?? '',
                 cacheMaxAge: const Duration(days: 30),
               ),
               if (DateTime.now().difference(product.createdAt).inDays <= 7 &&
@@ -189,12 +189,12 @@ class ProductCard extends HookConsumerWidget {
         ),
         const SizedBox(height: 4),
         Text(
-          product.brandName,
+          product.brandName ?? '',
           style: appTheme.textTheme.bodySmall
               ?.copyWith(color: const Color(0xFF9B9B9B)),
         ),
         Text(
-          product.name,
+          product.name ?? '',
           style: appTheme.textTheme.bodyLarge,
         ),
         Row(

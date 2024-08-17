@@ -28,7 +28,7 @@ mixin _$ProductDTO {
   bool get active => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
   DateTime get updatedAt => throw _privateConstructorUsedError;
-  bool get nextAvailable => throw _privateConstructorUsedError;
+  bool? get nextAvailable => throw _privateConstructorUsedError;
 
   /// Serializes this ProductDTO to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -55,7 +55,7 @@ abstract class $ProductDTOCopyWith<$Res> {
       bool active,
       DateTime createdAt,
       DateTime updatedAt,
-      bool nextAvailable});
+      bool? nextAvailable});
 }
 
 /// @nodoc
@@ -81,7 +81,7 @@ class _$ProductDTOCopyWithImpl<$Res, $Val extends ProductDTO>
     Object? active = null,
     Object? createdAt = null,
     Object? updatedAt = null,
-    Object? nextAvailable = null,
+    Object? nextAvailable = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -116,10 +116,10 @@ class _$ProductDTOCopyWithImpl<$Res, $Val extends ProductDTO>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      nextAvailable: null == nextAvailable
+      nextAvailable: freezed == nextAvailable
           ? _value.nextAvailable
           : nextAvailable // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
     ) as $Val);
   }
 }
@@ -141,7 +141,7 @@ abstract class _$$ProductDTOImplCopyWith<$Res>
       bool active,
       DateTime createdAt,
       DateTime updatedAt,
-      bool nextAvailable});
+      bool? nextAvailable});
 }
 
 /// @nodoc
@@ -165,7 +165,7 @@ class __$$ProductDTOImplCopyWithImpl<$Res>
     Object? active = null,
     Object? createdAt = null,
     Object? updatedAt = null,
-    Object? nextAvailable = null,
+    Object? nextAvailable = freezed,
   }) {
     return _then(_$ProductDTOImpl(
       id: null == id
@@ -200,10 +200,10 @@ class __$$ProductDTOImplCopyWithImpl<$Res>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      nextAvailable: null == nextAvailable
+      nextAvailable: freezed == nextAvailable
           ? _value.nextAvailable
           : nextAvailable // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
     ));
   }
 }
@@ -243,7 +243,7 @@ class _$ProductDTOImpl extends _ProductDTO {
   @override
   final DateTime updatedAt;
   @override
-  final bool nextAvailable;
+  final bool? nextAvailable;
 
   @override
   String toString() {
@@ -302,7 +302,7 @@ abstract class _ProductDTO extends ProductDTO {
       required final bool active,
       required final DateTime createdAt,
       required final DateTime updatedAt,
-      required final bool nextAvailable}) = _$ProductDTOImpl;
+      required final bool? nextAvailable}) = _$ProductDTOImpl;
   const _ProductDTO._() : super._();
 
   factory _ProductDTO.fromJson(Map<String, dynamic> json) =
@@ -325,7 +325,7 @@ abstract class _ProductDTO extends ProductDTO {
   @override
   DateTime get updatedAt;
   @override
-  bool get nextAvailable;
+  bool? get nextAvailable;
 
   /// Create a copy of ProductDTO
   /// with the given fields replaced by the non-null parameter values.

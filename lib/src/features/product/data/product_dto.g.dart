@@ -16,7 +16,7 @@ _$ProductDTOImpl _$$ProductDTOImplFromJson(Map<String, dynamic> json) =>
       active: json['active'] as bool,
       createdAt: DateTime.parse(json['created_at'] as String),
       updatedAt: DateTime.parse(json['updated_at'] as String),
-      nextAvailable: json['next_available'] as bool,
+      nextAvailable: json['next_available'] as bool?,
     );
 
 Map<String, dynamic> _$$ProductDTOImplToJson(_$ProductDTOImpl instance) =>

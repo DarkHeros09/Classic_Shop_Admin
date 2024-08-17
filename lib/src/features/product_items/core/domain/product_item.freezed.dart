@@ -17,21 +17,21 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$ProductItem {
   int get id => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
   int get productId => throw _privateConstructorUsedError;
-  int get categoryId => throw _privateConstructorUsedError;
-  int get brandId => throw _privateConstructorUsedError;
-  String get brandName => throw _privateConstructorUsedError;
+  int? get categoryId => throw _privateConstructorUsedError;
+  int? get brandId => throw _privateConstructorUsedError;
+  String? get brandName => throw _privateConstructorUsedError;
   int get productSku => throw _privateConstructorUsedError;
   int get qtyInStock => throw _privateConstructorUsedError;
-  String get productImage1 => throw _privateConstructorUsedError;
-  String get productImage2 => throw _privateConstructorUsedError;
-  String get productImage3 => throw _privateConstructorUsedError;
-  String get size => throw _privateConstructorUsedError;
-  String get color => throw _privateConstructorUsedError;
+  String? get productImage1 => throw _privateConstructorUsedError;
+  String? get productImage2 => throw _privateConstructorUsedError;
+  String? get productImage3 => throw _privateConstructorUsedError;
+  String? get size => throw _privateConstructorUsedError;
+  String? get color => throw _privateConstructorUsedError;
   String get price => throw _privateConstructorUsedError;
   bool get active => throw _privateConstructorUsedError;
-  bool get parentProductActive => throw _privateConstructorUsedError;
+  bool? get parentProductActive => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
   DateTime get updatedAt => throw _privateConstructorUsedError;
   int? get categoryPromoId => throw _privateConstructorUsedError;
@@ -55,7 +55,7 @@ mixin _$ProductItem {
   bool? get productPromoActive => throw _privateConstructorUsedError;
   DateTime? get productPromoStartDate => throw _privateConstructorUsedError;
   DateTime? get productPromoEndDate => throw _privateConstructorUsedError;
-  bool get nextAvailable => throw _privateConstructorUsedError;
+  bool? get nextAvailable => throw _privateConstructorUsedError;
 
   /// Create a copy of ProductItem
   /// with the given fields replaced by the non-null parameter values.
@@ -72,21 +72,21 @@ abstract class $ProductItemCopyWith<$Res> {
   @useResult
   $Res call(
       {int id,
-      String name,
+      String? name,
       int productId,
-      int categoryId,
-      int brandId,
-      String brandName,
+      int? categoryId,
+      int? brandId,
+      String? brandName,
       int productSku,
       int qtyInStock,
-      String productImage1,
-      String productImage2,
-      String productImage3,
-      String size,
-      String color,
+      String? productImage1,
+      String? productImage2,
+      String? productImage3,
+      String? size,
+      String? color,
       String price,
       bool active,
-      bool parentProductActive,
+      bool? parentProductActive,
       DateTime createdAt,
       DateTime updatedAt,
       int? categoryPromoId,
@@ -110,7 +110,7 @@ abstract class $ProductItemCopyWith<$Res> {
       bool? productPromoActive,
       DateTime? productPromoStartDate,
       DateTime? productPromoEndDate,
-      bool nextAvailable});
+      bool? nextAvailable});
 }
 
 /// @nodoc
@@ -129,21 +129,21 @@ class _$ProductItemCopyWithImpl<$Res, $Val extends ProductItem>
   @override
   $Res call({
     Object? id = null,
-    Object? name = null,
+    Object? name = freezed,
     Object? productId = null,
-    Object? categoryId = null,
-    Object? brandId = null,
-    Object? brandName = null,
+    Object? categoryId = freezed,
+    Object? brandId = freezed,
+    Object? brandName = freezed,
     Object? productSku = null,
     Object? qtyInStock = null,
-    Object? productImage1 = null,
-    Object? productImage2 = null,
-    Object? productImage3 = null,
-    Object? size = null,
-    Object? color = null,
+    Object? productImage1 = freezed,
+    Object? productImage2 = freezed,
+    Object? productImage3 = freezed,
+    Object? size = freezed,
+    Object? color = freezed,
     Object? price = null,
     Object? active = null,
-    Object? parentProductActive = null,
+    Object? parentProductActive = freezed,
     Object? createdAt = null,
     Object? updatedAt = null,
     Object? categoryPromoId = freezed,
@@ -167,33 +167,33 @@ class _$ProductItemCopyWithImpl<$Res, $Val extends ProductItem>
     Object? productPromoActive = freezed,
     Object? productPromoStartDate = freezed,
     Object? productPromoEndDate = freezed,
-    Object? nextAvailable = null,
+    Object? nextAvailable = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       productId: null == productId
           ? _value.productId
           : productId // ignore: cast_nullable_to_non_nullable
               as int,
-      categoryId: null == categoryId
+      categoryId: freezed == categoryId
           ? _value.categoryId
           : categoryId // ignore: cast_nullable_to_non_nullable
-              as int,
-      brandId: null == brandId
+              as int?,
+      brandId: freezed == brandId
           ? _value.brandId
           : brandId // ignore: cast_nullable_to_non_nullable
-              as int,
-      brandName: null == brandName
+              as int?,
+      brandName: freezed == brandName
           ? _value.brandName
           : brandName // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       productSku: null == productSku
           ? _value.productSku
           : productSku // ignore: cast_nullable_to_non_nullable
@@ -202,26 +202,26 @@ class _$ProductItemCopyWithImpl<$Res, $Val extends ProductItem>
           ? _value.qtyInStock
           : qtyInStock // ignore: cast_nullable_to_non_nullable
               as int,
-      productImage1: null == productImage1
+      productImage1: freezed == productImage1
           ? _value.productImage1
           : productImage1 // ignore: cast_nullable_to_non_nullable
-              as String,
-      productImage2: null == productImage2
+              as String?,
+      productImage2: freezed == productImage2
           ? _value.productImage2
           : productImage2 // ignore: cast_nullable_to_non_nullable
-              as String,
-      productImage3: null == productImage3
+              as String?,
+      productImage3: freezed == productImage3
           ? _value.productImage3
           : productImage3 // ignore: cast_nullable_to_non_nullable
-              as String,
-      size: null == size
+              as String?,
+      size: freezed == size
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
-              as String,
-      color: null == color
+              as String?,
+      color: freezed == color
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       price: null == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
@@ -230,10 +230,10 @@ class _$ProductItemCopyWithImpl<$Res, $Val extends ProductItem>
           ? _value.active
           : active // ignore: cast_nullable_to_non_nullable
               as bool,
-      parentProductActive: null == parentProductActive
+      parentProductActive: freezed == parentProductActive
           ? _value.parentProductActive
           : parentProductActive // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -326,10 +326,10 @@ class _$ProductItemCopyWithImpl<$Res, $Val extends ProductItem>
           ? _value.productPromoEndDate
           : productPromoEndDate // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      nextAvailable: null == nextAvailable
+      nextAvailable: freezed == nextAvailable
           ? _value.nextAvailable
           : nextAvailable // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
     ) as $Val);
   }
 }
@@ -344,21 +344,21 @@ abstract class _$$ProductItemImplCopyWith<$Res>
   @useResult
   $Res call(
       {int id,
-      String name,
+      String? name,
       int productId,
-      int categoryId,
-      int brandId,
-      String brandName,
+      int? categoryId,
+      int? brandId,
+      String? brandName,
       int productSku,
       int qtyInStock,
-      String productImage1,
-      String productImage2,
-      String productImage3,
-      String size,
-      String color,
+      String? productImage1,
+      String? productImage2,
+      String? productImage3,
+      String? size,
+      String? color,
       String price,
       bool active,
-      bool parentProductActive,
+      bool? parentProductActive,
       DateTime createdAt,
       DateTime updatedAt,
       int? categoryPromoId,
@@ -382,7 +382,7 @@ abstract class _$$ProductItemImplCopyWith<$Res>
       bool? productPromoActive,
       DateTime? productPromoStartDate,
       DateTime? productPromoEndDate,
-      bool nextAvailable});
+      bool? nextAvailable});
 }
 
 /// @nodoc
@@ -399,21 +399,21 @@ class __$$ProductItemImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? name = null,
+    Object? name = freezed,
     Object? productId = null,
-    Object? categoryId = null,
-    Object? brandId = null,
-    Object? brandName = null,
+    Object? categoryId = freezed,
+    Object? brandId = freezed,
+    Object? brandName = freezed,
     Object? productSku = null,
     Object? qtyInStock = null,
-    Object? productImage1 = null,
-    Object? productImage2 = null,
-    Object? productImage3 = null,
-    Object? size = null,
-    Object? color = null,
+    Object? productImage1 = freezed,
+    Object? productImage2 = freezed,
+    Object? productImage3 = freezed,
+    Object? size = freezed,
+    Object? color = freezed,
     Object? price = null,
     Object? active = null,
-    Object? parentProductActive = null,
+    Object? parentProductActive = freezed,
     Object? createdAt = null,
     Object? updatedAt = null,
     Object? categoryPromoId = freezed,
@@ -437,33 +437,33 @@ class __$$ProductItemImplCopyWithImpl<$Res>
     Object? productPromoActive = freezed,
     Object? productPromoStartDate = freezed,
     Object? productPromoEndDate = freezed,
-    Object? nextAvailable = null,
+    Object? nextAvailable = freezed,
   }) {
     return _then(_$ProductItemImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       productId: null == productId
           ? _value.productId
           : productId // ignore: cast_nullable_to_non_nullable
               as int,
-      categoryId: null == categoryId
+      categoryId: freezed == categoryId
           ? _value.categoryId
           : categoryId // ignore: cast_nullable_to_non_nullable
-              as int,
-      brandId: null == brandId
+              as int?,
+      brandId: freezed == brandId
           ? _value.brandId
           : brandId // ignore: cast_nullable_to_non_nullable
-              as int,
-      brandName: null == brandName
+              as int?,
+      brandName: freezed == brandName
           ? _value.brandName
           : brandName // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       productSku: null == productSku
           ? _value.productSku
           : productSku // ignore: cast_nullable_to_non_nullable
@@ -472,26 +472,26 @@ class __$$ProductItemImplCopyWithImpl<$Res>
           ? _value.qtyInStock
           : qtyInStock // ignore: cast_nullable_to_non_nullable
               as int,
-      productImage1: null == productImage1
+      productImage1: freezed == productImage1
           ? _value.productImage1
           : productImage1 // ignore: cast_nullable_to_non_nullable
-              as String,
-      productImage2: null == productImage2
+              as String?,
+      productImage2: freezed == productImage2
           ? _value.productImage2
           : productImage2 // ignore: cast_nullable_to_non_nullable
-              as String,
-      productImage3: null == productImage3
+              as String?,
+      productImage3: freezed == productImage3
           ? _value.productImage3
           : productImage3 // ignore: cast_nullable_to_non_nullable
-              as String,
-      size: null == size
+              as String?,
+      size: freezed == size
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
-              as String,
-      color: null == color
+              as String?,
+      color: freezed == color
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       price: null == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
@@ -500,10 +500,10 @@ class __$$ProductItemImplCopyWithImpl<$Res>
           ? _value.active
           : active // ignore: cast_nullable_to_non_nullable
               as bool,
-      parentProductActive: null == parentProductActive
+      parentProductActive: freezed == parentProductActive
           ? _value.parentProductActive
           : parentProductActive // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -596,10 +596,10 @@ class __$$ProductItemImplCopyWithImpl<$Res>
           ? _value.productPromoEndDate
           : productPromoEndDate // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      nextAvailable: null == nextAvailable
+      nextAvailable: freezed == nextAvailable
           ? _value.nextAvailable
           : nextAvailable // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
     ));
   }
 }
@@ -653,35 +653,35 @@ class _$ProductItemImpl extends _ProductItem {
   @override
   final int id;
   @override
-  final String name;
+  final String? name;
   @override
   final int productId;
   @override
-  final int categoryId;
+  final int? categoryId;
   @override
-  final int brandId;
+  final int? brandId;
   @override
-  final String brandName;
+  final String? brandName;
   @override
   final int productSku;
   @override
   final int qtyInStock;
   @override
-  final String productImage1;
+  final String? productImage1;
   @override
-  final String productImage2;
+  final String? productImage2;
   @override
-  final String productImage3;
+  final String? productImage3;
   @override
-  final String size;
+  final String? size;
   @override
-  final String color;
+  final String? color;
   @override
   final String price;
   @override
   final bool active;
   @override
-  final bool parentProductActive;
+  final bool? parentProductActive;
   @override
   final DateTime createdAt;
   @override
@@ -729,7 +729,7 @@ class _$ProductItemImpl extends _ProductItem {
   @override
   final DateTime? productPromoEndDate;
   @override
-  final bool nextAvailable;
+  final bool? nextAvailable;
 
   @override
   String toString() {
@@ -873,21 +873,21 @@ class _$ProductItemImpl extends _ProductItem {
 abstract class _ProductItem extends ProductItem {
   const factory _ProductItem(
       {required final int id,
-      required final String name,
+      required final String? name,
       required final int productId,
-      required final int categoryId,
-      required final int brandId,
-      required final String brandName,
+      required final int? categoryId,
+      required final int? brandId,
+      required final String? brandName,
       required final int productSku,
       required final int qtyInStock,
-      required final String productImage1,
-      required final String productImage2,
-      required final String productImage3,
-      required final String size,
-      required final String color,
+      required final String? productImage1,
+      required final String? productImage2,
+      required final String? productImage3,
+      required final String? size,
+      required final String? color,
       required final String price,
       required final bool active,
-      required final bool parentProductActive,
+      required final bool? parentProductActive,
       required final DateTime createdAt,
       required final DateTime updatedAt,
       required final int? categoryPromoId,
@@ -911,41 +911,41 @@ abstract class _ProductItem extends ProductItem {
       required final bool? productPromoActive,
       required final DateTime? productPromoStartDate,
       required final DateTime? productPromoEndDate,
-      required final bool nextAvailable}) = _$ProductItemImpl;
+      required final bool? nextAvailable}) = _$ProductItemImpl;
   const _ProductItem._() : super._();
 
   @override
   int get id;
   @override
-  String get name;
+  String? get name;
   @override
   int get productId;
   @override
-  int get categoryId;
+  int? get categoryId;
   @override
-  int get brandId;
+  int? get brandId;
   @override
-  String get brandName;
+  String? get brandName;
   @override
   int get productSku;
   @override
   int get qtyInStock;
   @override
-  String get productImage1;
+  String? get productImage1;
   @override
-  String get productImage2;
+  String? get productImage2;
   @override
-  String get productImage3;
+  String? get productImage3;
   @override
-  String get size;
+  String? get size;
   @override
-  String get color;
+  String? get color;
   @override
   String get price;
   @override
   bool get active;
   @override
-  bool get parentProductActive;
+  bool? get parentProductActive;
   @override
   DateTime get createdAt;
   @override
@@ -993,7 +993,7 @@ abstract class _ProductItem extends ProductItem {
   @override
   DateTime? get productPromoEndDate;
   @override
-  bool get nextAvailable;
+  bool? get nextAvailable;
 
   /// Create a copy of ProductItem
   /// with the given fields replaced by the non-null parameter values.

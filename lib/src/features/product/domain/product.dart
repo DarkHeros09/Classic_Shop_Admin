@@ -13,7 +13,7 @@ class Product with _$Product {
     required bool active,
     required DateTime createdAt,
     required DateTime updatedAt,
-    required bool nextAvailable,
+    required bool? nextAvailable,
   }) = _Product;
   const Product._();
 }

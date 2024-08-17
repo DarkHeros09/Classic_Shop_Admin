@@ -15,7 +15,7 @@ class ProductDTO with _$ProductDTO {
     required bool active,
     required DateTime createdAt,
     required DateTime updatedAt,
-    required bool nextAvailable,
+    required bool? nextAvailable,
   }) = _ProductDTO;
   const ProductDTO._();
   factory ProductDTO.fromJson(Map<String, dynamic> json) =>

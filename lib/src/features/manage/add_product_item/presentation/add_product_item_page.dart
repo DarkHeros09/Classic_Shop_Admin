@@ -583,7 +583,8 @@ class _AddProductItemPageState extends ConsumerState<AddProductItemPage> {
                         placeholder: const Text('Product Quantity'),
                         keyboardType: TextInputType.number,
                         validator: (v) {
-                          if (v.length < 2) {
+                          final val = int.tryParse(v) ?? 0;
+                          if (val < 1) {
                             return 'Name must be at least 2 characters.';
                           }
                           return null;

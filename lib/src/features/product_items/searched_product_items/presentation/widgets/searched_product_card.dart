@@ -44,7 +44,7 @@ class LoadedSearchedCard extends StatelessWidget {
           decoration: BoxDecoration(
             image: DecorationImage(
               image: ExtendedNetworkImageProvider(
-                product.productImage1,
+                product.productImage1 ?? '',
                 cache: true,
                 cacheMaxAge: const Duration(days: 30),
               ),
@@ -54,7 +54,7 @@ class LoadedSearchedCard extends StatelessWidget {
           ),
         ),
         Text(
-          product.name,
+          product.name ?? '',
           style: appTheme.textTheme.bodyLarge,
         ),
         Text(

@@ -21,20 +21,20 @@ ProductItemDTO _$ProductItemDTOFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ProductItemDTO {
   int get id => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
   int get productId => throw _privateConstructorUsedError;
-  int get categoryId => throw _privateConstructorUsedError;
-  int get brandId => throw _privateConstructorUsedError;
-  String get brandName => throw _privateConstructorUsedError;
+  int? get categoryId => throw _privateConstructorUsedError;
+  int? get brandId => throw _privateConstructorUsedError;
+  String? get brandName => throw _privateConstructorUsedError;
   int get productSku => throw _privateConstructorUsedError;
   int get qtyInStock => throw _privateConstructorUsedError;
-  String get productImage_1 => throw _privateConstructorUsedError;
-  String get productImage_2 => throw _privateConstructorUsedError;
-  String get productImage_3 => throw _privateConstructorUsedError;
-  String get sizeValue => throw _privateConstructorUsedError;
-  String get colorValue => throw _privateConstructorUsedError;
+  String? get productImage_1 => throw _privateConstructorUsedError;
+  String? get productImage_2 => throw _privateConstructorUsedError;
+  String? get productImage_3 => throw _privateConstructorUsedError;
+  String? get sizeValue => throw _privateConstructorUsedError;
+  String? get colorValue => throw _privateConstructorUsedError;
   String get price => throw _privateConstructorUsedError;
-  bool get parentProductActive => throw _privateConstructorUsedError;
+  bool? get parentProductActive => throw _privateConstructorUsedError;
   bool get active => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
   DateTime get updatedAt => throw _privateConstructorUsedError;
@@ -59,7 +59,7 @@ mixin _$ProductItemDTO {
   bool? get productPromoActive => throw _privateConstructorUsedError;
   DateTime? get productPromoStartDate => throw _privateConstructorUsedError;
   DateTime? get productPromoEndDate => throw _privateConstructorUsedError;
-  bool get nextAvailable => throw _privateConstructorUsedError;
+  bool? get nextAvailable => throw _privateConstructorUsedError;
 
   /// Serializes this ProductItemDTO to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -79,20 +79,20 @@ abstract class $ProductItemDTOCopyWith<$Res> {
   @useResult
   $Res call(
       {int id,
-      String name,
+      String? name,
       int productId,
-      int categoryId,
-      int brandId,
-      String brandName,
+      int? categoryId,
+      int? brandId,
+      String? brandName,
       int productSku,
       int qtyInStock,
-      String productImage_1,
-      String productImage_2,
-      String productImage_3,
-      String sizeValue,
-      String colorValue,
+      String? productImage_1,
+      String? productImage_2,
+      String? productImage_3,
+      String? sizeValue,
+      String? colorValue,
       String price,
-      bool parentProductActive,
+      bool? parentProductActive,
       bool active,
       DateTime createdAt,
       DateTime updatedAt,
@@ -117,7 +117,7 @@ abstract class $ProductItemDTOCopyWith<$Res> {
       bool? productPromoActive,
       DateTime? productPromoStartDate,
       DateTime? productPromoEndDate,
-      bool nextAvailable});
+      bool? nextAvailable});
 }
 
 /// @nodoc
@@ -136,20 +136,20 @@ class _$ProductItemDTOCopyWithImpl<$Res, $Val extends ProductItemDTO>
   @override
   $Res call({
     Object? id = null,
-    Object? name = null,
+    Object? name = freezed,
     Object? productId = null,
-    Object? categoryId = null,
-    Object? brandId = null,
-    Object? brandName = null,
+    Object? categoryId = freezed,
+    Object? brandId = freezed,
+    Object? brandName = freezed,
     Object? productSku = null,
     Object? qtyInStock = null,
-    Object? productImage_1 = null,
-    Object? productImage_2 = null,
-    Object? productImage_3 = null,
-    Object? sizeValue = null,
-    Object? colorValue = null,
+    Object? productImage_1 = freezed,
+    Object? productImage_2 = freezed,
+    Object? productImage_3 = freezed,
+    Object? sizeValue = freezed,
+    Object? colorValue = freezed,
     Object? price = null,
-    Object? parentProductActive = null,
+    Object? parentProductActive = freezed,
     Object? active = null,
     Object? createdAt = null,
     Object? updatedAt = null,
@@ -174,33 +174,33 @@ class _$ProductItemDTOCopyWithImpl<$Res, $Val extends ProductItemDTO>
     Object? productPromoActive = freezed,
     Object? productPromoStartDate = freezed,
     Object? productPromoEndDate = freezed,
-    Object? nextAvailable = null,
+    Object? nextAvailable = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       productId: null == productId
           ? _value.productId
           : productId // ignore: cast_nullable_to_non_nullable
               as int,
-      categoryId: null == categoryId
+      categoryId: freezed == categoryId
           ? _value.categoryId
           : categoryId // ignore: cast_nullable_to_non_nullable
-              as int,
-      brandId: null == brandId
+              as int?,
+      brandId: freezed == brandId
           ? _value.brandId
           : brandId // ignore: cast_nullable_to_non_nullable
-              as int,
-      brandName: null == brandName
+              as int?,
+      brandName: freezed == brandName
           ? _value.brandName
           : brandName // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       productSku: null == productSku
           ? _value.productSku
           : productSku // ignore: cast_nullable_to_non_nullable
@@ -209,34 +209,34 @@ class _$ProductItemDTOCopyWithImpl<$Res, $Val extends ProductItemDTO>
           ? _value.qtyInStock
           : qtyInStock // ignore: cast_nullable_to_non_nullable
               as int,
-      productImage_1: null == productImage_1
+      productImage_1: freezed == productImage_1
           ? _value.productImage_1
           : productImage_1 // ignore: cast_nullable_to_non_nullable
-              as String,
-      productImage_2: null == productImage_2
+              as String?,
+      productImage_2: freezed == productImage_2
           ? _value.productImage_2
           : productImage_2 // ignore: cast_nullable_to_non_nullable
-              as String,
-      productImage_3: null == productImage_3
+              as String?,
+      productImage_3: freezed == productImage_3
           ? _value.productImage_3
           : productImage_3 // ignore: cast_nullable_to_non_nullable
-              as String,
-      sizeValue: null == sizeValue
+              as String?,
+      sizeValue: freezed == sizeValue
           ? _value.sizeValue
           : sizeValue // ignore: cast_nullable_to_non_nullable
-              as String,
-      colorValue: null == colorValue
+              as String?,
+      colorValue: freezed == colorValue
           ? _value.colorValue
           : colorValue // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       price: null == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
               as String,
-      parentProductActive: null == parentProductActive
+      parentProductActive: freezed == parentProductActive
           ? _value.parentProductActive
           : parentProductActive // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       active: null == active
           ? _value.active
           : active // ignore: cast_nullable_to_non_nullable
@@ -333,10 +333,10 @@ class _$ProductItemDTOCopyWithImpl<$Res, $Val extends ProductItemDTO>
           ? _value.productPromoEndDate
           : productPromoEndDate // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      nextAvailable: null == nextAvailable
+      nextAvailable: freezed == nextAvailable
           ? _value.nextAvailable
           : nextAvailable // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
     ) as $Val);
   }
 }
@@ -351,20 +351,20 @@ abstract class _$$ProductItemDTOImplCopyWith<$Res>
   @useResult
   $Res call(
       {int id,
-      String name,
+      String? name,
       int productId,
-      int categoryId,
-      int brandId,
-      String brandName,
+      int? categoryId,
+      int? brandId,
+      String? brandName,
       int productSku,
       int qtyInStock,
-      String productImage_1,
-      String productImage_2,
-      String productImage_3,
-      String sizeValue,
-      String colorValue,
+      String? productImage_1,
+      String? productImage_2,
+      String? productImage_3,
+      String? sizeValue,
+      String? colorValue,
       String price,
-      bool parentProductActive,
+      bool? parentProductActive,
       bool active,
       DateTime createdAt,
       DateTime updatedAt,
@@ -389,7 +389,7 @@ abstract class _$$ProductItemDTOImplCopyWith<$Res>
       bool? productPromoActive,
       DateTime? productPromoStartDate,
       DateTime? productPromoEndDate,
-      bool nextAvailable});
+      bool? nextAvailable});
 }
 
 /// @nodoc
@@ -406,20 +406,20 @@ class __$$ProductItemDTOImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? name = null,
+    Object? name = freezed,
     Object? productId = null,
-    Object? categoryId = null,
-    Object? brandId = null,
-    Object? brandName = null,
+    Object? categoryId = freezed,
+    Object? brandId = freezed,
+    Object? brandName = freezed,
     Object? productSku = null,
     Object? qtyInStock = null,
-    Object? productImage_1 = null,
-    Object? productImage_2 = null,
-    Object? productImage_3 = null,
-    Object? sizeValue = null,
-    Object? colorValue = null,
+    Object? productImage_1 = freezed,
+    Object? productImage_2 = freezed,
+    Object? productImage_3 = freezed,
+    Object? sizeValue = freezed,
+    Object? colorValue = freezed,
     Object? price = null,
-    Object? parentProductActive = null,
+    Object? parentProductActive = freezed,
     Object? active = null,
     Object? createdAt = null,
     Object? updatedAt = null,
@@ -444,33 +444,33 @@ class __$$ProductItemDTOImplCopyWithImpl<$Res>
     Object? productPromoActive = freezed,
     Object? productPromoStartDate = freezed,
     Object? productPromoEndDate = freezed,
-    Object? nextAvailable = null,
+    Object? nextAvailable = freezed,
   }) {
     return _then(_$ProductItemDTOImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       productId: null == productId
           ? _value.productId
           : productId // ignore: cast_nullable_to_non_nullable
               as int,
-      categoryId: null == categoryId
+      categoryId: freezed == categoryId
           ? _value.categoryId
           : categoryId // ignore: cast_nullable_to_non_nullable
-              as int,
-      brandId: null == brandId
+              as int?,
+      brandId: freezed == brandId
           ? _value.brandId
           : brandId // ignore: cast_nullable_to_non_nullable
-              as int,
-      brandName: null == brandName
+              as int?,
+      brandName: freezed == brandName
           ? _value.brandName
           : brandName // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       productSku: null == productSku
           ? _value.productSku
           : productSku // ignore: cast_nullable_to_non_nullable
@@ -479,34 +479,34 @@ class __$$ProductItemDTOImplCopyWithImpl<$Res>
           ? _value.qtyInStock
           : qtyInStock // ignore: cast_nullable_to_non_nullable
               as int,
-      productImage_1: null == productImage_1
+      productImage_1: freezed == productImage_1
           ? _value.productImage_1
           : productImage_1 // ignore: cast_nullable_to_non_nullable
-              as String,
-      productImage_2: null == productImage_2
+              as String?,
+      productImage_2: freezed == productImage_2
           ? _value.productImage_2
           : productImage_2 // ignore: cast_nullable_to_non_nullable
-              as String,
-      productImage_3: null == productImage_3
+              as String?,
+      productImage_3: freezed == productImage_3
           ? _value.productImage_3
           : productImage_3 // ignore: cast_nullable_to_non_nullable
-              as String,
-      sizeValue: null == sizeValue
+              as String?,
+      sizeValue: freezed == sizeValue
           ? _value.sizeValue
           : sizeValue // ignore: cast_nullable_to_non_nullable
-              as String,
-      colorValue: null == colorValue
+              as String?,
+      colorValue: freezed == colorValue
           ? _value.colorValue
           : colorValue // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       price: null == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
               as String,
-      parentProductActive: null == parentProductActive
+      parentProductActive: freezed == parentProductActive
           ? _value.parentProductActive
           : parentProductActive // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       active: null == active
           ? _value.active
           : active // ignore: cast_nullable_to_non_nullable
@@ -603,10 +603,10 @@ class __$$ProductItemDTOImplCopyWithImpl<$Res>
           ? _value.productPromoEndDate
           : productPromoEndDate // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      nextAvailable: null == nextAvailable
+      nextAvailable: freezed == nextAvailable
           ? _value.nextAvailable
           : nextAvailable // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
     ));
   }
 }
@@ -663,33 +663,33 @@ class _$ProductItemDTOImpl extends _ProductItemDTO {
   @override
   final int id;
   @override
-  final String name;
+  final String? name;
   @override
   final int productId;
   @override
-  final int categoryId;
+  final int? categoryId;
   @override
-  final int brandId;
+  final int? brandId;
   @override
-  final String brandName;
+  final String? brandName;
   @override
   final int productSku;
   @override
   final int qtyInStock;
   @override
-  final String productImage_1;
+  final String? productImage_1;
   @override
-  final String productImage_2;
+  final String? productImage_2;
   @override
-  final String productImage_3;
+  final String? productImage_3;
   @override
-  final String sizeValue;
+  final String? sizeValue;
   @override
-  final String colorValue;
+  final String? colorValue;
   @override
   final String price;
   @override
-  final bool parentProductActive;
+  final bool? parentProductActive;
   @override
   final bool active;
   @override
@@ -739,7 +739,7 @@ class _$ProductItemDTOImpl extends _ProductItemDTO {
   @override
   final DateTime? productPromoEndDate;
   @override
-  final bool nextAvailable;
+  final bool? nextAvailable;
 
   @override
   String toString() {
@@ -893,20 +893,20 @@ class _$ProductItemDTOImpl extends _ProductItemDTO {
 abstract class _ProductItemDTO extends ProductItemDTO {
   const factory _ProductItemDTO(
       {required final int id,
-      required final String name,
+      required final String? name,
       required final int productId,
-      required final int categoryId,
-      required final int brandId,
-      required final String brandName,
+      required final int? categoryId,
+      required final int? brandId,
+      required final String? brandName,
       required final int productSku,
       required final int qtyInStock,
-      required final String productImage_1,
-      required final String productImage_2,
-      required final String productImage_3,
-      required final String sizeValue,
-      required final String colorValue,
+      required final String? productImage_1,
+      required final String? productImage_2,
+      required final String? productImage_3,
+      required final String? sizeValue,
+      required final String? colorValue,
       required final String price,
-      required final bool parentProductActive,
+      required final bool? parentProductActive,
       required final bool active,
       required final DateTime createdAt,
       required final DateTime updatedAt,
@@ -931,7 +931,7 @@ abstract class _ProductItemDTO extends ProductItemDTO {
       required final bool? productPromoActive,
       required final DateTime? productPromoStartDate,
       required final DateTime? productPromoEndDate,
-      required final bool nextAvailable}) = _$ProductItemDTOImpl;
+      required final bool? nextAvailable}) = _$ProductItemDTOImpl;
   const _ProductItemDTO._() : super._();
 
   factory _ProductItemDTO.fromJson(Map<String, dynamic> json) =
@@ -940,33 +940,33 @@ abstract class _ProductItemDTO extends ProductItemDTO {
   @override
   int get id;
   @override
-  String get name;
+  String? get name;
   @override
   int get productId;
   @override
-  int get categoryId;
+  int? get categoryId;
   @override
-  int get brandId;
+  int? get brandId;
   @override
-  String get brandName;
+  String? get brandName;
   @override
   int get productSku;
   @override
   int get qtyInStock;
   @override
-  String get productImage_1;
+  String? get productImage_1;
   @override
-  String get productImage_2;
+  String? get productImage_2;
   @override
-  String get productImage_3;
+  String? get productImage_3;
   @override
-  String get sizeValue;
+  String? get sizeValue;
   @override
-  String get colorValue;
+  String? get colorValue;
   @override
   String get price;
   @override
-  bool get parentProductActive;
+  bool? get parentProductActive;
   @override
   bool get active;
   @override
@@ -1016,7 +1016,7 @@ abstract class _ProductItemDTO extends ProductItemDTO {
   @override
   DateTime? get productPromoEndDate;
   @override
-  bool get nextAvailable;
+  bool? get nextAvailable;
 
   /// Create a copy of ProductItemDTO
   /// with the given fields replaced by the non-null parameter values.
