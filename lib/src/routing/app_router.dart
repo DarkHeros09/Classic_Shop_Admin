@@ -4,11 +4,15 @@ import 'package:classic_shop_admin/src/features/auth/presentation/signin_page.da
 import 'package:classic_shop_admin/src/features/dashboard/presentation/dashboard_page.dart';
 import 'package:classic_shop_admin/src/features/dashboard/presentation/home_page.dart';
 import 'package:classic_shop_admin/src/features/manage/add_brand/presentation/add_brand_page.dart';
+import 'package:classic_shop_admin/src/features/manage/add_brand_promotion/presentation/add_brand_promotion_page.dart';
 import 'package:classic_shop_admin/src/features/manage/add_category/presentation/add_category_page.dart';
+import 'package:classic_shop_admin/src/features/manage/add_category_promotion/presentation/add_category_promotion_page.dart';
 import 'package:classic_shop_admin/src/features/manage/add_color/presentation/add_color_page.dart';
 import 'package:classic_shop_admin/src/features/manage/add_image/presentation/add_image_page.dart';
 import 'package:classic_shop_admin/src/features/manage/add_product/presentation/add_product_page.dart';
 import 'package:classic_shop_admin/src/features/manage/add_product_item/presentation/add_product_item_page.dart';
+import 'package:classic_shop_admin/src/features/manage/add_product_promotion/presentation/add_product_promotion_page.dart';
+import 'package:classic_shop_admin/src/features/manage/add_promotion/presentation/add_promotion_page.dart';
 import 'package:classic_shop_admin/src/features/manage/add_size/presentation/add_color_page.dart';
 import 'package:classic_shop_admin/src/features/manage/core/presentation/manage_page.dart';
 import 'package:classic_shop_admin/src/features/product_items/core/presentation/product_crud.dart';
@@ -37,6 +41,10 @@ enum AppRoute {
   addImage,
   addColor,
   addSize,
+  addPromotion,
+  addProductPromotion,
+  addBrandPromotion,
+  addCategoryPromotion,
   search,
 }
 
@@ -217,6 +225,37 @@ class GoRouterConfig extends _$GoRouterConfig {
                       parentNavigatorKey: _rootNavigatorKey,
                       pageBuilder: (context, state) =>
                           const NoTransitionPage(child: AddSizePage()),
+                    ),
+                    GoRoute(
+                      path: 'add_promotion',
+                      name: AppRoute.addPromotion.name,
+                      parentNavigatorKey: _rootNavigatorKey,
+                      pageBuilder: (context, state) =>
+                          const NoTransitionPage(child: AddPromotionPage()),
+                    ),
+                    GoRoute(
+                      path: 'add_product_promotion',
+                      name: AppRoute.addProductPromotion.name,
+                      parentNavigatorKey: _rootNavigatorKey,
+                      pageBuilder: (context, state) => const NoTransitionPage(
+                        child: AddProductPromotionPage(),
+                      ),
+                    ),
+                    GoRoute(
+                      path: 'add_brand_promotion',
+                      name: AppRoute.addBrandPromotion.name,
+                      parentNavigatorKey: _rootNavigatorKey,
+                      pageBuilder: (context, state) => const NoTransitionPage(
+                        child: AddBrandPromotionPage(),
+                      ),
+                    ),
+                    GoRoute(
+                      path: 'add_category_promotion',
+                      name: AppRoute.addCategoryPromotion.name,
+                      parentNavigatorKey: _rootNavigatorKey,
+                      pageBuilder: (context, state) => const NoTransitionPage(
+                        child: AddCategoryPromotionPage(),
+                      ),
                     ),
                   ],
                 ),

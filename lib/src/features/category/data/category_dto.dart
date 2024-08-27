@@ -8,7 +8,7 @@ part 'category_dto.g.dart';
 class CategoryDTO with _$CategoryDTO {
   const factory CategoryDTO({
     required int id,
-    // required int? parentCategoryId,
+    required int? parentCategoryId,
     required String categoryName,
     required String categoryImage,
   }) = _CategoryDTO;
@@ -20,7 +20,7 @@ class CategoryDTO with _$CategoryDTO {
   factory CategoryDTO.fromDomain(Category _) {
     return CategoryDTO(
       id: _.id,
-      // parentCategoryId: _.parentCategoryId,
+      parentCategoryId: _.parentCategoryId,
       categoryName: _.categoryName,
       categoryImage: _.categoryImage,
     );
@@ -29,7 +29,7 @@ class CategoryDTO with _$CategoryDTO {
   Category toDomain() {
     return Category(
       id: id,
-      // parentCategoryId: parentCategoryId,
+      parentCategoryId: parentCategoryId,
       categoryName: categoryName,
       categoryImage: categoryImage,
     );

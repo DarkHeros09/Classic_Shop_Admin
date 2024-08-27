@@ -36,7 +36,7 @@ class BrandNotifier extends _$BrandNotifier {
     return state = BrandState.initial(Fresh.yes([]));
   }
 
-  Future<void> getBrandss() async {
+  Future<void> getBrands() async {
     // state = BrandState.loadFailure(
     //   state.categories,
     //   const BrandFailure.api(404),

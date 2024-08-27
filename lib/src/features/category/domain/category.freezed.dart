@@ -16,8 +16,8 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$Category {
-  int get id =>
-      throw _privateConstructorUsedError; // required int? parentCategoryId,
+  int get id => throw _privateConstructorUsedError;
+  int? get parentCategoryId => throw _privateConstructorUsedError;
   String get categoryName => throw _privateConstructorUsedError;
   String get categoryImage => throw _privateConstructorUsedError;
 
@@ -33,7 +33,11 @@ abstract class $CategoryCopyWith<$Res> {
   factory $CategoryCopyWith(Category value, $Res Function(Category) then) =
       _$CategoryCopyWithImpl<$Res, Category>;
   @useResult
-  $Res call({int id, String categoryName, String categoryImage});
+  $Res call(
+      {int id,
+      int? parentCategoryId,
+      String categoryName,
+      String categoryImage});
 }
 
 /// @nodoc
@@ -52,6 +56,7 @@ class _$CategoryCopyWithImpl<$Res, $Val extends Category>
   @override
   $Res call({
     Object? id = null,
+    Object? parentCategoryId = freezed,
     Object? categoryName = null,
     Object? categoryImage = null,
   }) {
@@ -60,6 +65,10 @@ class _$CategoryCopyWithImpl<$Res, $Val extends Category>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
+      parentCategoryId: freezed == parentCategoryId
+          ? _value.parentCategoryId
+          : parentCategoryId // ignore: cast_nullable_to_non_nullable
+              as int?,
       categoryName: null == categoryName
           ? _value.categoryName
           : categoryName // ignore: cast_nullable_to_non_nullable
@@ -80,7 +89,11 @@ abstract class _$$CategoryImplCopyWith<$Res>
       __$$CategoryImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, String categoryName, String categoryImage});
+  $Res call(
+      {int id,
+      int? parentCategoryId,
+      String categoryName,
+      String categoryImage});
 }
 
 /// @nodoc
@@ -97,6 +110,7 @@ class __$$CategoryImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
+    Object? parentCategoryId = freezed,
     Object? categoryName = null,
     Object? categoryImage = null,
   }) {
@@ -105,6 +119,10 @@ class __$$CategoryImplCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
+      parentCategoryId: freezed == parentCategoryId
+          ? _value.parentCategoryId
+          : parentCategoryId // ignore: cast_nullable_to_non_nullable
+              as int?,
       categoryName: null == categoryName
           ? _value.categoryName
           : categoryName // ignore: cast_nullable_to_non_nullable
@@ -122,12 +140,14 @@ class __$$CategoryImplCopyWithImpl<$Res>
 class _$CategoryImpl implements _Category {
   const _$CategoryImpl(
       {required this.id,
+      required this.parentCategoryId,
       required this.categoryName,
       required this.categoryImage});
 
   @override
   final int id;
-// required int? parentCategoryId,
+  @override
+  final int? parentCategoryId;
   @override
   final String categoryName;
   @override
@@ -135,7 +155,7 @@ class _$CategoryImpl implements _Category {
 
   @override
   String toString() {
-    return 'Category(id: $id, categoryName: $categoryName, categoryImage: $categoryImage)';
+    return 'Category(id: $id, parentCategoryId: $parentCategoryId, categoryName: $categoryName, categoryImage: $categoryImage)';
   }
 
   @override
@@ -144,6 +164,8 @@ class _$CategoryImpl implements _Category {
         (other.runtimeType == runtimeType &&
             other is _$CategoryImpl &&
             (identical(other.id, id) || other.id == id) &&
+            (identical(other.parentCategoryId, parentCategoryId) ||
+                other.parentCategoryId == parentCategoryId) &&
             (identical(other.categoryName, categoryName) ||
                 other.categoryName == categoryName) &&
             (identical(other.categoryImage, categoryImage) ||
@@ -151,7 +173,8 @@ class _$CategoryImpl implements _Category {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, categoryName, categoryImage);
+  int get hashCode => Object.hash(
+      runtimeType, id, parentCategoryId, categoryName, categoryImage);
 
   /// Create a copy of Category
   /// with the given fields replaced by the non-null parameter values.
@@ -165,11 +188,14 @@ class _$CategoryImpl implements _Category {
 abstract class _Category implements Category {
   const factory _Category(
       {required final int id,
+      required final int? parentCategoryId,
       required final String categoryName,
       required final String categoryImage}) = _$CategoryImpl;
 
   @override
-  int get id; // required int? parentCategoryId,
+  int get id;
+  @override
+  int? get parentCategoryId;
   @override
   String get categoryName;
   @override

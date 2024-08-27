@@ -6,7 +6,7 @@ part of 'brand_notifier.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$brandNotifierHash() => r'e3664d1e7272e345f368b8c9c7203db66afa76af';
+String _$brandNotifierHash() => r'b1c9f10a293e4bcb96cd0fa98efe805e0304bb23';
 
 /// See also [BrandNotifier].
 @ProviderFor(BrandNotifier)

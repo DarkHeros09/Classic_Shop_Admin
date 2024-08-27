@@ -44,7 +44,7 @@ class _AddCategoryPageState extends ConsumerState<AddCategoryPage> {
   }
 
   final formKey = GlobalKey<ShadFormState>();
-  late int? searchKey;
+  int? searchKey;
   @override
   Widget build(BuildContext context) {
     final searchValue = useState('');

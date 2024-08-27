@@ -21,7 +21,7 @@ class _AddProductPageState extends ConsumerState<AddProductPage> {
     WidgetsBinding.instance.addPostFrameCallback(
       (_) {
         ref.read(categoryNotifierProvider.notifier).getCategories();
-        ref.read(brandNotifierProvider.notifier).getBrandss();
+        ref.read(brandNotifierProvider.notifier).getBrands();
       },
     );
   }

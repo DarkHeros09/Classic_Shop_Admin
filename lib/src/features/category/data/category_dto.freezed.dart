@@ -20,8 +20,8 @@ CategoryDTO _$CategoryDTOFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CategoryDTO {
-  int get id =>
-      throw _privateConstructorUsedError; // required int? parentCategoryId,
+  int get id => throw _privateConstructorUsedError;
+  int? get parentCategoryId => throw _privateConstructorUsedError;
   String get categoryName => throw _privateConstructorUsedError;
   String get categoryImage => throw _privateConstructorUsedError;
 
@@ -41,7 +41,11 @@ abstract class $CategoryDTOCopyWith<$Res> {
           CategoryDTO value, $Res Function(CategoryDTO) then) =
       _$CategoryDTOCopyWithImpl<$Res, CategoryDTO>;
   @useResult
-  $Res call({int id, String categoryName, String categoryImage});
+  $Res call(
+      {int id,
+      int? parentCategoryId,
+      String categoryName,
+      String categoryImage});
 }
 
 /// @nodoc
@@ -60,6 +64,7 @@ class _$CategoryDTOCopyWithImpl<$Res, $Val extends CategoryDTO>
   @override
   $Res call({
     Object? id = null,
+    Object? parentCategoryId = freezed,
     Object? categoryName = null,
     Object? categoryImage = null,
   }) {
@@ -68,6 +73,10 @@ class _$CategoryDTOCopyWithImpl<$Res, $Val extends CategoryDTO>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
+      parentCategoryId: freezed == parentCategoryId
+          ? _value.parentCategoryId
+          : parentCategoryId // ignore: cast_nullable_to_non_nullable
+              as int?,
       categoryName: null == categoryName
           ? _value.categoryName
           : categoryName // ignore: cast_nullable_to_non_nullable
@@ -88,7 +97,11 @@ abstract class _$$CategoryDTOImplCopyWith<$Res>
       __$$CategoryDTOImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, String categoryName, String categoryImage});
+  $Res call(
+      {int id,
+      int? parentCategoryId,
+      String categoryName,
+      String categoryImage});
 }
 
 /// @nodoc
@@ -105,6 +118,7 @@ class __$$CategoryDTOImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
+    Object? parentCategoryId = freezed,
     Object? categoryName = null,
     Object? categoryImage = null,
   }) {
@@ -113,6 +127,10 @@ class __$$CategoryDTOImplCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
+      parentCategoryId: freezed == parentCategoryId
+          ? _value.parentCategoryId
+          : parentCategoryId // ignore: cast_nullable_to_non_nullable
+              as int?,
       categoryName: null == categoryName
           ? _value.categoryName
           : categoryName // ignore: cast_nullable_to_non_nullable
@@ -130,6 +148,7 @@ class __$$CategoryDTOImplCopyWithImpl<$Res>
 class _$CategoryDTOImpl extends _CategoryDTO {
   const _$CategoryDTOImpl(
       {required this.id,
+      required this.parentCategoryId,
       required this.categoryName,
       required this.categoryImage})
       : super._();
@@ -139,7 +158,8 @@ class _$CategoryDTOImpl extends _CategoryDTO {
 
   @override
   final int id;
-// required int? parentCategoryId,
+  @override
+  final int? parentCategoryId;
   @override
   final String categoryName;
   @override
@@ -147,7 +167,7 @@ class _$CategoryDTOImpl extends _CategoryDTO {
 
   @override
   String toString() {
-    return 'CategoryDTO(id: $id, categoryName: $categoryName, categoryImage: $categoryImage)';
+    return 'CategoryDTO(id: $id, parentCategoryId: $parentCategoryId, categoryName: $categoryName, categoryImage: $categoryImage)';
   }
 
   @override
@@ -156,6 +176,8 @@ class _$CategoryDTOImpl extends _CategoryDTO {
         (other.runtimeType == runtimeType &&
             other is _$CategoryDTOImpl &&
             (identical(other.id, id) || other.id == id) &&
+            (identical(other.parentCategoryId, parentCategoryId) ||
+                other.parentCategoryId == parentCategoryId) &&
             (identical(other.categoryName, categoryName) ||
                 other.categoryName == categoryName) &&
             (identical(other.categoryImage, categoryImage) ||
@@ -164,7 +186,8 @@ class _$CategoryDTOImpl extends _CategoryDTO {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, id, categoryName, categoryImage);
+  int get hashCode => Object.hash(
+      runtimeType, id, parentCategoryId, categoryName, categoryImage);
 
   /// Create a copy of CategoryDTO
   /// with the given fields replaced by the non-null parameter values.
@@ -185,6 +208,7 @@ class _$CategoryDTOImpl extends _CategoryDTO {
 abstract class _CategoryDTO extends CategoryDTO {
   const factory _CategoryDTO(
       {required final int id,
+      required final int? parentCategoryId,
       required final String categoryName,
       required final String categoryImage}) = _$CategoryDTOImpl;
   const _CategoryDTO._() : super._();
@@ -193,7 +217,9 @@ abstract class _CategoryDTO extends CategoryDTO {
       _$CategoryDTOImpl.fromJson;
 
   @override
-  int get id; // required int? parentCategoryId,
+  int get id;
+  @override
+  int? get parentCategoryId;
   @override
   String get categoryName;
   @override

@@ -6,7 +6,7 @@ part 'category.freezed.dart';
 class Category with _$Category {
   const factory Category({
     required int id,
-    // required int? parentCategoryId,
+    required int? parentCategoryId,
     required String categoryName,
     required String categoryImage,
   }) = _Category;
