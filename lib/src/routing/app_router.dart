@@ -15,7 +15,8 @@ import 'package:classic_shop_admin/src/features/manage/add_product_promotion/pre
 import 'package:classic_shop_admin/src/features/manage/add_promotion/presentation/add_promotion_page.dart';
 import 'package:classic_shop_admin/src/features/manage/add_size/presentation/add_color_page.dart';
 import 'package:classic_shop_admin/src/features/manage/core/presentation/manage_page.dart';
-import 'package:classic_shop_admin/src/features/product_items/core/presentation/product_crud.dart';
+import 'package:classic_shop_admin/src/features/product_items/core/domain/product_item.dart';
+import 'package:classic_shop_admin/src/features/product_items/product_item_update_delete/presentation/product_update_delete_page.dart';
 import 'package:classic_shop_admin/src/features/product_items/searched_product_items/presentation/search_page.dart';
 import 'package:classic_shop_admin/src/features/splash/presentation/splash_page.dart';
 import 'package:classic_shop_admin/src/helpers/riverpod_observer.dart';
@@ -33,7 +34,7 @@ enum AppRoute {
   dashboard,
   manage,
   splash,
-  updateDeleteProduct,
+  productUpdateDelete,
   addProduct,
   addProductItem,
   addBrand,
@@ -134,10 +135,19 @@ class GoRouterConfig extends _$GoRouterConfig {
                   routes: [
                     GoRoute(
                       path: 'update_delete_product/:id',
-                      name: AppRoute.updateDeleteProduct.name,
+                      name: AppRoute.productUpdateDelete.name,
                       parentNavigatorKey: _rootNavigatorKey,
-                      pageBuilder: (context, state) =>
-                          const NoTransitionPage(child: ProductCrud()),
+                      pageBuilder: (context, state) {
+                        final extra = state.extra! as (ProductItem, int);
+                        final product = extra.$1;
+                        final discountValue = extra.$2;
+                        return NoTransitionPage(
+                          child: ProductUpdateDeletePage(
+                            product: product,
+                            discountValue: discountValue,
+                          ),
+                        );
+                      },
                     ),
                   ],
                 ),

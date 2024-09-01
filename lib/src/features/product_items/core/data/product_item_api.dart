@@ -190,4 +190,13 @@ abstract class ProductItemAdminApi extends ChopperService {
     @Path() required String adminId,
     @Body() required Map<String, dynamic> data,
   });
+
+  @Put(
+    path: '/admins/{adminId}/product-items/{itemId}',
+  )
+  Future<Response<Map<String, dynamic>>> updateProductItem({
+    @Path() required String adminId,
+    @Path() required String itemId,
+    @Body() required Map<String, dynamic> data,
+  });
 }

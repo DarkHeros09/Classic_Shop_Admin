@@ -22,6 +22,7 @@ ProductItemDTO _$ProductItemDTOFromJson(Map<String, dynamic> json) {
 mixin _$ProductItemDTO {
   int get id => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
   int get productId => throw _privateConstructorUsedError;
   int? get categoryId => throw _privateConstructorUsedError;
   int? get brandId => throw _privateConstructorUsedError;
@@ -80,6 +81,7 @@ abstract class $ProductItemDTOCopyWith<$Res> {
   $Res call(
       {int id,
       String? name,
+      String? description,
       int productId,
       int? categoryId,
       int? brandId,
@@ -137,6 +139,7 @@ class _$ProductItemDTOCopyWithImpl<$Res, $Val extends ProductItemDTO>
   $Res call({
     Object? id = null,
     Object? name = freezed,
+    Object? description = freezed,
     Object? productId = null,
     Object? categoryId = freezed,
     Object? brandId = freezed,
@@ -184,6 +187,10 @@ class _$ProductItemDTOCopyWithImpl<$Res, $Val extends ProductItemDTO>
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String?,
       productId: null == productId
           ? _value.productId
@@ -352,6 +359,7 @@ abstract class _$$ProductItemDTOImplCopyWith<$Res>
   $Res call(
       {int id,
       String? name,
+      String? description,
       int productId,
       int? categoryId,
       int? brandId,
@@ -407,6 +415,7 @@ class __$$ProductItemDTOImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? name = freezed,
+    Object? description = freezed,
     Object? productId = null,
     Object? categoryId = freezed,
     Object? brandId = freezed,
@@ -454,6 +463,10 @@ class __$$ProductItemDTOImplCopyWithImpl<$Res>
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String?,
       productId: null == productId
           ? _value.productId
@@ -617,6 +630,7 @@ class _$ProductItemDTOImpl extends _ProductItemDTO {
   const _$ProductItemDTOImpl(
       {required this.id,
       required this.name,
+      required this.description,
       required this.productId,
       required this.categoryId,
       required this.brandId,
@@ -664,6 +678,8 @@ class _$ProductItemDTOImpl extends _ProductItemDTO {
   final int id;
   @override
   final String? name;
+  @override
+  final String? description;
   @override
   final int productId;
   @override
@@ -743,7 +759,7 @@ class _$ProductItemDTOImpl extends _ProductItemDTO {
 
   @override
   String toString() {
-    return 'ProductItemDTO(id: $id, name: $name, productId: $productId, categoryId: $categoryId, brandId: $brandId, brandName: $brandName, productSku: $productSku, qtyInStock: $qtyInStock, productImage_1: $productImage_1, productImage_2: $productImage_2, productImage_3: $productImage_3, sizeValue: $sizeValue, colorValue: $colorValue, price: $price, parentProductActive: $parentProductActive, active: $active, createdAt: $createdAt, updatedAt: $updatedAt, categoryPromoId: $categoryPromoId, categoryPromoName: $categoryPromoName, categoryPromoDescription: $categoryPromoDescription, categoryPromoDiscountRate: $categoryPromoDiscountRate, categoryPromoActive: $categoryPromoActive, categoryPromoStartDate: $categoryPromoStartDate, categoryPromoEndDate: $categoryPromoEndDate, brandPromoId: $brandPromoId, brandPromoName: $brandPromoName, brandPromoDescription: $brandPromoDescription, brandPromoDiscountRate: $brandPromoDiscountRate, brandPromoActive: $brandPromoActive, brandPromoStartDate: $brandPromoStartDate, brandPromoEndDate: $brandPromoEndDate, productPromoId: $productPromoId, productPromoName: $productPromoName, productPromoDescription: $productPromoDescription, productPromoDiscountRate: $productPromoDiscountRate, productPromoActive: $productPromoActive, productPromoStartDate: $productPromoStartDate, productPromoEndDate: $productPromoEndDate, nextAvailable: $nextAvailable)';
+    return 'ProductItemDTO(id: $id, name: $name, description: $description, productId: $productId, categoryId: $categoryId, brandId: $brandId, brandName: $brandName, productSku: $productSku, qtyInStock: $qtyInStock, productImage_1: $productImage_1, productImage_2: $productImage_2, productImage_3: $productImage_3, sizeValue: $sizeValue, colorValue: $colorValue, price: $price, parentProductActive: $parentProductActive, active: $active, createdAt: $createdAt, updatedAt: $updatedAt, categoryPromoId: $categoryPromoId, categoryPromoName: $categoryPromoName, categoryPromoDescription: $categoryPromoDescription, categoryPromoDiscountRate: $categoryPromoDiscountRate, categoryPromoActive: $categoryPromoActive, categoryPromoStartDate: $categoryPromoStartDate, categoryPromoEndDate: $categoryPromoEndDate, brandPromoId: $brandPromoId, brandPromoName: $brandPromoName, brandPromoDescription: $brandPromoDescription, brandPromoDiscountRate: $brandPromoDiscountRate, brandPromoActive: $brandPromoActive, brandPromoStartDate: $brandPromoStartDate, brandPromoEndDate: $brandPromoEndDate, productPromoId: $productPromoId, productPromoName: $productPromoName, productPromoDescription: $productPromoDescription, productPromoDiscountRate: $productPromoDiscountRate, productPromoActive: $productPromoActive, productPromoStartDate: $productPromoStartDate, productPromoEndDate: $productPromoEndDate, nextAvailable: $nextAvailable)';
   }
 
   @override
@@ -753,6 +769,8 @@ class _$ProductItemDTOImpl extends _ProductItemDTO {
             other is _$ProductItemDTOImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
             (identical(other.productId, productId) ||
                 other.productId == productId) &&
             (identical(other.categoryId, categoryId) ||
@@ -833,6 +851,7 @@ class _$ProductItemDTOImpl extends _ProductItemDTO {
         runtimeType,
         id,
         name,
+        description,
         productId,
         categoryId,
         brandId,
@@ -894,6 +913,7 @@ abstract class _ProductItemDTO extends ProductItemDTO {
   const factory _ProductItemDTO(
       {required final int id,
       required final String? name,
+      required final String? description,
       required final int productId,
       required final int? categoryId,
       required final int? brandId,
@@ -941,6 +961,8 @@ abstract class _ProductItemDTO extends ProductItemDTO {
   int get id;
   @override
   String? get name;
+  @override
+  String? get description;
   @override
   int get productId;
   @override

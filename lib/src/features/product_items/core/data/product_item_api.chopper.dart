@@ -361,4 +361,22 @@ final class _$ProductItemAdminApi extends ProductItemAdminApi {
     );
     return client.send<Map<String, dynamic>, Map<String, dynamic>>($request);
   }
+
+  @override
+  Future<Response<Map<String, dynamic>>> updateProductItem({
+    required String adminId,
+    required String itemId,
+    required Map<String, dynamic> data,
+  }) {
+    final Uri $url = Uri.parse(
+        'http://192.168.1.105:8080/admin/v1/admins/${adminId}/product-items/${itemId}');
+    final $body = data;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+    );
+    return client.send<Map<String, dynamic>, Map<String, dynamic>>($request);
+  }
 }

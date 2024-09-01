@@ -7,6 +7,8 @@ class RemoteResponse<T> with _$RemoteResponse<T> {
   const RemoteResponse._();
   const factory RemoteResponse.noConnection() = _NoConnection<T>;
   const factory RemoteResponse.noContent() = _NoContent<T>;
+  // const factory RemoteResponse.error({required String errorMessage}) =
+  //     _Error<T>;
   const factory RemoteResponse.notModified({required bool nextAvailable}) =
       _NotModified<T>;
   const factory RemoteResponse.withNewData(

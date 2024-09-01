@@ -7,6 +7,7 @@ class ProductItem with _$ProductItem {
   const factory ProductItem({
     required int id,
     required String? name,
+    required String? description,
     required int productId,
     required int? categoryId,
     required int? brandId,

@@ -17,6 +17,7 @@ class ProductItemDTO with _$ProductItemDTO {
   const factory ProductItemDTO({
     required int id,
     required String? name,
+    required String? description,
     required int productId,
     required int? categoryId,
     required int? brandId,
@@ -64,6 +65,7 @@ class ProductItemDTO with _$ProductItemDTO {
     return ProductItemDTO(
       id: _.id,
       name: _.name,
+      description: _.description,
       productId: _.productId,
       categoryId: _.categoryId,
       brandId: _.brandId,
@@ -109,6 +111,7 @@ class ProductItemDTO with _$ProductItemDTO {
     return ProductItem(
       id: id,
       name: name,
+      description: description,
       productId: productId,
       categoryId: categoryId,
       brandId: brandId,

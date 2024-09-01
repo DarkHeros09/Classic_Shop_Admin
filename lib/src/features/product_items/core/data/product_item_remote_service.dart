@@ -10,6 +10,7 @@ import 'package:classic_shop_admin/src/core/data/response_headers_cache.dart';
 import 'package:classic_shop_admin/src/features/product_items/core/data/product_item_api.dart';
 import 'package:classic_shop_admin/src/features/product_items/core/data/product_item_dto.dart';
 import 'package:classic_shop_admin/src/features/product_items/helper/enums.dart';
+import 'package:classic_shop_admin/src/helpers/api_error_dto.dart';
 import 'package:flutter/foundation.dart';
 
 abstract class ProductItemRemoteService {
@@ -226,6 +227,76 @@ abstract class ProductItemRemoteService {
       final colorDTO = ProductItemDTO.fromJson(body);
 
       return RemoteResponse.withNewData(colorDTO, nextAvailable: false);
+    } on SocketException {
+      return const RemoteResponse.noConnection();
+    }
+  }
+
+  Map<String, dynamic> _createBodyRequest({
+    required int productId,
+    int? productSku,
+    int? qtyInStock,
+    String? price,
+    bool? active,
+  }) {
+    final bodyRequest = <String, dynamic>{
+      'product_id': productId,
+    };
+    if (productSku != null) {
+      bodyRequest['product_sku'] = productSku.toString();
+    }
+    if (qtyInStock != null) {
+      bodyRequest['qty_in_stock'] = qtyInStock.toString();
+    }
+    if (price != null) {
+      bodyRequest['price'] = price;
+    }
+    if (active != null) {
+      bodyRequest['active'] = active.toString();
+    }
+    return bodyRequest;
+  }
+
+  Future<RemoteResponse<ProductItemDTO>> updateProductItem({
+    required int adminId,
+    required int productItemId,
+    required int productId,
+    int? productSku,
+    int? qtyInStock,
+    String? price,
+    bool? active,
+  }) async {
+    try {
+      final bodyRequest = _createBodyRequest(
+        productId: productId,
+        productSku: productSku,
+        qtyInStock: qtyInStock,
+        price: price,
+        active: active,
+      );
+      debugPrint('JKL BODY $bodyRequest');
+      final response = await _productAdminApi.updateProductItem(
+        adminId: adminId.toString(),
+        itemId: productItemId.toString(),
+        data: bodyRequest,
+      );
+
+      debugPrint('JKL ${response.bodyString}');
+
+      if (!response.isSuccessful) {
+        final errorMessage = ApiErrorDto.fromJson(response.body ?? {});
+        throw RestApiException(response.statusCode, errorMessage.error);
+      }
+
+      final body = response.body;
+
+      if (body == null) {
+        throw const RestApiException();
+      }
+
+      final productItemDTO = ProductItemDTO.fromJson(body);
+
+      return RemoteResponse.withNewData(productItemDTO, nextAvailable: false);
     } on SocketException {
       return const RemoteResponse.noConnection();
     }

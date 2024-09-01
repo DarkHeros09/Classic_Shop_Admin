@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ProductItem {
   int get id => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
   int get productId => throw _privateConstructorUsedError;
   int? get categoryId => throw _privateConstructorUsedError;
   int? get brandId => throw _privateConstructorUsedError;
@@ -73,6 +74,7 @@ abstract class $ProductItemCopyWith<$Res> {
   $Res call(
       {int id,
       String? name,
+      String? description,
       int productId,
       int? categoryId,
       int? brandId,
@@ -130,6 +132,7 @@ class _$ProductItemCopyWithImpl<$Res, $Val extends ProductItem>
   $Res call({
     Object? id = null,
     Object? name = freezed,
+    Object? description = freezed,
     Object? productId = null,
     Object? categoryId = freezed,
     Object? brandId = freezed,
@@ -177,6 +180,10 @@ class _$ProductItemCopyWithImpl<$Res, $Val extends ProductItem>
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String?,
       productId: null == productId
           ? _value.productId
@@ -345,6 +352,7 @@ abstract class _$$ProductItemImplCopyWith<$Res>
   $Res call(
       {int id,
       String? name,
+      String? description,
       int productId,
       int? categoryId,
       int? brandId,
@@ -400,6 +408,7 @@ class __$$ProductItemImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? name = freezed,
+    Object? description = freezed,
     Object? productId = null,
     Object? categoryId = freezed,
     Object? brandId = freezed,
@@ -447,6 +456,10 @@ class __$$ProductItemImplCopyWithImpl<$Res>
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String?,
       productId: null == productId
           ? _value.productId
@@ -610,6 +623,7 @@ class _$ProductItemImpl extends _ProductItem {
   const _$ProductItemImpl(
       {required this.id,
       required this.name,
+      required this.description,
       required this.productId,
       required this.categoryId,
       required this.brandId,
@@ -654,6 +668,8 @@ class _$ProductItemImpl extends _ProductItem {
   final int id;
   @override
   final String? name;
+  @override
+  final String? description;
   @override
   final int productId;
   @override
@@ -733,7 +749,7 @@ class _$ProductItemImpl extends _ProductItem {
 
   @override
   String toString() {
-    return 'ProductItem(id: $id, name: $name, productId: $productId, categoryId: $categoryId, brandId: $brandId, brandName: $brandName, productSku: $productSku, qtyInStock: $qtyInStock, productImage1: $productImage1, productImage2: $productImage2, productImage3: $productImage3, size: $size, color: $color, price: $price, active: $active, parentProductActive: $parentProductActive, createdAt: $createdAt, updatedAt: $updatedAt, categoryPromoId: $categoryPromoId, categoryPromoName: $categoryPromoName, categoryPromoDescription: $categoryPromoDescription, categoryPromoDiscountRate: $categoryPromoDiscountRate, categoryPromoActive: $categoryPromoActive, categoryPromoStartDate: $categoryPromoStartDate, categoryPromoEndDate: $categoryPromoEndDate, brandPromoId: $brandPromoId, brandPromoName: $brandPromoName, brandPromoDescription: $brandPromoDescription, brandPromoDiscountRate: $brandPromoDiscountRate, brandPromoActive: $brandPromoActive, brandPromoStartDate: $brandPromoStartDate, brandPromoEndDate: $brandPromoEndDate, productPromoId: $productPromoId, productPromoName: $productPromoName, productPromoDescription: $productPromoDescription, productPromoDiscountRate: $productPromoDiscountRate, productPromoActive: $productPromoActive, productPromoStartDate: $productPromoStartDate, productPromoEndDate: $productPromoEndDate, nextAvailable: $nextAvailable)';
+    return 'ProductItem(id: $id, name: $name, description: $description, productId: $productId, categoryId: $categoryId, brandId: $brandId, brandName: $brandName, productSku: $productSku, qtyInStock: $qtyInStock, productImage1: $productImage1, productImage2: $productImage2, productImage3: $productImage3, size: $size, color: $color, price: $price, active: $active, parentProductActive: $parentProductActive, createdAt: $createdAt, updatedAt: $updatedAt, categoryPromoId: $categoryPromoId, categoryPromoName: $categoryPromoName, categoryPromoDescription: $categoryPromoDescription, categoryPromoDiscountRate: $categoryPromoDiscountRate, categoryPromoActive: $categoryPromoActive, categoryPromoStartDate: $categoryPromoStartDate, categoryPromoEndDate: $categoryPromoEndDate, brandPromoId: $brandPromoId, brandPromoName: $brandPromoName, brandPromoDescription: $brandPromoDescription, brandPromoDiscountRate: $brandPromoDiscountRate, brandPromoActive: $brandPromoActive, brandPromoStartDate: $brandPromoStartDate, brandPromoEndDate: $brandPromoEndDate, productPromoId: $productPromoId, productPromoName: $productPromoName, productPromoDescription: $productPromoDescription, productPromoDiscountRate: $productPromoDiscountRate, productPromoActive: $productPromoActive, productPromoStartDate: $productPromoStartDate, productPromoEndDate: $productPromoEndDate, nextAvailable: $nextAvailable)';
   }
 
   @override
@@ -743,6 +759,8 @@ class _$ProductItemImpl extends _ProductItem {
             other is _$ProductItemImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
             (identical(other.productId, productId) ||
                 other.productId == productId) &&
             (identical(other.categoryId, categoryId) ||
@@ -812,8 +830,7 @@ class _$ProductItemImpl extends _ProductItem {
                 other.productPromoStartDate == productPromoStartDate) &&
             (identical(other.productPromoEndDate, productPromoEndDate) ||
                 other.productPromoEndDate == productPromoEndDate) &&
-            (identical(other.nextAvailable, nextAvailable) ||
-                other.nextAvailable == nextAvailable));
+            (identical(other.nextAvailable, nextAvailable) || other.nextAvailable == nextAvailable));
   }
 
   @override
@@ -821,6 +838,7 @@ class _$ProductItemImpl extends _ProductItem {
         runtimeType,
         id,
         name,
+        description,
         productId,
         categoryId,
         brandId,
@@ -874,6 +892,7 @@ abstract class _ProductItem extends ProductItem {
   const factory _ProductItem(
       {required final int id,
       required final String? name,
+      required final String? description,
       required final int productId,
       required final int? categoryId,
       required final int? brandId,
@@ -918,6 +937,8 @@ abstract class _ProductItem extends ProductItem {
   int get id;
   @override
   String? get name;
+  @override
+  String? get description;
   @override
   int get productId;
   @override

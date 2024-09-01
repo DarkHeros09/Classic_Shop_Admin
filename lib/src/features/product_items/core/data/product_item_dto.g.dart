@@ -10,6 +10,7 @@ _$ProductItemDTOImpl _$$ProductItemDTOImplFromJson(Map<String, dynamic> json) =>
     _$ProductItemDTOImpl(
       id: (json['id'] as num).toInt(),
       name: json['name'] as String?,
+      description: json['description'] as String?,
       productId: (json['product_id'] as num).toInt(),
       categoryId: (json['category_id'] as num?)?.toInt(),
       brandId: (json['brand_id'] as num?)?.toInt(),
@@ -70,6 +71,7 @@ Map<String, dynamic> _$$ProductItemDTOImplToJson(
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
+      'description': instance.description,
       'product_id': instance.productId,
       'category_id': instance.categoryId,
       'brand_id': instance.brandId,
