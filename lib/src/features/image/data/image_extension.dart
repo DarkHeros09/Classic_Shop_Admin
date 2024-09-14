@@ -7,7 +7,7 @@ extension DTOListToDomainList on List<ImageKitDTO> {
   }
 }
 
-extension ProductImageDTOListToDomainList on List<ProductImageDTO> {
+extension ProductImageDTOListToDomainList on List<ProductItemImageDTO> {
   List<ProductImage> toDomain() {
     return map((e) => e.toDomain()).toList();
   }

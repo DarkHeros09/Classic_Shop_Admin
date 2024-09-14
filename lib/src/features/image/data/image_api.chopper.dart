@@ -97,9 +97,15 @@ final class _$ImageAdminApi extends ImageAdminApi {
   Future<Response<List<Map<String, dynamic>>>> listProductImagesKit({
     required String ifNoneMatch,
     required String adminId,
+    required String path,
+    required String tag,
   }) {
     final Uri $url = Uri.parse(
         'http://192.168.1.105:8080/admin/v1/admins/${adminId}/product-images/kit');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'path': path,
+      'tag': tag,
+    };
     final Map<String, String> $headers = {
       'If-None-Match': ifNoneMatch,
     };
@@ -107,6 +113,7 @@ final class _$ImageAdminApi extends ImageAdminApi {
       'GET',
       $url,
       client.baseUrl,
+      parameters: $params,
       headers: $headers,
     );
     return client
@@ -114,7 +121,7 @@ final class _$ImageAdminApi extends ImageAdminApi {
   }
 
   @override
-  Future<Response<Map<String, dynamic>>> updateProductImages({
+  Future<Response<Map<String, dynamic>>> updateProductImage({
     required String adminId,
     required String id,
     required Map<String, dynamic> data,

@@ -20,7 +20,7 @@ final childWidgetProvider = Provider<StatefulNavigationShell>.internal(
 );
 
 typedef ChildWidgetRef = ProviderRef<StatefulNavigationShell>;
-String _$goRouterConfigHash() => r'ffb4713228c682e5c0e72a6036d1a7ace599a805';
+String _$goRouterConfigHash() => r'bfaba4ce6d69e91b1f83e37d1aa4ac925f49870c';
 
 /// See also [GoRouterConfig].
 @ProviderFor(GoRouterConfig)

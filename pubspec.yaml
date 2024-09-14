@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.5.0
+  sdk: ^3.5.2
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -33,7 +33,7 @@ dependency_overrides:
 
 dependencies:
   # blurhash_ffi: ^1.2.6
-  chopper: ^8.0.1
+  chopper: ^8.0.2
   cupertino_icons: ^1.0.8
   dartz: ^0.10.1
   extended_image: ^8.2.1
@@ -55,7 +55,7 @@ dependencies:
   riverpod_annotation: ^2.3.5
   rxdart: ^0.28.0
   sembast: ^3.7.3
-  shadcn_ui: ^0.8.1
+  shadcn_ui: ^0.9.1
   shared_preferences: ^2.3.2
   skeletonizer: ^1.4.2
   sliver_tools: ^0.2.12
@@ -63,8 +63,7 @@ dependencies:
 
 dev_dependencies:
   build_runner: ^2.4.12
-  chopper_generator: ^8.0.1
-  custom_lint: ^0.6.5
+  chopper_generator: ^8.0.2
   enven: ^1.0.1
   flutter_test:
     sdk: flutter

@@ -62,6 +62,12 @@ class AppBarPreferredSizeWidget extends ConsumerWidget {
           child: Row(
             children: [
               Expanded(
+                child: IconButton(
+                  icon: const Icon(Icons.arrow_back),
+                  onPressed: () => context.pop(),
+                ),
+              ),
+              Expanded(
                 flex: 7,
                 child: SizedBox(
                   height: 56,
@@ -74,9 +80,9 @@ class AppBarPreferredSizeWidget extends ConsumerWidget {
               ),
               Expanded(
                 child: IconButton(
-                  icon: const Icon(Icons.logout),
+                  icon: const Icon(Icons.add),
                   onPressed: () =>
-                      ref.read(authNotifierProvider.notifier).signOut(),
+                      context.goNamed(AppRoute.addProductItem.name),
                 ),
               ),
             ],

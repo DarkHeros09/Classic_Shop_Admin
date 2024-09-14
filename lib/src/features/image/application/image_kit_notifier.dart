@@ -38,13 +38,20 @@ class ImageKitsNotifier extends _$ImageKitsNotifier {
     return ImageKitState.initial(Fresh.yes([]));
   }
 
-  Future<void> fetchImages() async {
+  Future<void> fetchImages({
+    required String path,
+    String? tag,
+  }) async {
     state = ImageKitState.loadInProgress(state.imageKits);
     final admin = await ref.read(userStorageProvider).read();
     if (admin == null) {
       return;
     }
-    final failureOrImages = await _repository.fetchImageKits(adminId: admin.id);
+    final failureOrImages = await _repository.fetchImageKits(
+      adminId: admin.id,
+      path: path,
+      tag: tag,
+    );
     state = failureOrImages.fold(
       (l) => ImageKitState.loadFailure(state.imageKits, l),
       (r) => ImageKitState.loadSuccess(r, isNextPageAvailable: false),

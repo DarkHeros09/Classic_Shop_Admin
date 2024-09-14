@@ -6,12 +6,12 @@ part of 'api_error_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ApiErrorDtoImpl _$$ApiErrorDtoImplFromJson(Map<String, dynamic> json) =>
-    _$ApiErrorDtoImpl(
+_$ApiErrorDTOImpl _$$ApiErrorDTOImplFromJson(Map<String, dynamic> json) =>
+    _$ApiErrorDTOImpl(
       error: json['error'] as String,
     );
 
-Map<String, dynamic> _$$ApiErrorDtoImplToJson(_$ApiErrorDtoImpl instance) =>
+Map<String, dynamic> _$$ApiErrorDTOImplToJson(_$ApiErrorDTOImpl instance) =>
     <String, dynamic>{
       'error': instance.error,
     };

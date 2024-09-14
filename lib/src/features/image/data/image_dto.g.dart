@@ -16,17 +16,17 @@ Map<String, dynamic> _$$ImageKitDTOImplToJson(_$ImageKitDTOImpl instance) =>
       'url': instance.url,
     };
 
-_$ProductImageDTOImpl _$$ProductImageDTOImplFromJson(
+_$ProductItemImageDTOImpl _$$ProductItemImageDTOImplFromJson(
         Map<String, dynamic> json) =>
-    _$ProductImageDTOImpl(
+    _$ProductItemImageDTOImpl(
       id: (json['id'] as num).toInt(),
       productImage_1: json['product_image_1'] as String,
       productImage_2: json['product_image_2'] as String,
       productImage_3: json['product_image_3'] as String,
     );
 
-Map<String, dynamic> _$$ProductImageDTOImplToJson(
-        _$ProductImageDTOImpl instance) =>
+Map<String, dynamic> _$$ProductItemImageDTOImplToJson(
+        _$ProductItemImageDTOImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'product_image_1': instance.productImage_1,

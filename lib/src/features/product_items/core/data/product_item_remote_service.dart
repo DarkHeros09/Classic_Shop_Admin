@@ -243,16 +243,16 @@ abstract class ProductItemRemoteService {
       'product_id': productId,
     };
     if (productSku != null) {
-      bodyRequest['product_sku'] = productSku.toString();
+      bodyRequest['product_sku'] = productSku;
     }
     if (qtyInStock != null) {
-      bodyRequest['qty_in_stock'] = qtyInStock.toString();
+      bodyRequest['qty_in_stock'] = qtyInStock;
     }
     if (price != null) {
       bodyRequest['price'] = price;
     }
     if (active != null) {
-      bodyRequest['active'] = active.toString();
+      bodyRequest['active'] = active;
     }
     return bodyRequest;
   }
@@ -284,7 +284,7 @@ abstract class ProductItemRemoteService {
       debugPrint('JKL ${response.bodyString}');
 
       if (!response.isSuccessful) {
-        final errorMessage = ApiErrorDto.fromJson(response.body ?? {});
+        final errorMessage = ApiErrorDTO.fromJson(response.body ?? {});
         throw RestApiException(response.statusCode, errorMessage.error);
       }
 

@@ -79,12 +79,14 @@ abstract class ImageAdminApi extends ChopperService {
   Future<Response<List<Map<String, dynamic>>>> listProductImagesKit({
     @Header('If-None-Match') required String ifNoneMatch,
     @Path('adminId') required String adminId,
+    @Query('path') required String path,
+    @Query('tag') required String tag,
   });
 
   @Put(
     path: '/admins/{adminId}/product-images/{id}',
   )
-  Future<Response<Map<String, dynamic>>> updateProductImages({
+  Future<Response<Map<String, dynamic>>> updateProductImage({
     @Path() required String adminId,
     @Path() required String id,
     @Body() required Map<String, dynamic> data,

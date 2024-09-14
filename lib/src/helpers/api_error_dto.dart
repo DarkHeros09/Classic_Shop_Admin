@@ -4,11 +4,11 @@ part 'api_error_dto.freezed.dart';
 part 'api_error_dto.g.dart';
 
 @freezed
-class ApiErrorDto with _$ApiErrorDto {
-  const factory ApiErrorDto({
+class ApiErrorDTO with _$ApiErrorDTO {
+  const factory ApiErrorDTO({
     required String error,
-  }) = _ApiErrorDto;
-  const ApiErrorDto._();
-  factory ApiErrorDto.fromJson(Map<String, dynamic> json) =>
-      _$ApiErrorDtoFromJson(json);
+  }) = _ApiErrorDTO;
+  const ApiErrorDTO._();
+  factory ApiErrorDTO.fromJson(Map<String, dynamic> json) =>
+      _$ApiErrorDTOFromJson(json);
 }

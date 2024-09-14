@@ -75,6 +75,8 @@ class ImageRepository {
 
   Future<Either<ImageFailure, Fresh<List<ImageKit>>>> fetchImageKits({
     required int adminId,
+    required String path,
+    String? tag,
   }) async {
     try {
       final requestUri = Uri.http(
@@ -84,6 +86,8 @@ class ImageRepository {
       final images = await _remoteService.fetchImageKits(
         adminId: adminId,
         requestUri: requestUri,
+        path: path,
+        tag: tag,
       );
 
       return right(
@@ -120,7 +124,7 @@ class ImageRepository {
     int? pageSize,
   }) async {
     try {
-      late final RemoteResponse<List<ProductImageDTO>> remotePageImages;
+      late final RemoteResponse<List<ProductItemImageDTO>> remotePageImages;
       late final Uri requestUri;
       final queryParams = _createQueryParams(
         lastImageId: lastImageId,
@@ -164,7 +168,7 @@ class ImageRepository {
 
   Future<Either<ImageFailure, Fresh<List<ProductImage>>>>
       _rightRemotePageImages(
-    RemoteResponse<List<ProductImageDTO>> remotePageImages,
+    RemoteResponse<List<ProductItemImageDTO>> remotePageImages,
     int page,
     Uri requestUri,
   ) async {
@@ -204,5 +208,35 @@ class ImageRepository {
         },
       ),
     );
+  }
+
+  Future<Either<ImageFailure, Unit>> updateProductImage({
+    required int adminId,
+    required int productItemImageId,
+    String? productImage1,
+    String? productImage2,
+    String? productImage3,
+  }) async {
+    try {
+      final productImage = await _remoteService.updateProductItemImage(
+        adminId: adminId,
+        productItemImageId: productItemImageId,
+        productImage1: productImage1,
+        productImage2: productImage2,
+        productImage3: productImage3,
+      );
+
+      return await productImage.maybeWhen(
+        withNewData: (data, _) async {
+          return right(unit);
+        },
+        orElse: () =>
+            left(const ImageFailure.server('Could not create product')),
+      );
+    } on RestApiException catch (e) {
+      return left(ImageFailure.api(e.errorCode));
+    } on Exception catch (_) {
+      return left(const ImageFailure.server('Could not create product'));
+    }
   }
 }

@@ -9,14 +9,17 @@ import 'package:classic_shop_admin/src/core/data/response_headers_cache.dart';
 import 'package:classic_shop_admin/src/features/image/data/image_api.dart';
 import 'package:classic_shop_admin/src/features/image/data/image_dto.dart';
 import 'package:classic_shop_admin/src/features/image/helpers/enums.dart';
+import 'package:classic_shop_admin/src/helpers/api_error_dto.dart';
 import 'package:flutter/foundation.dart';
 
 abstract class IImageRemoteService {
   Future<RemoteResponse<List<ImageKitDTO>>> fetchImageKits({
     required int adminId,
     required Uri requestUri,
+    required String path,
+    String? tag,
   });
-  Future<RemoteResponse<ProductImageDTO>> createImages({
+  Future<RemoteResponse<ProductItemImageDTO>> createImages({
     required int adminId,
     required String productImage1,
     required String productImage2,
@@ -36,7 +39,7 @@ class ImageRemoteService implements IImageRemoteService {
   final ResponseHeadersCache _headersCache;
 
   @override
-  Future<RemoteResponse<ProductImageDTO>> createImages({
+  Future<RemoteResponse<ProductItemImageDTO>> createImages({
     required int adminId,
     required String productImage1,
     required String productImage2,
@@ -62,7 +65,7 @@ class ImageRemoteService implements IImageRemoteService {
         throw const RestApiException();
       }
 
-      final imageDTO = ProductImageDTO.fromJson(body);
+      final imageDTO = ProductItemImageDTO.fromJson(body);
 
       return RemoteResponse.withNewData(imageDTO, nextAvailable: false);
     } on SocketException {
@@ -74,6 +77,8 @@ class ImageRemoteService implements IImageRemoteService {
   Future<RemoteResponse<List<ImageKitDTO>>> fetchImageKits({
     required int adminId,
     required Uri requestUri,
+    required String path,
+    String? tag,
   }) async {
     final previousHeaders = await _headersCache.getHeaders(requestUri);
     try {
@@ -82,6 +87,8 @@ class ImageRemoteService implements IImageRemoteService {
       response = await _imageAdminApi.listProductImagesKit(
         ifNoneMatch: previousHeaders?.etag ?? '',
         adminId: adminId.toString(),
+        path: path,
+        tag: tag ?? '',
       );
       debugPrint('IIMMGG $response');
       debugPrint('IIMMGG ${response.statusCode}');
@@ -111,7 +118,7 @@ class ImageRemoteService implements IImageRemoteService {
     }
   }
 
-  Future<RemoteResponse<List<ProductImageDTO>>> fetchImages({
+  Future<RemoteResponse<List<ProductItemImageDTO>>> fetchImages({
     required ImagesFunction imagesFunction,
     required Uri requestUri,
     int? lastImageId,
@@ -154,7 +161,7 @@ class ImageRemoteService implements IImageRemoteService {
         await _headersCache.saveHeaders(requestUri, headers);
         // response as Response<List<Map<String, dynamic>>>;
         final convertedBody =
-            response.body!.map(ProductImageDTO.fromJson).toList();
+            response.body!.map(ProductItemImageDTO.fromJson).toList();
         return RemoteResponse.withNewData(
           convertedBody,
           nextAvailable: headers.nextAvailable ?? true,
@@ -162,6 +169,65 @@ class ImageRemoteService implements IImageRemoteService {
       } else {
         throw RestApiException(response.statusCode);
       }
+    } on SocketException {
+      return const RemoteResponse.noConnection();
+    }
+  }
+
+  Map<String, dynamic> _createBodyRequest({
+    String? productImage1,
+    String? productImage2,
+    String? productImage3,
+  }) {
+    late final bodyRequest = <String, dynamic>{};
+    if (productImage1 != null) {
+      bodyRequest['product_image_1'] = productImage1;
+    }
+    if (productImage2 != null) {
+      bodyRequest['product_image_2'] = productImage2;
+    }
+    if (productImage3 != null) {
+      bodyRequest['product_image_3'] = productImage3;
+    }
+    return bodyRequest;
+  }
+
+  Future<RemoteResponse<ProductItemImageDTO>> updateProductItemImage({
+    required int adminId,
+    required int productItemImageId,
+    String? productImage1,
+    String? productImage2,
+    String? productImage3,
+  }) async {
+    try {
+      final bodyRequest = _createBodyRequest(
+        productImage1: productImage1,
+        productImage2: productImage2,
+        productImage3: productImage3,
+      );
+      debugPrint('JKL BODY $bodyRequest');
+      final response = await _imageAdminApi.updateProductImage(
+        adminId: adminId.toString(),
+        id: productItemImageId.toString(),
+        data: bodyRequest,
+      );
+
+      debugPrint('JKL ${response.bodyString}');
+
+      if (!response.isSuccessful) {
+        final errorMessage = ApiErrorDTO.fromJson(response.body ?? {});
+        throw RestApiException(response.statusCode, errorMessage.error);
+      }
+
+      final body = response.body;
+
+      if (body == null) {
+        throw const RestApiException();
+      }
+
+      final productImageDTO = ProductItemImageDTO.fromJson(body);
+
+      return RemoteResponse.withNewData(productImageDTO, nextAvailable: false);
     } on SocketException {
       return const RemoteResponse.noConnection();
     }

@@ -27,29 +27,27 @@ class ManagePage extends StatelessWidget {
                       case 0:
                         return ShadButton(
                           onPressed: () =>
-                              context.goNamed(AppRoute.addProduct.name),
+                              context.goNamed(AppRoute.products.name),
                           height: 60,
                           icon: const Padding(
                             padding: EdgeInsets.only(right: 8),
-                            child: Icon(Icons.add),
                           ),
                           child: const Text(
-                            'Add Product',
+                            'Products',
                             style: TextStyle(fontSize: 16),
                           ),
                         );
                       case 1:
                         return ShadButton(
                           onPressed: () =>
-                              context.goNamed(AppRoute.addProductItem.name),
+                              context.goNamed(AppRoute.productItems.name),
                           height: 60,
                           icon: const Padding(
                             padding: EdgeInsets.only(right: 8),
-                            child: Icon(Icons.add),
                           ),
                           child: const Expanded(
                             child: Text(
-                              'Add Product Item',
+                              'Product Items',
                               style: TextStyle(fontSize: 16),
                             ),
                           ),
@@ -57,117 +55,110 @@ class ManagePage extends StatelessWidget {
                       case 2:
                         return ShadButton(
                           onPressed: () =>
-                              context.goNamed(AppRoute.addBrand.name),
+                              context.goNamed(AppRoute.brands.name),
                           height: 60,
                           icon: const Padding(
                             padding: EdgeInsets.only(right: 8),
-                            child: Icon(Icons.add),
                           ),
                           child: const Text(
-                            'Add Brand',
+                            'Brands',
                             style: TextStyle(fontSize: 16),
                           ),
                         );
                       case 3:
                         return ShadButton(
                           onPressed: () =>
-                              context.goNamed(AppRoute.addCategory.name),
+                              context.goNamed(AppRoute.categories.name),
                           height: 60,
                           icon: const Padding(
                             padding: EdgeInsets.only(right: 8),
-                            child: Icon(Icons.add),
                           ),
                           child: const Text(
-                            'Add Category',
+                            'Categories',
                             style: TextStyle(fontSize: 16),
                           ),
                         );
                       case 4:
                         return ShadButton(
                           onPressed: () =>
-                              context.goNamed(AppRoute.addImage.name),
+                              context.goNamed(AppRoute.productItemImages.name),
                           height: 60,
                           icon: const Padding(
                             padding: EdgeInsets.only(right: 8),
-                            child: Icon(Icons.add),
                           ),
-                          child: const Text(
-                            'Add Image',
-                            style: TextStyle(fontSize: 16),
+                          child: const Expanded(
+                            child: Text(
+                              'Product item images',
+                              style: TextStyle(fontSize: 16),
+                            ),
                           ),
                         );
                       case 5:
                         return ShadButton(
                           onPressed: () =>
-                              context.goNamed(AppRoute.addColor.name),
+                              context.goNamed(AppRoute.colors.name),
                           height: 60,
                           icon: const Padding(
                             padding: EdgeInsets.only(right: 8),
-                            child: Icon(Icons.add),
                           ),
                           child: const Text(
-                            'Add Color',
+                            'Colors',
                             style: TextStyle(fontSize: 16),
                           ),
                         );
                       case 6:
                         return ShadButton(
-                          onPressed: () =>
-                              context.goNamed(AppRoute.addColor.name),
+                          onPressed: () => context.goNamed(AppRoute.sizes.name),
                           height: 60,
                           icon: const Padding(
                             padding: EdgeInsets.only(right: 8),
-                            child: Icon(Icons.add),
                           ),
                           child: const Text(
-                            'Add Size',
+                            'Sizes',
                             style: TextStyle(fontSize: 16),
                           ),
                         );
                       case 7:
                         return ShadButton(
                           onPressed: () =>
-                              context.goNamed(AppRoute.addPromotion.name),
+                              context.goNamed(AppRoute.promotions.name),
                           height: 60,
                           icon: const Padding(
                             padding: EdgeInsets.only(right: 8),
-                            child: Icon(Icons.add),
                           ),
                           child: const Expanded(
                             child: Text(
-                              'Add Promotion',
+                              'Promotions',
                               style: TextStyle(fontSize: 16),
                             ),
                           ),
                         );
                       case 8:
                         return ShadButton(
-                          onPressed: () => context
-                              .goNamed(AppRoute.addProductPromotion.name),
+                          onPressed: () =>
+                              context.goNamed(AppRoute.productPromotions.name),
                           height: 60,
                           icon: const Padding(
                             padding: EdgeInsets.only(right: 8),
-                            child: Icon(Icons.add),
                           ),
                           child: const Expanded(
                             child: Text(
-                              'Add Product Promotion',
+                              'Product Promotions',
                               style: TextStyle(fontSize: 16),
                             ),
                           ),
                         );
                       case 9:
                         return ShadButton(
-                          onPressed: () => context
-                              .goNamed(AppRoute.addCategoryPromotion.name),
+                          onPressed: () =>
+                              context.goNamed(AppRoute.categoryPromotions.name),
                           height: 60,
                           icon: const Padding(
                             padding: EdgeInsets.only(right: 8),
-                            child: Icon(Icons.add),
                           ),
                           child: const Expanded(
                             child: Text(
-                              'Add Category Promotion',
+                              'Category Promotions',
                               style: TextStyle(fontSize: 16),
                             ),
                           ),
@@ -175,15 +166,14 @@ class ManagePage extends StatelessWidget {
                       case 10:
                         return ShadButton(
                           onPressed: () =>
-                              context.goNamed(AppRoute.addBrandPromotion.name),
+                              context.goNamed(AppRoute.brandPromotions.name),
                           height: 60,
                           icon: const Padding(
                             padding: EdgeInsets.only(right: 8),
-                            child: Icon(Icons.add),
                           ),
                           child: const Expanded(
                             child: Text(
-                              'Add Brand Promotion',
+                              'Brand Promotion',
                               style: TextStyle(fontSize: 16),
                             ),
                           ),

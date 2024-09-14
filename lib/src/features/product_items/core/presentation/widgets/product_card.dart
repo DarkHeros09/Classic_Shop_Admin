@@ -59,7 +59,7 @@ class ProductCard extends HookConsumerWidget {
         InkWell(
           borderRadius: const BorderRadius.all(Radius.circular(10)),
           onTap: () => context.pushNamed(
-            AppRoute.productUpdateDelete.name,
+            AppRoute.productItemUpdateDelete.name,
             pathParameters: {'id': product.id.toString()},
             extra: (product, discountValue),
           ),

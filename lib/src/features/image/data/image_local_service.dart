@@ -52,7 +52,7 @@ class ImageLocalService implements IImageLocalService {
   // ProductImages
 
   Future<void> upsertPage(
-    List<ProductImageDTO> dtos,
+    List<ProductItemImageDTO> dtos,
     int page,
     String uri,
   ) async {
@@ -71,7 +71,7 @@ class ImageLocalService implements IImageLocalService {
         );
   }
 
-  Future<List<ProductImageDTO>> getPage(int page, String uri) async {
+  Future<List<ProductItemImageDTO>> getPage(int page, String uri) async {
     debugPrint('ZXZX $uri');
     final store = intMapStoreFactory.store(uri);
     // final sembastPage = page - 1;
@@ -84,7 +84,7 @@ class ImageLocalService implements IImageLocalService {
       // ),
     );
 
-    return records.map((e) => ProductImageDTO.fromJson(e.value)).toList();
+    return records.map((e) => ProductItemImageDTO.fromJson(e.value)).toList();
   }
 
   Future<int> getLocalPageCount(String uri) async {

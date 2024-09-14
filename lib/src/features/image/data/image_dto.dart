@@ -28,20 +28,20 @@ class ImageKitDTO with _$ImageKitDTO {
 }
 
 @freezed
-class ProductImageDTO with _$ProductImageDTO {
-  const factory ProductImageDTO({
+class ProductItemImageDTO with _$ProductItemImageDTO {
+  const factory ProductItemImageDTO({
     required int id,
     required String productImage_1,
     required String productImage_2,
     required String productImage_3,
-  }) = _ProductImageDTO;
-  const ProductImageDTO._();
+  }) = _ProductItemImageDTO;
+  const ProductItemImageDTO._();
 
-  factory ProductImageDTO.fromJson(Map<String, dynamic> json) =>
-      _$ProductImageDTOFromJson(json);
+  factory ProductItemImageDTO.fromJson(Map<String, dynamic> json) =>
+      _$ProductItemImageDTOFromJson(json);
 
-  factory ProductImageDTO.fromDomain(ProductImage _) {
-    return ProductImageDTO(
+  factory ProductItemImageDTO.fromDomain(ProductImage _) {
+    return ProductItemImageDTO(
       id: _.id,
       productImage_1: _.productImage_1,
       productImage_2: _.productImage_2,
