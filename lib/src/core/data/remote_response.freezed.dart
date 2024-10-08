@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$RemoteResponse<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() noConnection,
+    required TResult Function(bool? nextAvailable) noConnection,
     required TResult Function() noContent,
     required TResult Function(bool nextAvailable) notModified,
     required TResult Function(T data, bool nextAvailable) withNewData,
@@ -26,7 +26,7 @@ mixin _$RemoteResponse<T> {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? noConnection,
+    TResult? Function(bool? nextAvailable)? noConnection,
     TResult? Function()? noContent,
     TResult? Function(bool nextAvailable)? notModified,
     TResult? Function(T data, bool nextAvailable)? withNewData,
@@ -34,7 +34,7 @@ mixin _$RemoteResponse<T> {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? noConnection,
+    TResult Function(bool? nextAvailable)? noConnection,
     TResult Function()? noContent,
     TResult Function(bool nextAvailable)? notModified,
     TResult Function(T data, bool nextAvailable)? withNewData,
@@ -94,6 +94,8 @@ abstract class _$$NoConnectionImplCopyWith<T, $Res> {
   factory _$$NoConnectionImplCopyWith(_$NoConnectionImpl<T> value,
           $Res Function(_$NoConnectionImpl<T>) then) =
       __$$NoConnectionImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({bool? nextAvailable});
 }
 
 /// @nodoc
@@ -106,60 +108,87 @@ class __$$NoConnectionImplCopyWithImpl<T, $Res>
 
   /// Create a copy of RemoteResponse
   /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? nextAvailable = freezed,
+  }) {
+    return _then(_$NoConnectionImpl<T>(
+      nextAvailable: freezed == nextAvailable
+          ? _value.nextAvailable
+          : nextAvailable // ignore: cast_nullable_to_non_nullable
+              as bool?,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$NoConnectionImpl<T> extends _NoConnection<T> {
-  const _$NoConnectionImpl() : super._();
+  const _$NoConnectionImpl({this.nextAvailable}) : super._();
+
+  @override
+  final bool? nextAvailable;
 
   @override
   String toString() {
-    return 'RemoteResponse<$T>.noConnection()';
+    return 'RemoteResponse<$T>.noConnection(nextAvailable: $nextAvailable)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$NoConnectionImpl<T>);
+        (other.runtimeType == runtimeType &&
+            other is _$NoConnectionImpl<T> &&
+            (identical(other.nextAvailable, nextAvailable) ||
+                other.nextAvailable == nextAvailable));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, nextAvailable);
+
+  /// Create a copy of RemoteResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$NoConnectionImplCopyWith<T, _$NoConnectionImpl<T>> get copyWith =>
+      __$$NoConnectionImplCopyWithImpl<T, _$NoConnectionImpl<T>>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() noConnection,
+    required TResult Function(bool? nextAvailable) noConnection,
     required TResult Function() noContent,
     required TResult Function(bool nextAvailable) notModified,
     required TResult Function(T data, bool nextAvailable) withNewData,
   }) {
-    return noConnection();
+    return noConnection(nextAvailable);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? noConnection,
+    TResult? Function(bool? nextAvailable)? noConnection,
     TResult? Function()? noContent,
     TResult? Function(bool nextAvailable)? notModified,
     TResult? Function(T data, bool nextAvailable)? withNewData,
   }) {
-    return noConnection?.call();
+    return noConnection?.call(nextAvailable);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? noConnection,
+    TResult Function(bool? nextAvailable)? noConnection,
     TResult Function()? noContent,
     TResult Function(bool nextAvailable)? notModified,
     TResult Function(T data, bool nextAvailable)? withNewData,
     required TResult orElse(),
   }) {
     if (noConnection != null) {
-      return noConnection();
+      return noConnection(nextAvailable);
     }
     return orElse();
   }
@@ -203,8 +232,17 @@ class _$NoConnectionImpl<T> extends _NoConnection<T> {
 }
 
 abstract class _NoConnection<T> extends RemoteResponse<T> {
-  const factory _NoConnection() = _$NoConnectionImpl<T>;
+  const factory _NoConnection({final bool? nextAvailable}) =
+      _$NoConnectionImpl<T>;
   const _NoConnection._() : super._();
+
+  bool? get nextAvailable;
+
+  /// Create a copy of RemoteResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$NoConnectionImplCopyWith<T, _$NoConnectionImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -248,7 +286,7 @@ class _$NoContentImpl<T> extends _NoContent<T> {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() noConnection,
+    required TResult Function(bool? nextAvailable) noConnection,
     required TResult Function() noContent,
     required TResult Function(bool nextAvailable) notModified,
     required TResult Function(T data, bool nextAvailable) withNewData,
@@ -259,7 +297,7 @@ class _$NoContentImpl<T> extends _NoContent<T> {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? noConnection,
+    TResult? Function(bool? nextAvailable)? noConnection,
     TResult? Function()? noContent,
     TResult? Function(bool nextAvailable)? notModified,
     TResult? Function(T data, bool nextAvailable)? withNewData,
@@ -270,7 +308,7 @@ class _$NoContentImpl<T> extends _NoContent<T> {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? noConnection,
+    TResult Function(bool? nextAvailable)? noConnection,
     TResult Function()? noContent,
     TResult Function(bool nextAvailable)? notModified,
     TResult Function(T data, bool nextAvailable)? withNewData,
@@ -395,7 +433,7 @@ class _$NotModifiedImpl<T> extends _NotModified<T> {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() noConnection,
+    required TResult Function(bool? nextAvailable) noConnection,
     required TResult Function() noContent,
     required TResult Function(bool nextAvailable) notModified,
     required TResult Function(T data, bool nextAvailable) withNewData,
@@ -406,7 +444,7 @@ class _$NotModifiedImpl<T> extends _NotModified<T> {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? noConnection,
+    TResult? Function(bool? nextAvailable)? noConnection,
     TResult? Function()? noContent,
     TResult? Function(bool nextAvailable)? notModified,
     TResult? Function(T data, bool nextAvailable)? withNewData,
@@ -417,7 +455,7 @@ class _$NotModifiedImpl<T> extends _NotModified<T> {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? noConnection,
+    TResult Function(bool? nextAvailable)? noConnection,
     TResult Function()? noContent,
     TResult Function(bool nextAvailable)? notModified,
     TResult Function(T data, bool nextAvailable)? withNewData,
@@ -560,7 +598,7 @@ class _$WithNewDataImpl<T> extends _WithNewData<T> {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() noConnection,
+    required TResult Function(bool? nextAvailable) noConnection,
     required TResult Function() noContent,
     required TResult Function(bool nextAvailable) notModified,
     required TResult Function(T data, bool nextAvailable) withNewData,
@@ -571,7 +609,7 @@ class _$WithNewDataImpl<T> extends _WithNewData<T> {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? noConnection,
+    TResult? Function(bool? nextAvailable)? noConnection,
     TResult? Function()? noContent,
     TResult? Function(bool nextAvailable)? notModified,
     TResult? Function(T data, bool nextAvailable)? withNewData,
@@ -582,7 +620,7 @@ class _$WithNewDataImpl<T> extends _WithNewData<T> {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? noConnection,
+    TResult Function(bool? nextAvailable)? noConnection,
     TResult Function()? noContent,
     TResult Function(bool nextAvailable)? notModified,
     TResult Function(T data, bool nextAvailable)? withNewData,

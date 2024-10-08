@@ -22,9 +22,8 @@ import 'package:classic_shop_admin/src/features/color/color_update_delete/presen
 import 'package:classic_shop_admin/src/features/color/core/domain/color.dart';
 import 'package:classic_shop_admin/src/features/color/core/presentation/colors_page.dart';
 import 'package:classic_shop_admin/src/features/dashboard/presentation/dashboard_page.dart';
-import 'package:classic_shop_admin/src/features/dashboard/presentation/orders_page.dart';
 import 'package:classic_shop_admin/src/features/image/domain/image.dart';
-import 'package:classic_shop_admin/src/features/manage/core/presentation/manage_page.dart';
+import 'package:classic_shop_admin/src/features/manage/presentation/manage_page.dart';
 import 'package:classic_shop_admin/src/features/product/add_product/presentation/add_product_page.dart';
 import 'package:classic_shop_admin/src/features/product/core/domain/product.dart';
 import 'package:classic_shop_admin/src/features/product/core/presentation/products_page.dart';
@@ -45,6 +44,9 @@ import 'package:classic_shop_admin/src/features/promotion/add_promotion/presenta
 import 'package:classic_shop_admin/src/features/promotion/core/domain/promotion.dart';
 import 'package:classic_shop_admin/src/features/promotion/core/presentation/promotions_page.dart';
 import 'package:classic_shop_admin/src/features/promotion/promotion_update_delete/presentation/promotion_update_delete_page.dart';
+import 'package:classic_shop_admin/src/features/shop_order/core/domain/shop_order.dart';
+import 'package:classic_shop_admin/src/features/shop_order/core/presentation/shop_orders_page.dart';
+import 'package:classic_shop_admin/src/features/shop_order_items/core/presentation/shop_order_items_page.dart';
 import 'package:classic_shop_admin/src/features/size/add_size/presentation/add_color_page.dart';
 import 'package:classic_shop_admin/src/features/size/core/domain/size.dart';
 import 'package:classic_shop_admin/src/features/size/core/presentation/sizes_page.dart';
@@ -98,7 +100,9 @@ enum AppRoute {
   categoryPromotions,
   addCategoryPromotion,
   categoryPromotionUpdateDelete,
-  search,
+  searchProductItems,
+  shopOrders,
+  shopOrderItems,
 }
 
 @Riverpod(keepAlive: true, dependencies: [])
@@ -136,7 +140,7 @@ class GoRouterConfig extends _$GoRouterConfig {
         ),
         GoRoute(
           path: '/search',
-          name: AppRoute.search.name,
+          name: AppRoute.searchProductItems.name,
           parentNavigatorKey: _rootNavigatorKey,
           pageBuilder: (context, state) {
             return const NoTransitionPage(child: SearchPage());
@@ -174,9 +178,9 @@ class GoRouterConfig extends _$GoRouterConfig {
               routes: [
                 GoRoute(
                   path: '/home',
-                  name: AppRoute.home.name,
+                  name: AppRoute.shopOrders.name,
                   pageBuilder: (context, state) {
-                    return const NoTransitionPage(child: OrdersPage());
+                    return const NoTransitionPage(child: ShopOrdersPage());
                   },
                   redirect: (context, state) {
                     debugPrint('REDIRECT CALLED IN HOME');
@@ -184,6 +188,26 @@ class GoRouterConfig extends _$GoRouterConfig {
                     debugPrint('REDIRECT CALLED $isLoggedIn');
                     return isLoggedIn ? null : '/sign-in';
                   },
+                  routes: [
+                    GoRoute(
+                      path: 'shop_order_items/:id',
+                      name: AppRoute.shopOrderItems.name,
+                      pageBuilder: (context, state) {
+                        final shopOrder = state.extra! as ShopOrder;
+                        return NoTransitionPage(
+                          child: ShopOrderItemsPage(
+                            shopOrder: shopOrder,
+                          ),
+                        );
+                      },
+                      redirect: (context, state) {
+                        debugPrint('REDIRECT CALLED IN DASHBOARD');
+                        final isLoggedIn = authState.user.value != null;
+                        debugPrint('REDIRECT CALLED $isLoggedIn');
+                        return isLoggedIn ? null : '/sign-in';
+                      },
+                    ),
+                  ],
                 ),
               ],
             ),

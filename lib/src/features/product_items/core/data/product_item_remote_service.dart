@@ -184,7 +184,9 @@ abstract class ProductItemRemoteService {
       }
     } on SocketException {
       debugPrint('ZXZXNOCONN');
-      return const RemoteResponse.noConnection();
+      return RemoteResponse.noConnection(
+        nextAvailable: previousHeaders?.nextAvailable ?? false,
+      );
     }
   }
 

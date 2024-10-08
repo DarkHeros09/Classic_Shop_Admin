@@ -29,7 +29,7 @@ class SizeRepository {
 
       return right(
         await sizes.when(
-          noConnection: () async => Fresh.no(
+          noConnection: (nextAvailable) async => Fresh.no(
             await _localService.fetchSize().then((_) => _.toDomain()),
           ),
           noContent: () async {

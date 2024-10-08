@@ -74,7 +74,8 @@ class AppBarPreferredSizeWidget extends ConsumerWidget {
                   width: double.infinity,
                   child: CustomSearchBar(
                     readOnly: true,
-                    onTap: () => context.pushNamed(AppRoute.search.name),
+                    onTap: () =>
+                        context.pushNamed(AppRoute.searchProductItems.name),
                   ),
                 ),
               ),

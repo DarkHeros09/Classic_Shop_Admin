@@ -92,7 +92,7 @@ class ImageRepository {
 
       return right(
         await images.when(
-          noConnection: () async => Fresh.no(
+          noConnection: (nextAvailable) async => Fresh.no(
             await _localService.fetchImage().then((_) => _.toDomain()),
           ),
           noContent: () async {
@@ -174,7 +174,7 @@ class ImageRepository {
   ) async {
     return right(
       await remotePageImages.when(
-        noConnection: () async => Fresh.no(
+        noConnection: (nextAvailable) async => Fresh.no(
           await _localService
               .getPage(page, requestUri.toString())
               .then((_) => _.toDomain()),

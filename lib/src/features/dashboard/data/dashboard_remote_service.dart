@@ -59,7 +59,9 @@ class DashboardRemoteService implements IDashboardRemoteService {
         throw RestApiException(response.statusCode);
       }
     } on SocketException {
-      return const RemoteResponse.noConnection();
+      return RemoteResponse.noConnection(
+        nextAvailable: previousHeaders?.nextAvailable ?? false,
+      );
     }
   }
 }

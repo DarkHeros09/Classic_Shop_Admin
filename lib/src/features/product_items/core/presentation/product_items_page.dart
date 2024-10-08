@@ -1,6 +1,6 @@
-import 'package:classic_shop_admin/src/features/dashboard/presentation/widgets/products_cards.dart';
 import 'package:classic_shop_admin/src/features/dashboard/shared/providers.dart';
 import 'package:classic_shop_admin/src/features/product_items/core/presentation/widgets/cs_app_bar.dart';
+import 'package:classic_shop_admin/src/features/product_items/core/presentation/widgets/products_cards.dart';
 import 'package:classic_shop_admin/src/features/product_items/helper/enums.dart';
 import 'package:classic_shop_admin/src/helpers/toasts.dart';
 import 'package:flutter/material.dart';

@@ -105,4 +105,12 @@ abstract class ProductAdminApi extends ChopperService {
     @Path() required String productId,
     @Body() required Map<String, dynamic> data,
   });
+
+  @Delete(
+    path: '/admins/{adminId}/products/{productId}',
+  )
+  Future<Response<Map<String, dynamic>>> deleteProduct({
+    @Path() required String adminId,
+    @Path() required String productId,
+  });
 }

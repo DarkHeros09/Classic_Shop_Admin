@@ -37,7 +37,7 @@ class DashboardRepository {
 
       return right(
         await dashboard.when(
-          noConnection: () async => Fresh.no(
+          noConnection: (nextAvailable) async => Fresh.no(
             await _localService.getDashboard(adminId).then(
                   (_) => _.toDomain(),
                 ),

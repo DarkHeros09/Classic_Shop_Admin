@@ -45,6 +45,10 @@ class ImageKitsNotifier extends _$ImageKitsNotifier {
     state = ImageKitState.loadInProgress(state.imageKits);
     final admin = await ref.read(userStorageProvider).read();
     if (admin == null) {
+      state = ImageKitState.loadFailure(
+        state.imageKits,
+        const ImageFailure.server('not authurized'),
+      );
       return;
     }
     final failureOrImages = await _repository.fetchImageKits(

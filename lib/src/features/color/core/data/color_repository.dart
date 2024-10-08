@@ -29,7 +29,7 @@ class ColorRepository {
 
       return right(
         await category.when(
-          noConnection: () async => Fresh.no(
+          noConnection: (nextAvailable) async => Fresh.no(
             await _localService.fetchColor().then((_) => _.toDomain()),
           ),
           noContent: () async {

@@ -33,7 +33,7 @@ class CategoryPromotionRepository {
 
       return right(
         await promotion.when(
-          noConnection: () async => Fresh.no(
+          noConnection: (nextAvailable) async => Fresh.no(
             await _localService
                 .fetchCategoryPromotions()
                 .then((_) => _.toDomain()),

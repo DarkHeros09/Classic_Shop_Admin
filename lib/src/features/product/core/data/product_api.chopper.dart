@@ -171,4 +171,19 @@ final class _$ProductAdminApi extends ProductAdminApi {
     );
     return client.send<Map<String, dynamic>, Map<String, dynamic>>($request);
   }
+
+  @override
+  Future<Response<Map<String, dynamic>>> deleteProduct({
+    required String adminId,
+    required String productId,
+  }) {
+    final Uri $url = Uri.parse(
+        'http://192.168.1.105:8080/admin/v1/admins/${adminId}/products/${productId}');
+    final Request $request = Request(
+      'DELETE',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<Map<String, dynamic>, Map<String, dynamic>>($request);
+  }
 }

@@ -142,7 +142,19 @@ class AuthRemoteService {
       }
       debugPrint('PARESED REFRESH TOKEN');
       debugPrint(credentials.toString());
-      await _credentialsStorage.save(credentials);
+      final oldCredential = await _credentialsStorage.read();
+      if (oldCredential == null) {
+        await signOut();
+        return left(const AuthFailure.storage());
+      }
+      final newCredentials = oldCredential.copyWith(
+        adminSessionId: credentials.adminSessionId,
+        accessToken: credentials.accessToken,
+        accessExpiration: credentials.accessExpiration,
+        refreshToken: credentials.refreshToken,
+        refreshExpiration: credentials.refreshExpiration,
+      );
+      await _credentialsStorage.save(newCredentials);
       return right(credentials);
     } on FormatException {
       return left(const AuthFailure.server());
@@ -157,10 +169,9 @@ class AuthRemoteService {
     try {
       final credentials = await _credentialsStorage.read();
       final user = await _userStorage.read();
-
       if (user != null) {
         try {
-          await _api2.signOut(
+          final res = await _api2.signOut(
             accessToken: 'Bearer ${credentials?.accessToken}',
             adminId: user.id.toString(),
             data: {
@@ -168,6 +179,7 @@ class AuthRemoteService {
               'refresh_token': credentials?.refreshToken,
             },
           );
+          debugPrint('SIGGG ${res.statusCode}');
         } on SocketException {
           debugPrint('Token not revoked');
         } finally {
@@ -216,16 +228,17 @@ class AuthRemoteService {
       final newCredentials = CredentialsDTO.fromJson(body);
       debugPrint('PARESED ACCESS TOKEN');
       debugPrint(newCredentials.toString());
-      final modifiedCredentials = newCredentials.copyWith(
-        refreshToken: credentialsDTO.refreshToken,
-        refreshExpiration: credentialsDTO.refreshExpiration,
+      final updatedCredentials = credentialsDTO.copyWith(
+        adminSessionId: newCredentials.adminSessionId,
+        accessToken: newCredentials.accessToken,
+        accessExpiration: newCredentials.accessExpiration,
       );
 
       debugPrint('PARESED MODIFIED ACCESS TOKEN');
-      debugPrint(modifiedCredentials.toString());
+      debugPrint(updatedCredentials.toString());
 
-      await _credentialsStorage.save(modifiedCredentials);
-      return right(modifiedCredentials);
+      await _credentialsStorage.save(updatedCredentials);
+      return right(updatedCredentials);
     } on FormatException {
       return left(const AuthFailure.server());
     } on PlatformException {

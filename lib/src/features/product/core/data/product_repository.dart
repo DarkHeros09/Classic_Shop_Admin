@@ -58,7 +58,7 @@ class ProductRepository {
 
       return right(
         await remotePageProducts.when(
-          noConnection: () async => Fresh.no(
+          noConnection: (nextAvailable) async => Fresh.no(
             await _localService
                 .getPage(page, requestUri.toString())
                 .then((_) => _.toDomain()),
@@ -215,7 +215,7 @@ class ProductRepository {
   ) async {
     return right(
       await remotePageProducts.when(
-        noConnection: () async => Fresh.no(
+        noConnection: (nextAvailable) async => Fresh.no(
           await _localService
               .getPage(page, requestUri.toString())
               .then((_) => _.toDomain()),

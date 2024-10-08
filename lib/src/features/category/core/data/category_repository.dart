@@ -30,7 +30,7 @@ class CategoryRepository {
 
       return right(
         await category.when(
-          noConnection: () async => Fresh.no(
+          noConnection: (nextAvailable) async => Fresh.no(
             await _localService.fetchCategories().then((_) => _.toDomain()),
           ),
           noContent: () async {
@@ -96,7 +96,7 @@ class CategoryRepository {
 
       return right(
         await category.when(
-          noConnection: () async => Fresh.no(
+          noConnection: (nextAvailable) async => Fresh.no(
             await _localService
                 .getCategory(categoryId)
                 .then((_) => _!.toDomain()),

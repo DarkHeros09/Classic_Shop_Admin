@@ -29,7 +29,7 @@ class BrandRepository {
 
       return right(
         await brand.when(
-          noConnection: () async => Fresh.no(
+          noConnection: (nextAvailable) async => Fresh.no(
             await _localService.fetchBrands().then((_) => _.toDomain()),
           ),
           noContent: () async {
@@ -92,7 +92,7 @@ class BrandRepository {
 
       return right(
         await brand.when(
-          noConnection: () async => Fresh.no(
+          noConnection: (nextAvailable) async => Fresh.no(
             await _localService.getBrand(brandId).then((_) => _!.toDomain()),
           ),
           noContent: () async {

@@ -1,3 +1,4 @@
+import 'package:classic_shop_admin/src/features/auth/application/auth_notifier.dart';
 import 'package:classic_shop_admin/src/features/dashboard/application/dashboard_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
@@ -36,7 +37,7 @@ class _DashboardPageState extends ConsumerState<DashboardPage> {
         actions: [
           IconButton(
             icon: const Icon(Icons.logout),
-            onPressed: () {},
+            onPressed: () => ref.read(authNotifierProvider.notifier).signOut(),
           ),
         ],
       ),
